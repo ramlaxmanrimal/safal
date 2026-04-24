@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5.0,user-scalable=yes">
+
+<!-- PWA Core -->
+<meta name="theme-color" content="#1a2a5e">
+<meta name="application-name" content="सफल">
+<meta name="description" content="Service Accountability & File Action Log — Nepal Government File Tracking System">
+
+<!-- Apple PWA -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="सफल">
+
+<!-- MS Tiles -->
+<meta name="msapplication-TileColor" content="#1a2a5e">
+<meta name="msapplication-tap-highlight" content="no">
+
+<!-- Inline Manifest (works on GAS — no separate file needed) -->
+<link rel="manifest" href="data:application/manifest+json,{
+  %22name%22:%22%E0%A4%B8%E0%A4%AB%E0%A4%B2%20%E2%80%94%20Service%20Accountability%20%26%20File%20Action%20Log%22,
+  %22short_name%22:%22%E0%A4%B8%E0%A4%AB%E0%A4%B2%22,
+  %22description%22:%22Nepal%20Government%20File%20Tracking%20System%22,
+  %22start_url%22:%22.%22,
+  %22display%22:%22standalone%22,
+  %22orientation%22:%22portrait-primary%22,
+  %22background_color%22:%22%231a2a5e%22,
+  %22theme_color%22:%22%231a2a5e%22,
+  %22lang%22:%22ne%22,
+  %22icons%22:[
+    {%22src%22:%22https://img.icons8.com/fluency/96/courthouse.png%22,%22sizes%22:%2296x96%22,%22type%22:%22image/png%22},
+    {%22src%22:%22https://img.icons8.com/fluency/192/courthouse.png%22,%22sizes%22:%22192x192%22,%22type%22:%22image/png%22},
+    {%22src%22:%22https://img.icons8.com/fluency/512/courthouse.png%22,%22sizes%22:%22512x512%22,%22type%22:%22image/png%22,%22purpose%22:%22any%20maskable%22}
+  ]
+}">
+
+<!-- Apple Touch Icons (inline SVG as data URI) -->
+<link rel="apple-touch-icon" sizes="180x180" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='40' fill='%231a2a5e'/%3E%3Ctext x='90' y='115' font-size='90' text-anchor='middle'%3E%F0%9F%8F%9B%EF%B8%8F%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a2a5e'/%3E%3Ctext x='16' y='24' font-size='20' text-anchor='middle'%3E%F0%9F%8F%9B%3C/text%3E%3C/svg%3E">
+
+<title>सफल — Service Accountability & File Action Log</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap');
+:root{
+  --navy:#0d1b4b; --navy2:#112066; --blue:#1a3a8f; --blue2:#1e4fc2;
+  --sky:#2979e8; --accent:#4da3ff; --light:#a8c8ff;
+  --white:#ffffff; --w80:rgba(255,255,255,0.82); --w40:rgba(255,255,255,0.40);
+  --w15:rgba(255,255,255,0.13); --w08:rgba(255,255,255,0.08);
+  --green:#00c853; --greenbg:rgba(0,200,83,0.18);
+  --yellow:#ffd740; --yellowbg:rgba(255,215,64,0.18);
+  --orange:#ff9100; --orangebg:rgba(255,145,0,0.18);
+  --red:#ff1744;   --redbg:rgba(255,23,68,0.18);
+  --r:10px; --font:'Noto Sans Devanagari',sans-serif; --mono:'IBM Plex Mono',monospace;
+  --bg-body:var(--navy); --text-main:#fff; --text-sub:var(--light);
+}
+/* ── THEMES ─────────────────────────────────────────────── */
+body.theme-light{
+  --navy:#e8eef8; --navy2:#d0dcf0; --blue:#b8ccec; --blue2:#95b2e0;
+  --sky:#2979e8; --accent:#1a5fc2; --light:#1a3a8f;
+  --w80:rgba(0,0,0,0.80); --w40:rgba(0,0,0,0.45); --w15:rgba(0,0,0,0.12); --w08:rgba(0,0,0,0.06);
+  --text-main:#0d1b4b; --text-sub:#1a3a8f;
+  --green:#1b7a38; --greenbg:rgba(27,122,56,0.15);
+  --yellow:#b07800; --yellowbg:rgba(176,120,0,0.15);
+  --orange:#c05800; --orangebg:rgba(192,88,0,0.15);
+  --red:#c0001a; --redbg:rgba(192,0,26,0.15);
+}
+body.theme-light *{color:var(--text-main)}
+body.theme-light .login-card,body.theme-light .modal{background:rgba(255,255,255,0.92)!important}
+body.theme-light .fg input,body.theme-light .fg select,body.theme-light .srow input[type=number]{background:#fff!important;color:#0d1b4b!important;border-color:rgba(0,0,0,0.25)!important}
+body.theme-light .fg input::placeholder{color:rgba(0,0,0,0.35)!important}
+body.theme-light .fg select option{background:#e8eef8}
+body.theme-light table{color:var(--text-main)}
+body.theme-light thead tr{background:linear-gradient(90deg,var(--blue),var(--blue2))}
+body.theme-light thead th{color:#0d1b4b}
+body.theme-light .ntab{color:rgba(0,0,0,0.7)}
+body.theme-light .ntab.active,body.theme-light .ntab:hover{color:#0d1b4b}
+body.theme-light .ubadge,.theme-light .hd-sub{color:var(--light)!important}
+body.theme-light .errmsg{color:#8b0000}
+body.theme-light .badge-green{color:#1b7a38} body.theme-light .badge-yellow{color:#b07800}
+body.theme-light .badge-orange{color:#c05800} body.theme-light .badge-red{color:#c0001a}
+body.theme-light .chip{color:#0d1b4b;background:rgba(0,0,0,0.07)}
+body.theme-light .stag{color:#1a3a8f;background:rgba(41,121,232,0.12);border-color:rgba(41,121,232,0.25)}
+body.theme-light .anum{color:var(--accent)}
+body.theme-light .pgi,.theme-light .slabel{color:#1a3a8f!important}
+body.theme-light .sval.sg{color:#1b7a38} body.theme-light .sval.sy{color:#b07800}
+body.theme-light .toast{background:rgba(26,58,143,.95);color:#fff}
+
+body.theme-sepia{
+  --navy:#2c1f0e; --navy2:#3a2b18; --blue:#5a3e20; --blue2:#7a5530;
+  --sky:#c8882a; --accent:#e8aa50; --light:#d4aa78;
+  --w80:rgba(255,240,210,0.85); --w40:rgba(255,230,185,0.45); --w15:rgba(255,220,160,0.15); --w08:rgba(255,220,160,0.10);
+  --green:#6a9a42; --greenbg:rgba(106,154,66,0.18);
+  --yellow:#c8a020; --yellowbg:rgba(200,160,32,0.18);
+  --orange:#c86020; --orangebg:rgba(200,96,32,0.18);
+  --red:#c83028; --redbg:rgba(200,48,40,0.18);
+  --text-main:#f5e6c8; --text-sub:#d4aa78;
+}
+body.theme-sepia .login-card,body.theme-sepia .modal{background:rgba(52,36,18,0.90)!important}
+body.theme-sepia thead th{color:#f5e6c8}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:var(--navy);color:var(--text-main,#fff);font-family:var(--font);font-size:15px}
+::-webkit-scrollbar{width:5px;height:5px}
+::-webkit-scrollbar-track{background:var(--navy2)}
+::-webkit-scrollbar-thumb{background:var(--blue2);border-radius:3px}
+
+/* ── LOGIN ─────────────────────────────────────────────── */
+#loginScreen{
+  display:flex;align-items:center;justify-content:center;min-height:100vh;
+  background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 50%,var(--blue) 100%);
+  position:relative;overflow:hidden;
+}
+.bubble{position:absolute;border-radius:50%;background:var(--w08);animation:float 8s ease-in-out infinite}
+.bubble:nth-child(1){width:280px;height:280px;top:-70px;right:-50px}
+.bubble:nth-child(2){width:160px;height:160px;bottom:50px;left:-40px;animation-delay:3s}
+.bubble:nth-child(3){width:90px; height:90px; bottom:180px;right:14%;animation-delay:1.5s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
+.login-card{
+  position:relative;z-index:1;width:min(400px,93vw);
+  background:rgba(17,32,102,0.80);border:1px solid var(--w15);
+  border-radius:18px;padding:40px 36px 36px;
+  backdrop-filter:blur(18px);box-shadow:0 20px 60px rgba(0,0,0,0.5);
+}
+.login-logo{text-align:center;margin-bottom:26px}
+.emblem{width:60px;height:60px;background:var(--sky);border-radius:50%;
+  display:inline-flex;align-items:center;justify-content:center;font-size:26px;
+  margin-bottom:10px;box-shadow:0 0 0 6px rgba(41,121,232,0.2)}
+.login-logo h1{font-size:2.2rem;font-weight:700;line-height:1.4}
+.login-logo p{font-size:1.5rem;color:var(--light);margin-top:4px;font-family:var(--mono)}
+.fg{margin-bottom:16px}
+.fg label{display:block;font-size:1.6rem;color:var(--light);margin-bottom:6px}
+.fg input,.fg select{
+  width:100%;padding:11px 14px;background:var(--w08);border:1px solid var(--w15);
+  border-radius:var(--r);color:var(--text-main,#fff);font-size:1.84rem;font-family:var(--font);outline:none;transition:border .2s
+}
+.fg input:focus,.fg select:focus{border-color:var(--sky);background:rgba(41,121,232,0.12)}
+.fg input::placeholder{color:var(--w40)}
+.fg select option{background:#1a3a8f}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  padding:11px 20px;border:none;border-radius:var(--r);font-family:var(--font);
+  font-size:1.84rem;font-weight:600;cursor:pointer;transition:all .2s}
+.btn-primary{background:var(--sky);color:#fff;width:100%;margin-top:4px}
+.btn-primary:hover{background:#1e6fe0;transform:translateY(-1px);box-shadow:0 6px 20px rgba(41,121,232,.45)}
+.btn-sm{padding:7px 13px;font-size:1.6rem}
+.btn-outline{background:transparent;color:var(--text-main,#fff);border:1px solid var(--w40)}
+.btn-outline:hover{background:var(--w15)}
+.btn-success{background:#2e7d32;color:#fff}
+.btn-success:hover{background:#1b5e20}
+.errmsg{background:rgba(255,23,68,.15);border:1px solid rgba(255,23,68,.4);
+  color:#ff6b8a;padding:10px 13px;border-radius:8px;font-size:1.64rem;margin-top:10px;display:none}
+
+/* ── APP ───────────────────────────────────────────────── */
+#app{display:none;height:100vh;flex-direction:column}
+.header{
+  background:linear-gradient(90deg,var(--navy2),var(--blue));
+  border-bottom:1px solid var(--w15);padding:0 22px;
+  display:flex;align-items:center;justify-content:space-between;
+  height:72px;flex-shrink:0;box-shadow:0 2px 12px rgba(0,0,0,.3)
+}
+.hd-left{display:flex;align-items:center;gap:12px}
+.hd-icon{width:42px;height:42px;background:var(--sky);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.hd-title{font-size:2.4rem;font-weight:700;line-height:1.25}
+.hd-sub{font-size:1.6rem;color:var(--light);font-family:var(--mono)}
+.hd-right{display:flex;align-items:center;gap:8px}
+.ubadge{background:var(--w15);border-radius:20px;padding:6px 14px 6px 10px;
+  display:flex;align-items:center;gap:6px;font-size:1.72rem;color:var(--light)}
+.udot{width:7px;height:7px;border-radius:50%;background:var(--green);flex-shrink:0}
+.navtabs{display:flex;background:var(--navy2);border-bottom:1px solid var(--w15);
+  flex-shrink:0;overflow-x:auto}
+.ntab{padding:13px 20px;font-size:1.86rem;color:var(--w80);cursor:pointer;
+  white-space:nowrap;border-bottom:3px solid transparent;transition:all .2s;font-family:var(--font)}
+.ntab:hover{color:#fff;background:var(--w08)}
+.ntab.active{color:#fff;border-bottom-color:var(--sky);background:var(--w08)}
+.content{flex:1;overflow-y:auto;padding:18px}
+
+/* Stats */
+.stats-row{display:flex;gap:10px;margin-bottom:18px;flex-wrap:wrap}
+.scard{flex:1;min-width:110px;background:var(--w08);border:1px solid var(--w15);
+  border-radius:var(--r);padding:12px 14px}
+.slabel{font-size:1.6rem;color:var(--light);margin-bottom:3px;font-family:var(--mono)}
+.sval{font-size:3.4rem;font-weight:700;font-family:var(--mono);line-height:1}
+.scard.sg .sval{color:var(--green)} .scard.sy .sval{color:var(--yellow)}
+.scard.so .sval{color:var(--orange)} .scard.sr .sval{color:var(--red)}
+.scard.st .sval{color:var(--accent)}
+
+/* Toolbar */
+.toolbar{display:flex;gap:8px;align-items:center;margin-bottom:14px;flex-wrap:wrap}
+.tbar-r{margin-left:auto;display:flex;gap:7px}
+
+/* Table */
+.twrap{overflow-x:auto;border-radius:var(--r);border:1px solid var(--w15)}
+table{width:100%;border-collapse:collapse;font-size:1.82rem}
+thead tr{background:linear-gradient(90deg,var(--blue),var(--blue2))}
+thead th{padding:12px 14px;text-align:left;font-weight:600;
+  font-size:1.68rem;letter-spacing:.04em;white-space:nowrap;color:#fff}
+tbody tr{border-bottom:1px solid var(--w08);transition:background .15s}
+tbody tr:hover{background:var(--w08)}
+tbody tr:last-child{border-bottom:none}
+tbody td{padding:10px 13px;vertical-align:middle}
+tbody tr.cg{border-left:4px solid var(--green)}
+tbody tr.cy{border-left:4px solid var(--yellow)}
+tbody tr.co{border-left:4px solid var(--orange)}
+tbody tr.cr{border-left:4px solid var(--red)}
+
+.badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:1.56rem;font-weight:600}
+.badge-green {background:var(--greenbg); color:var(--green)}
+.badge-yellow{background:var(--yellowbg);color:var(--yellow)}
+.badge-orange{background:var(--orangebg);color:var(--orange)}
+.badge-red   {background:var(--redbg);   color:var(--red)}
+.chip{display:inline-flex;align-items:center;gap:3px;font-family:var(--mono);
+  font-size:1.72rem;background:var(--w08);border-radius:6px;padding:2px 7px}
+.chip .d{font-weight:700}
+.anum{font-family:var(--mono);font-size:1.76rem;color:var(--accent);font-weight:600}
+.stag{font-size:1.68rem;background:rgba(41,121,232,.2);
+  border:1px solid rgba(41,121,232,.3);padding:2px 7px;border-radius:4px}
+.ldots{display:flex;gap:3px;align-items:center}
+.ld{display:inline-flex;align-items:center;justify-content:center;
+  width:20px;height:20px;border-radius:50%;font-size:1.24rem;font-weight:700;font-family:var(--mono)}
+.ld.done{background:rgba(41,121,232,.35);color:var(--accent)}
+.ld.active{background:var(--sky);color:#fff;box-shadow:0 0 0 3px rgba(41,121,232,.3)}
+.ld.pending{background:var(--w08);color:var(--w40)}
+
+/* Pagination */
+.pgn{display:flex;align-items:center;justify-content:center;gap:5px;margin-top:18px;flex-wrap:wrap}
+.pg{width:34px;height:34px;display:flex;align-items:center;justify-content:center;
+  background:var(--w08);border:1px solid var(--w15);border-radius:6px;
+  font-size:1.72rem;cursor:pointer;transition:all .15s;font-family:var(--mono);color:var(--text-main,#fff)}
+.pg:hover:not([disabled]){background:var(--blue);border-color:var(--sky)}
+.pg.active{background:var(--sky);border-color:var(--sky);font-weight:700}
+.pg[disabled]{opacity:.35;cursor:not-allowed}
+.pgi{font-size:1.66rem;color:var(--light);padding:0 5px;font-family:var(--mono)}
+
+/* Empty / Loading / Error */
+.empty{text-align:center;padding:56px 20px;color:var(--w40)}
+.empty .ico{font-size:44px;margin-bottom:14px}
+.loading{text-align:center;padding:50px 20px;color:var(--light)}
+.spinner{display:inline-block;width:34px;height:34px;border:3px solid var(--w15);
+  border-top-color:var(--sky);border-radius:50%;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.errbx{background:rgba(255,23,68,.12);border:1px solid rgba(255,23,68,.35);
+  color:#ff8a9a;padding:16px 20px;border-radius:var(--r);font-size:1.7rem;
+  margin:20px 0;line-height:1.6}
+.errbx strong{display:block;margin-bottom:6px;font-size:1.9rem}
+
+/* Modal */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:1000;
+  display:none;align-items:center;justify-content:center;padding:14px;backdrop-filter:blur(4px)}
+.overlay.open{display:flex}
+.modal{background:linear-gradient(160deg,var(--navy2),var(--blue));
+  border:1px solid var(--w15);border-radius:15px;
+  width:min(540px,100%);max-height:90vh;overflow-y:auto;
+  box-shadow:0 24px 64px rgba(0,0,0,.6);animation:su .25s ease}
+@keyframes su{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.mhead{padding:18px 22px 14px;border-bottom:1px solid var(--w15);
+  display:flex;align-items:center;justify-content:space-between}
+.mhead h3{font-size:1.94rem;font-weight:700}
+.mclose{background:none;border:none;color:var(--w80);font-size:19px;cursor:pointer;padding:3px;border-radius:4px}
+.mclose:hover{color:#fff;background:var(--w15)}
+.mbody{padding:18px 22px}
+.mfoot{padding:12px 22px 18px;display:flex;gap:8px;justify-content:flex-end;border-top:1px solid var(--w15)}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:460px){.g2{grid-template-columns:1fr}}
+
+/* Toast */
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(80px);
+  background:rgba(26,58,143,.97);border:1px solid var(--sky);
+  color:#fff;padding:11px 22px;border-radius:28px;font-size:1.72rem;
+  z-index:9999;transition:transform .3s ease;box-shadow:0 8px 32px rgba(0,0,0,.5)}
+.toast.show{transform:translateX(-50%) translateY(0)}
+.toast.success{background:rgba(46,125,50,.97);border-color:var(--green)}
+.toast.error  {background:rgba(198,40,40,.97);border-color:var(--red)}
+
+/* Settings */
+.srow{display:flex;align-items:center;gap:11px;margin-bottom:15px}
+.srow label{flex:1;font-size:1.72rem}
+.cdot{width:11px;height:11px;border-radius:50%;flex-shrink:0}
+.srow input[type=number]{width:74px;text-align:center;background:var(--w08);
+  border:1px solid var(--w15);border-radius:6px;color:var(--text-main,#fff);padding:6px 8px;
+  outline:none;font-family:var(--mono)}
+.panel{background:var(--w08);border:1px solid var(--w15);border-radius:var(--r);
+  padding:22px;margin-bottom:18px}
+.panel h3{margin-bottom:18px;font-size:1.94rem}
+/* Theme switcher */
+.theme-btns{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.theme-btn{padding:8px 16px;border:2px solid var(--w15);border-radius:8px;
+  background:var(--w08);color:var(--text-main,#fff);font-family:var(--font);
+  font-size:1.6rem;cursor:pointer;transition:all .2s}
+.theme-btn:hover,.fsz-btn:hover{border-color:var(--sky);background:var(--w15)}
+.theme-btn.active,.fsz-btn.active{border-color:var(--sky);background:rgba(41,121,232,.25);font-weight:700}
+.fsz-btn{padding:6px 10px;border:2px solid var(--w15);border-radius:8px;
+  background:var(--w08);color:var(--text-main,#fff);font-family:var(--mono);
+  font-size:0.85rem;cursor:pointer;transition:all .2s}
+@media(max-width:580px){
+  thead th:nth-child(7),tbody td:nth-child(7){display:none}
+  .hd-sub{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="loginScreen">
+  <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+  <div class="login-card">
+    <div class="login-logo">
+      <div class="emblem">🏛️</div>
+      <h1 style="font-size:2rem;letter-spacing:.04em">सफल</h1>
+      <p style="font-size:0.85rem;color:var(--accent);font-weight:600;margin-top:2px">Service Accountability &amp; File Action Log</p>
+      <p style="font-size:0.72rem;margin-top:6px">Government File Tracking System</p>
+    </div>
+    <div class="fg">
+      <label>प्रयोगकर्ता नाम</label>
+      <input type="text" id="lu" placeholder="username" autocomplete="username">
+    </div>
+    <div class="fg">
+      <label>पासवर्ड</label>
+      <input type="password" id="lp" placeholder="password" autocomplete="current-password">
+    </div>
+    <button class="btn btn-primary" id="loginBtn" onclick="doLogin()">🔐 लगइन गर्नुहोस्</button>
+    <div class="errmsg" id="lerr"></div>
+    <div style="text-align:center;margin-top:20px;font-size:0.62rem;color:rgba(255,255,255,0.35);line-height:1.6">
+      Developed by: <strong style="color:rgba(255,255,255,0.5)">Ramlaxman Innovations</strong><br>for Nepal Government
+    </div>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="app">
+  <div class="header">
+    <div class="hd-left">
+      <div class="hd-icon">🏛️</div>
+      <div>
+        <div class="hd-title">सफल &nbsp;<span style="font-size:0.72em;font-weight:700;color:var(--accent);letter-spacing:.08em;font-family:var(--mono)">SAFAL</span> <span style="font-size:0.52em;font-weight:400;opacity:0.75;letter-spacing:.01em">— Service Accountability &amp; File Action Log</span></div>
+        <div class="hd-sub" id="hdDate"></div>
+      </div>
+    </div>
+    <div class="hd-right">
+      <div id="hdBS" style="text-align:right;font-size:0.8rem;color:var(--accent);font-family:var(--mono);line-height:1.4;margin-right:4px"></div>
+      <div class="ubadge"><div class="udot"></div><span id="uLabel">—</span></div>
+      <button id="installBtnHdr" onclick="installPWA()" style="display:none" class="btn btn-sm btn-outline" title="एप इन्स्टल गर्नुहोस्">📲</button>
+      <button class="btn btn-sm btn-outline" onclick="doLogout()">लगआउट</button>
+    </div>
+  </div>
+  <div class="navtabs">
+    <div class="ntab active" data-tab="active"    onclick="switchTab('active')">📋 सक्रिय फाइलहरू</div>
+    <div class="ntab"        data-tab="completed" onclick="switchTab('completed')" id="tabDone" style="display:none">✅ सम्पन्न फाइलहरू</div>
+    <div class="ntab"        data-tab="settings"  onclick="switchTab('settings')">⚙️ सेटिङहरू</div>
+  </div>
+  <div class="content" id="mc"></div>
+</div>
+
+<!-- Modal: Add File -->
+<div class="overlay" id="mAdd">
+  <div class="modal">
+    <div class="mhead"><h3>➕ नयाँ फाइल दर्ता गर्नुहोस्</h3><button class="mclose" onclick="cm('mAdd')">✕</button></div>
+    <div class="mbody">
+      <div class="g2">
+        <div class="fg"><label>निवेदन नम्बर *</label><input type="text" id="fAN" placeholder="जस्तै: 2081/001"></div>
+        <div class="fg"><label>प्राप्त मिति * (बि.सं.)</label>
+          <div style="display:flex;gap:6px">
+            <select id="fDtY" style="flex:2;padding:11px 8px;background:var(--w08);border:1px solid var(--w15);border-radius:var(--r);color:var(--text-main,#fff);font-size:0.92rem;font-family:var(--font);outline:none"></select>
+            <select id="fDtM" style="flex:2;padding:11px 8px;background:var(--w08);border:1px solid var(--w15);border-radius:var(--r);color:var(--text-main,#fff);font-size:0.92rem;font-family:var(--font);outline:none"></select>
+            <select id="fDtD" style="flex:1;padding:11px 8px;background:var(--w08);border:1px solid var(--w15);border-radius:var(--r);color:var(--text-main,#fff);font-size:0.92rem;font-family:var(--font);outline:none"></select>
+          </div>
+        </div>
+      </div>
+      <div class="fg">
+        <label>विषय *</label>
+        <select id="fSub">
+          <option value="">-- विषय चयन गर्नुहोस् --</option>
+          <option>बुलेटिन</option><option>नवीकरण</option><option>नाम परिवर्तन</option>
+          <option>ठेगाना परिवर्तन</option><option>ट्रेडमार्क बिक्री</option><option>प्रमाण पत्र जारी</option>
+        </select>
+      </div>
+      <div class="fg"><label>टिप्पणी</label><input type="text" id="fRem" placeholder="वैकल्पिक विवरण"></div>
+    </div>
+    <div class="mfoot">
+      <button class="btn btn-outline btn-sm" onclick="cm('mAdd')">रद्द गर्नुहोस्</button>
+      <button class="btn btn-primary btn-sm" onclick="submitAdd()">📁 दर्ता गर्नुहोस्</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Forward -->
+<div class="overlay" id="mFwd">
+  <div class="modal">
+    <div class="mhead"><h3>📤 फाइल अगाडि पठाउने</h3><button class="mclose" onclick="cm('mFwd')">✕</button></div>
+    <div class="mbody">
+      <p style="margin-bottom:12px;color:var(--light);font-size:1rem">यो फाइल अर्को तहमा पठाइँदैछ:</p>
+      <div style="background:var(--w08);border-radius:var(--r);padding:15px;margin-bottom:14px">
+        <div style="font-size:0.85rem;color:var(--light);margin-bottom:4px">निवेदन नम्बर</div>
+        <div id="fwAN" style="font-family:var(--mono);font-size:1.2rem;color:var(--accent);font-weight:700">—</div>
+        <div style="font-size:0.85rem;color:var(--light);margin-top:10px;margin-bottom:4px">विषय</div>
+        <div id="fwSub" style="font-size:1rem">—</div>
+        <div style="font-size:0.85rem;color:var(--light);margin-top:10px;margin-bottom:4px">कुल अवधि</div>
+        <div id="fwDays" style="font-family:var(--mono);font-size:1.2rem;font-weight:700">—</div>
+      </div>
+      <div id="fwTarget" style="background:rgba(41,121,232,.15);border:1px solid rgba(41,121,232,.3);border-radius:var(--r);padding:14px;font-size:1rem;line-height:1.6"></div>
+    </div>
+    <div class="mfoot">
+      <button class="btn btn-outline btn-sm" onclick="cm('mFwd')">रद्द गर्नुहोस्</button>
+      <button class="btn btn-primary btn-sm" id="fwConfBtn" onclick="confirmFwd()">✅ पुष्टि गरी पठाउनुहोस्</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- Offline banner -->
+<div id="netBanner" style="position:fixed;top:0;left:0;right:0;background:#dc2626;color:#fff;
+  text-align:center;font-size:0.8rem;padding:8px 16px;z-index:9998;
+  transform:translateY(-100%);transition:transform .3s ease;font-weight:600;
+  box-shadow:0 2px 8px rgba(0,0,0,0.3)"></div>
+
+<!-- PWA Install button (shown only when browser supports A2HS) -->
+<button id="installBtn" onclick="installPWA()" style="display:none;position:fixed;bottom:28px;right:16px;
+  z-index:900;background:#1a2a5e;color:#fff;border:none;border-radius:24px;
+  padding:10px 18px;font-size:0.78rem;font-family:'Noto Sans Devanagari',sans-serif;
+  cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,0.3);gap:6px;align-items:center">
+  📲 एप इन्स्टल गर्नुहोस्
+</button>
+<div style="position:fixed;bottom:0;left:0;right:0;text-align:center;font-size:0.6rem;color:rgba(128,128,128,0.5);padding:3px 0;background:transparent;pointer-events:none;z-index:500;letter-spacing:.02em">
+  Developed by: <strong>Ramlaxman Innovations</strong> &nbsp;|&nbsp; for Nepal Government
+</div>
+
+<script>
+// ══════════════════════════════════════════════════════════════
+// NEPALI BS ↔ AD CONVERSION ENGINE  (fixed & expanded)
+// Reference anchor: BS 2078 Baisakh 1 = AD 2021 April 14
+// Verified: today AD 2026-04-24 = BS 2083 Baisakh 11
+// ══════════════════════════════════════════════════════════════
+var NP_MONTHS = ['बैशाख','जेठ','असार','श्रावण','भाद्र','आश्विन','कार्तिक','मंसिर','पुष्य','माघ','फाल्गुन','चैत्र'];
+var NP_DAYS   = ['आइत','सोम','मंगल','बुध','बिही','शुक्र','शनि'];
+
+// Standard BS month-day data (years 2078–2090)
+// Each entry: [year, m1, m2, ..., m12]
+var BS_DATA = [
+  [2078, 31,31,32,32,31,30,30,29,29,30,29,31],
+  [2079, 31,32,31,32,31,30,30,29,30,29,30,30],
+  [2080, 31,32,31,32,31,30,30,30,29,29,30,31],
+  [2081, 30,32,31,32,31,30,30,30,29,30,29,31],
+  [2082, 31,31,32,31,31,31,30,29,30,29,30,30],
+  [2083, 31,31,32,31,31,31,30,29,30,29,30,30],
+  [2084, 31,31,32,31,31,31,30,29,30,29,30,30],
+  [2085, 31,31,32,32,31,30,30,29,30,29,30,30],
+  [2086, 31,32,31,32,31,30,30,30,29,29,30,31],
+  [2087, 30,32,31,32,31,30,30,30,29,30,29,31],
+  [2088, 31,31,32,31,31,31,30,29,30,29,30,30],
+  [2089, 31,31,32,32,31,30,30,29,30,29,30,30],
+  [2090, 31,32,31,32,31,30,30,30,29,29,30,31]
+];
+
+// Anchor: BS 2078 Baisakh 1 = AD 2021 April 14
+var AD_START = new Date(2021, 3, 14); // months are 0-indexed in JS
+var BS_START_YEAR = 2078;
+
+function bsDaysInMonth(y, m) { // m: 1-12
+  for (var i = 0; i < BS_DATA.length; i++) {
+    if (BS_DATA[i][0] === y) return BS_DATA[i][m]; // BS_DATA[i][m] is month index 1–12
+  }
+  return 30; // fallback
+}
+
+function adToBS(adDate) {
+  var diff = Math.floor((adDate - AD_START) / 86400000);
+  if (diff < 0) return { y: BS_START_YEAR, m: 1, d: 1 }; // before range
+
+  var remaining = diff;
+  for (var i = 0; i < BS_DATA.length; i++) {
+    var row = BS_DATA[i];
+    for (var m = 1; m <= 12; m++) {
+      var days = row[m];
+      if (remaining < days) {
+        return { y: row[0], m: m, d: remaining + 1 };
+      }
+      remaining -= days;
+    }
+  }
+  // Beyond data range: return last known + overflow
+  var lastRow = BS_DATA[BS_DATA.length - 1];
+  return { y: lastRow[0], m: 12, d: lastRow[12] };
+}
+
+function bsToAD(bsY, bsM, bsD) {
+  var days = 0;
+  for (var i = 0; i < BS_DATA.length; i++) {
+    var row = BS_DATA[i];
+    if (row[0] < bsY) {
+      for (var m = 1; m <= 12; m++) days += row[m];
+    } else if (row[0] === bsY) {
+      for (var m = 1; m < bsM; m++) days += row[m];
+      days += bsD - 1;
+      break;
+    }
+  }
+  return new Date(AD_START.getTime() + days * 86400000);
+}
+
+function bsToISO(bsY, bsM, bsD) {
+  var ad = bsToAD(bsY, bsM, bsD);
+  return ad.toISOString().slice(0, 10);
+}
+
+function isoToBS(iso) {
+  var parts = iso.split('-');
+  return adToBS(new Date(+parts[0], +parts[1] - 1, +parts[2]));
+}
+
+function bsLabel(bs) {
+  return bs.y + ' ' + NP_MONTHS[bs.m - 1] + ' ' + bs.d;
+}
+
+function todayBS() {
+  return adToBS(new Date());
+}
+
+// ── BS Date Picker helpers ────────────────────────────────────
+function buildBsYearOptions(selId, selectedY) {
+  var el = document.getElementById(selId);
+  el.innerHTML = '';
+  var todayBs = todayBS();
+  for (var y = 2075; y <= todayBs.y; y++) {
+    var opt = document.createElement('option');
+    opt.value = y;
+    opt.textContent = y + ' बि.सं.';
+    if (y === selectedY) opt.selected = true;
+    el.appendChild(opt);
+  }
+}
+
+function buildBsMonthOptions(selId, selectedM) {
+  var el = document.getElementById(selId);
+  el.innerHTML = '';
+  for (var m = 1; m <= 12; m++) {
+    var opt = document.createElement('option');
+    opt.value = m;
+    opt.textContent = NP_MONTHS[m - 1];
+    if (m === selectedM) opt.selected = true;
+    el.appendChild(opt);
+  }
+}
+
+function buildBsDayOptions(selId, bsY, bsM, selectedD) {
+  var el = document.getElementById(selId);
+  el.innerHTML = '';
+  var total = bsDaysInMonth(bsY, bsM);
+  for (var d = 1; d <= total; d++) {
+    var opt = document.createElement('option');
+    opt.value = d;
+    opt.textContent = d;
+    if (d === selectedD) opt.selected = true;
+    el.appendChild(opt);
+  }
+}
+
+function initBsPicker(yId, mId, dId, bs) {
+  buildBsYearOptions(yId, bs.y);
+  buildBsMonthOptions(mId, bs.m);
+  buildBsDayOptions(dId, bs.y, bs.m, bs.d);
+
+  function clampToToday() {
+    var todayBs = todayBS();
+    var selY = +document.getElementById(yId).value;
+    var selM = +document.getElementById(mId).value;
+    var selD = +document.getElementById(dId).value;
+    // Rebuild month options: if current year = today's year, limit months
+    var mEl = document.getElementById(mId);
+    var maxM = (selY === todayBs.y) ? todayBs.m : 12;
+    for (var i = mEl.options.length - 1; i >= 0; i--) {
+      if (+mEl.options[i].value > maxM) mEl.remove(i);
+    }
+    if (selM > maxM) { mEl.value = maxM; selM = maxM; }
+    // Rebuild day options: if year+month = today, limit days
+    var maxD = (selY === todayBs.y && selM === todayBs.m) ? todayBs.d : bsDaysInMonth(selY, selM);
+    buildBsDayOptions(dId, selY, selM, Math.min(selD, maxD));
+    // Remove future days
+    var dEl = document.getElementById(dId);
+    for (var j = dEl.options.length - 1; j >= 0; j--) {
+      if (+dEl.options[j].value > maxD) dEl.remove(j);
+    }
+  }
+
+  document.getElementById(yId).onchange = function () {
+    buildBsMonthOptions(mId, 1);
+    buildBsDayOptions(dId, +this.value, 1, 1);
+    clampToToday();
+  };
+  document.getElementById(mId).onchange = function () {
+    buildBsDayOptions(dId, +document.getElementById(yId).value, +this.value, 1);
+    clampToToday();
+  };
+  clampToToday();
+}
+
+function getBsPickerISO(yId, mId, dId) {
+  var y = +document.getElementById(yId).value;
+  var m = +document.getElementById(mId).value;
+  var d = +document.getElementById(dId).value;
+  return bsToISO(y, m, d);
+}
+
+// ── Nepali digits display helper ─────────────────────────────
+var NP_DIGITS = ['०', '१', '२', '३', '४', '५', '६', '७', '८', '९'];
+function toNepaliNum(n) {
+  return String(n).replace(/[0-9]/g, function (d) { return NP_DIGITS[+d]; });
+}
+
+function isoToBsDisplay(iso) {
+  if (!iso) return '';
+  var bs = isoToBS(iso);
+  return toNepaliNum(bs.y) + '-' + toNepaliNum(bs.m) + '-' + toNepaliNum(bs.d);
+}
+
+var CU   = null;
+var TAB  = 'active';
+var PAGE = 1;
+var PS   = 20;
+var SET  = { green_threshold: 7, yellow_threshold: 12, orange_threshold: 15 };
+var FWD_ID = null;
+
+var LNAMES = ['', 'नायब सुब्बा', 'शाखा अधिकृत', 'निर्देशक', 'सम्पन्न'];
+var NEXTLV = ['', 'शाखा अधिकृत', 'निर्देशक', 'सम्पन्न'];
+
+// ── Login ────────────────────────────────────────────────────
+function doLogin() {
+  var u = document.getElementById('lu').value.trim();
+  var p = document.getElementById('lp').value;
+  if (!u || !p) { showE('lerr', 'कृपया प्रयोगकर्ता नाम र पासवर्ड प्रविष्ट गर्नुहोस्'); return; }
+  var btn = document.getElementById('loginBtn');
+  btn.disabled = true;
+  btn.textContent = 'कृपया प्रतीक्षा गर्नुहोस्...';
+
+  google.script.run
+    .withSuccessHandler(function (res) {
+      btn.disabled = false;
+      btn.innerHTML = '🔐 लगइन गर्नुहोस्';
+      if (res && res.success) {
+        CU = res.user;
+        showApp();
+      } else {
+        showE('lerr', (res && res.message) ? res.message : 'Login failed');
+      }
+    })
+    .withFailureHandler(function (e) {
+      btn.disabled = false;
+      btn.innerHTML = '🔐 लगइन गर्नुहोस्';
+      showE('lerr', 'सर्भरमा त्रुटि भयो: ' + e.message);
+    })
+    .login(u, p);
+}
+document.getElementById('lp').addEventListener('keydown', function (e) { if (e.key === 'Enter') doLogin(); });
+document.getElementById('lu').addEventListener('keydown', function (e) { if (e.key === 'Enter') doLogin(); });
+
+function doLogout() {
+  CU = null;
+  document.getElementById('app').style.display = 'none';
+  document.getElementById('loginScreen').style.display = 'flex';
+  document.getElementById('lp').value = '';
+  document.getElementById('lerr').style.display = 'none';
+}
+
+// ── App Init ─────────────────────────────────────────────────
+function showApp() {
+  document.getElementById('loginScreen').style.display = 'none';
+  var app = document.getElementById('app');
+  app.style.display = 'flex';
+
+  var now = new Date();
+  var bs = adToBS(now);
+  var adStr = now.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  var NP_DAYS_FULL = ['आइतबार','सोमबार','मंगलबार','बुधबार','बिहीबार','शुक्रबार','शनिबार'];
+  var bsFull = 'बि.सं. ' + toNepaliNum(bs.y) + ' ' + NP_MONTHS[bs.m-1] + ' ' + toNepaliNum(bs.d) + ' गते ' + NP_DAYS_FULL[now.getDay()];
+  document.getElementById('hdDate').innerHTML = adStr + ' &nbsp;|&nbsp; <span style="color:var(--accent);font-family:var(--mono)">' + bsFull + '</span>';
+  document.getElementById('hdBS').textContent = '';
+  document.getElementById('uLabel').textContent = CU.fullName + ' (' + CU.role + ')';
+
+  if (CU.role === 'admin' || CU.role === 'निर्देशक') {
+    document.getElementById('tabDone').style.display = '';
+  }
+  loadActive(1);
+}
+
+function switchTab(tab) {
+  TAB = tab;
+  document.querySelectorAll('.ntab').forEach(function (t) {
+    t.classList.toggle('active', t.dataset.tab === tab);
+  });
+  PAGE = 1;
+  if (tab === 'active')    loadActive(1);
+  if (tab === 'completed') loadCompleted(1);
+  if (tab === 'settings')  renderSettings();
+}
+
+// ── Active Files ─────────────────────────────────────────────
+function loadActive(page) {
+  PAGE = page;
+  loading();
+  google.script.run
+    .withSuccessHandler(function (res) {
+      if (!res) { showError('सर्भरबाट कुनै प्रतिक्रिया आएन'); return; }
+      if (res.error) { showError('Server Error: ' + res.error); return; }
+      if (res.settings) SET = res.settings;
+      renderActive(res);
+    })
+    .withFailureHandler(function (e) {
+      showError('फाइल लोड हुन सकेन: ' + e.message);
+    })
+    .getFiles(CU.role, page, PS);
+}
+
+function renderActive(res) {
+  var files = res.files || [];
+  var cnt = { green: 0, yellow: 0, orange: 0, red: 0 };
+  files.forEach(function (f) { cnt[f.color]++; });
+
+  var canAdd = (CU.role === 'नायब सुब्बा' || CU.role === 'admin');
+  var canFwd = (CU.role !== 'admin');
+
+  var h = '<div class="stats-row">'
+    + sc('st', 'जम्मा', res.total)
+    + sc('sg', '🟢 सामान्य', cnt.green)
+    + sc('sy', '🟡 ध्यान आवश्यक', cnt.yellow)
+    + sc('so', '🟠 ढिलाइ', cnt.orange)
+    + sc('sr', '🔴 अत्यावश्यक', cnt.red)
+    + '</div>';
+
+  h += '<div class="toolbar">'
+    + (canAdd ? '<button class="btn btn-primary btn-sm" onclick="openAdd()">➕ नयाँ फाइल दर्ता</button>' : '')
+    + '<div class="tbar-r"><button class="btn btn-outline btn-sm" onclick="loadActive(' + res.page + ')">🔄 पुनः लोड</button></div>'
+    + '</div>';
+
+  if (!files.length) {
+    h += '<div class="empty"><div class="ico">📂</div><p>यस तहमा कुनै सक्रिय फाइल भेटिएन</p></div>';
+  } else {
+    h += '<div class="twrap"><table><thead><tr>'
+      + '<th>#</th><th>निवेदन नम्बर</th><th>विषय</th><th>प्राप्त मिति</th>'
+      + '<th>तह</th><th>तहमा दिन</th><th>कुल अवधि</th><th>स्थिति</th>'
+      + (canFwd ? '<th>कार्य</th>' : '') + '</tr></thead><tbody>';
+
+    files.forEach(function (f, i) {
+      var rn = (res.page - 1) * PS + i + 1;
+      var cc = 'c' + f.color.charAt(0);
+      var badge = '<span class="badge badge-' + f.color + '">' + clabel(f.color) + '</span>';
+      var dots = makeDots(f.currentLevel);
+      var fwdBtn = '';
+      if (canFwd) {
+        if (f.currentLevel < 4) {
+          fwdBtn = '<td><button class="btn btn-success btn-sm" onclick="openFwd('
+            + "'" + esc(f.id) + "','" + esc(f.appNumber) + "','" + esc(f.subject) + "'," + f.totalDays + ',' + f.currentLevel
+            + ')">📤 अगाडि पठाउने</button></td>';
+        } else {
+          fwdBtn = '<td><span style="color:var(--green);font-size:.78rem">✅ सम्पन्न फाइलहरू</span></td>';
+        }
+      }
+      h += '<tr class="' + cc + '">'
+        + '<td style="color:var(--w40);font-family:var(--mono);font-size:.72rem">' + rn + '</td>'
+        + '<td><span class="anum">' + esc(f.appNumber) + '</span></td>'
+        + '<td><span class="stag">' + esc(f.subject) + '</span></td>'
+        + '<td style="font-family:var(--mono);font-size:.76rem;color:var(--light)">' + isoToBsDisplay(f.receiveDate) + '</td>'
+        + '<td>' + dots + '</td>'
+        + '<td><span class="chip"><span class="d">' + f.levelDays + '</span> दिन</span></td>'
+        + '<td><span class="chip"><span class="d">' + f.totalDays + '</span> दिन</span></td>'
+        + '<td>' + badge + '</td>'
+        + fwdBtn
+        + '</tr>';
+    });
+    h += '</tbody></table></div>';
+    h += paginate(res.page, res.totalPages, 'loadActive');
+  }
+  document.getElementById('mc').innerHTML = h;
+}
+
+// ── Completed Files ──────────────────────────────────────────
+function loadCompleted(page) {
+  PAGE = page;
+  loading();
+  google.script.run
+    .withSuccessHandler(function (res) {
+      if (!res) { showError('सर्भरबाट कुनै प्रतिक्रिया आएन'); return; }
+      if (res.error) { showError('Server Error: ' + res.error); return; }
+      renderCompleted(res);
+    })
+    .withFailureHandler(function (e) { showError('त्रुटि: ' + e.message); })
+    .getCompletedFiles(page, PS);
+}
+
+function renderCompleted(res) {
+  var files = res.files || [];
+  var h = '<div class="toolbar"><span style="color:var(--light);font-size:.83rem">कुल सम्पन्न: <strong>' + res.total + '</strong></span>'
+    + '<div class="tbar-r"><button class="btn btn-outline btn-sm" onclick="loadCompleted(' + res.page + ')">🔄 पुनः लोड</button></div></div>';
+
+  if (!files.length) {
+    h += '<div class="empty"><div class="ico">✅</div><p>कुनै सम्पन्न फाइल भेटिएन</p></div>';
+  } else {
+    h += '<div class="twrap"><table><thead><tr>'
+      + '<th>#</th><th>निवेदन नम्बर</th><th>विषय</th><th>प्राप्त मिति</th>'
+      + '<th>सम्पन्न मिति</th><th>न.सु. दिन</th><th>श.अ. दिन</th><th>नि. दिन</th><th>जम्मा</th>'
+      + '</tr></thead><tbody>';
+    files.forEach(function (f, i) {
+      var r = (res.page - 1) * PS + i + 1;
+      h += '<tr><td style="color:var(--w40);font-family:var(--mono);font-size:.72rem">' + r + '</td>'
+        + '<td><span class="anum">' + esc(f.appNumber) + '</span></td>'
+        + '<td><span class="stag">' + esc(f.subject) + '</span></td>'
+        + '<td style="font-family:var(--mono);font-size:.76rem;color:var(--light)">' + isoToBsDisplay(f.receiveDate) + '</td>'
+        + '<td style="font-family:var(--mono);font-size:.76rem;color:var(--green)">' + isoToBsDisplay(f.completedDate) + '</td>'
+        + '<td><span class="chip"><span class="d">' + f.nsDays + '</span></span></td>'
+        + '<td><span class="chip"><span class="d">' + f.saDays + '</span></span></td>'
+        + '<td><span class="chip"><span class="d">' + f.nrDays + '</span></span></td>'
+        + '<td><strong>' + f.totalDays + '</strong></td></tr>';
+    });
+    h += '</tbody></table></div>';
+    h += paginate(res.page, res.totalPages, 'loadCompleted');
+  }
+  document.getElementById('mc').innerHTML = h;
+}
+
+// ── Add File ─────────────────────────────────────────────────
+function openAdd() {
+  var bs = todayBS(); // now correctly returns today's actual BS date
+  initBsPicker('fDtY', 'fDtM', 'fDtD', bs);
+  document.getElementById('fAN').value = '';
+  document.getElementById('fSub').value = '';
+  document.getElementById('fRem').value = '';
+  om('mAdd');
+}
+
+function submitAdd() {
+  var an  = document.getElementById('fAN').value.trim();
+  var sub = document.getElementById('fSub').value;
+  var dt  = getBsPickerISO('fDtY', 'fDtM', 'fDtD');
+  var rem = document.getElementById('fRem').value.trim();
+  if (!an || !sub || !dt) { toast('कृपया आवश्यक विवरणहरू भर्नुहोस्', 'error'); return; }
+  var btn = document.querySelector('#mAdd .btn-primary');
+  btn.disabled = true; btn.innerHTML = '⏳ दर्ता हुँदैछ...';
+  google.script.run
+    .withSuccessHandler(function (r) {
+      btn.disabled = false; btn.innerHTML = '📁 दर्ता गर्नुहोस्';
+      if (r && r.success) { cm('mAdd'); toast('फाइल सफलतापूर्वक दर्ता भयो ✅', 'success'); loadActive(1); }
+      else toast('त्रुटि: ' + ((r && r.message) || 'Unknown'), 'error');
+    })
+    .withFailureHandler(function (e) { btn.disabled = false; btn.innerHTML = '📁 दर्ता गर्नुहोस्'; toast('त्रुटि: ' + e.message, 'error'); })
+    .addFile(an, sub, dt, rem);
+}
+
+// ── Forward File ─────────────────────────────────────────────
+function openFwd(id, an, sub, days, lvl) {
+  FWD_ID = id;
+  document.getElementById('fwAN').textContent   = an;
+  document.getElementById('fwSub').textContent  = sub;
+  document.getElementById('fwDays').textContent = days + ' दिन';
+  var next = NEXTLV[lvl] || 'सम्पन्न';
+  document.getElementById('fwTarget').innerHTML =
+    '📤 <strong>' + LNAMES[lvl] + '</strong> बाट <strong>' + next + '</strong> मा पठाइनेछ।';
+  om('mFwd');
+}
+
+function confirmFwd() {
+  if (!FWD_ID) return;
+  var btn = document.getElementById('fwConfBtn');
+  btn.disabled = true; btn.innerHTML = '⏳ पठाउँदैछ...';
+  google.script.run
+    .withSuccessHandler(function (r) {
+      btn.disabled = false; btn.innerHTML = '✅ पुष्टि गरी पठाउनुहोस्';
+      if (r && r.success) { cm('mFwd'); toast('फाइल सफलतापूर्वक पठाइयो 📤', 'success'); loadActive(PAGE); }
+      else toast('त्रुटि: ' + ((r && r.message) || 'Unknown'), 'error');
+    })
+    .withFailureHandler(function (e) { btn.disabled = false; btn.innerHTML = '✅ पुष्टि गरी पठाउनुहोस्'; toast('त्रुटि: ' + e.message, 'error'); })
+    .forwardFile(FWD_ID, CU.role);
+}
+
+// ── Font Size ─────────────────────────────────────────────────
+var FONT_SIZES = [12, 13, 14, 15, 16, 18, 20, 22];
+function setFontSize(px) {
+  document.documentElement.style.fontSize = px + 'px';
+  localStorage.setItem('appFontSize', px);
+  document.querySelectorAll('.fsz-btn').forEach(function (b) {
+    b.classList.toggle('active', +b.dataset.size === +px);
+  });
+}
+(function () {
+  var saved = localStorage.getItem('appFontSize');
+  if (saved) document.documentElement.style.fontSize = saved + 'px';
+})();
+
+// ── Settings ─────────────────────────────────────────────────
+function setTheme(t) {
+  document.body.classList.remove('theme-light', 'theme-sepia');
+  if (t !== 'dark') document.body.classList.add('theme-' + t);
+  localStorage.setItem('appTheme', t);
+  document.querySelectorAll('.theme-btn').forEach(function (b) {
+    b.classList.toggle('active', b.dataset.theme === t);
+  });
+}
+
+function renderSettings() {
+  var s = SET;
+  var curTheme = localStorage.getItem('appTheme') || 'dark';
+  var curSize  = +(localStorage.getItem('appFontSize') || 15);
+
+  var fszBtns = FONT_SIZES.map(function (sz) {
+    return '<button class="fsz-btn' + (curSize === sz ? ' active' : '') + '" data-size="' + sz + '" onclick="setFontSize(' + sz + ')" style="min-width:42px">' + sz + 'px</button>';
+  }).join('');
+
+  var h = '<div style="max-width:500px;margin:0 auto">'
+    + '<div class="panel"><h3>🔤 अक्षरको आकार</h3>'
+    + '<div style="margin-bottom:8px;font-size:0.85rem;color:var(--light)">हालको आकार: <strong id="curSzLabel">' + curSize + 'px</strong></div>'
+    + '<div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">'
+    + '<button class="btn btn-outline btn-sm" onclick="stepFont(-1)" style="font-size:1.3rem;padding:6px 14px">A−</button>'
+    + '<input type="range" id="fontSlider" min="12" max="22" step="1" value="' + curSize + '" oninput="setFontSize(+this.value);document.getElementById(\'curSzLabel\').textContent=this.value+\'px\'" style="flex:1;accent-color:var(--sky)">'
+    + '<button class="btn btn-outline btn-sm" onclick="stepFont(1)" style="font-size:1.3rem;padding:6px 14px">A+</button>'
+    + '</div>'
+    + '<div class="theme-btns">' + fszBtns + '</div>'
+    + '</div>'
+    + '<div class="panel"><h3>🎨 प्रदर्शन शैली चयन गर्नुहोस्</h3>'
+    + '<div class="theme-btns">'
+    + '<button class="theme-btn' + (curTheme === 'dark' ? ' active' : '') + '" data-theme="dark" onclick="setTheme(\'dark\')">🌙 गाढा</button>'
+    + '<button class="theme-btn' + (curTheme === 'light' ? ' active' : '') + '" data-theme="light" onclick="setTheme(\'light\')">☀️ उज्यालो</button>'
+    + '<button class="theme-btn' + (curTheme === 'sepia' ? ' active' : '') + '" data-theme="sepia" onclick="setTheme(\'sepia\')">📜 सेपिया (Sepia)</button>'
+    + '</div></div>'
+    + '<div class="panel"><h3>🎨 रंग सीमा सेटिङ</h3>'
+    + srow('sg', 'var(--green)', '🟢 हरियो — यस अवधिसम्म', 'sg', s.green_threshold)
+    + srow('sy', 'var(--yellow)', '🟡 पहेँलो — यस अवधिसम्म', 'sy', s.yellow_threshold)
+    + srow('so', 'var(--orange)', '🟠 सुन्तला — यस अवधिसम्म', 'so', s.orange_threshold)
+    + '<div style="color:var(--w40);font-size:1.6rem;margin-bottom:14px">🔴 रातो — माथिको सीमाभन्दा बढी भएमा (स्वतः)</div>'
+    + '<div style="text-align:right"><button class="btn btn-primary btn-sm" onclick="saveSet()">💾 सुरक्षित गर्नुहोस्</button></div>'
+    + '</div>'
+    + '<div class="panel"><h3>🔐 पासवर्ड परिवर्तन</h3>'
+    + pwfield('cpO', 'हालको पासवर्ड') + pwfield('cpN', 'नयाँ पासवर्ड') + pwfield('cpN2', 'नयाँ पासवर्ड पुनः प्रविष्ट गर्नुहोस्')
+    + '<button class="btn btn-primary btn-sm" onclick="changePw()">🔒 परिवर्तन गर्नुहोस्</button></div>'
+    + '<div class="panel"><h3>ℹ️ प्रणाली जानकारी</h3>'
+    + info('प्रयोगकर्ता', CU.fullName) + info('जिम्मेवारी', CU.role) + info('प्रणाली', 'Google Apps Script + Sheets')
+    + '</div></div>';
+  document.getElementById('mc').innerHTML = h;
+}
+
+function stepFont(dir) {
+  var cur = +(localStorage.getItem('appFontSize') || 15);
+  var idx = FONT_SIZES.indexOf(cur);
+  var next = FONT_SIZES[Math.max(0, Math.min(FONT_SIZES.length - 1, idx + dir))];
+  setFontSize(next);
+  var sl = document.getElementById('fontSlider');
+  var lb = document.getElementById('curSzLabel');
+  if (sl) sl.value = next;
+  if (lb) lb.textContent = next + 'px';
+}
+
+(function () {
+  var t = localStorage.getItem('appTheme') || 'light';
+  if (t !== 'dark') document.body.classList.add('theme-' + t);
+  localStorage.setItem('appTheme', t);
+})();
+
+function srow(id, color, label, inputId, val) {
+  return '<div class="srow"><div class="cdot" style="background:' + color + '"></div><label>' + label + '</label>'
+    + '<input type="number" id="' + inputId + '" value="' + val + '" min="1" max="365"></div>';
+}
+
+function pwfield(id, label) {
+  return '<div class="fg"><label>' + label + '</label><input type="password" id="' + id
+    + '" style="width:100%;background:var(--w08);border:1px solid var(--w15);border-radius:8px;color:var(--text-main,#fff);padding:10px 13px;outline:none;font-family:var(--font)"></div>';
+}
+
+function info(k, v) {
+  return '<div style="display:flex;padding:6px 0;border-bottom:1px solid var(--w08)">'
+    + '<span style="color:var(--light);font-size:1.6rem;width:120px">' + k + '</span>'
+    + '<span style="font-size:1.6rem">' + v + '</span></div>';
+}
+
+function saveSet() {
+  var g = parseInt(document.getElementById('sg').value);
+  var y = parseInt(document.getElementById('sy').value);
+  var o = parseInt(document.getElementById('so').value);
+  if (isNaN(g) || isNaN(y) || isNaN(o) || g >= y || y >= o) {
+    toast('मानहरू सही क्रममा राख्नुहोस्: हरियो < पहेँलो < सुन्तला', 'error'); return;
+  }
+  var btn = document.querySelector('#mc .btn-primary');
+  if (btn) { btn.disabled = true; btn.innerHTML = '⏳ सुरक्षित गर्दैछ...'; }
+  google.script.run
+    .withSuccessHandler(function () {
+      if (btn) { btn.disabled = false; btn.innerHTML = '💾 सुरक्षित गर्नुहोस्'; }
+      SET = { green_threshold: g, yellow_threshold: y, orange_threshold: o };
+      toast('सेटिङ सफलतापूर्वक सुरक्षित भयो ✅', 'success');
+    })
+    .withFailureHandler(function (e) {
+      if (btn) { btn.disabled = false; btn.innerHTML = '💾 सुरक्षित गर्नुहोस्'; }
+      toast('त्रुटि: ' + e.message, 'error');
+    })
+    .updateSettings(g, y, o);
+}
+
+function changePw() {
+  var o  = document.getElementById('cpO').value;
+  var n  = document.getElementById('cpN').value;
+  var n2 = document.getElementById('cpN2').value;
+  if (!o || !n || !n2) { toast('कृपया सबै विवरणहरू भर्नुहोस्', 'error'); return; }
+  if (n !== n2) { toast('नयाँ पासवर्ड मिलेन', 'error'); return; }
+  if (n.length < 6) { toast('पासवर्ड कम्तीमा ६ अक्षरको हुनुपर्छ', 'error'); return; }
+  var btn = document.querySelector('[onclick="changePw()"]');
+  if (btn) { btn.disabled = true; btn.innerHTML = '⏳ परिवर्तन हुँदैछ...'; }
+  google.script.run
+    .withSuccessHandler(function (r) {
+      if (btn) { btn.disabled = false; btn.innerHTML = '🔒 परिवर्तन गर्नुहोस्'; }
+      if (r && r.success) toast('पासवर्ड सफलतापूर्वक परिवर्तन भयो ✅', 'success');
+      else toast((r && r.message) || 'त्रुटि', 'error');
+    })
+    .withFailureHandler(function (e) {
+      if (btn) { btn.disabled = false; btn.innerHTML = '🔒 परिवर्तन गर्नुहोस्'; }
+      toast('त्रुटि: ' + e.message, 'error');
+    })
+    .changePassword(CU.username, o, n);
+}
+
+// ── Helpers ──────────────────────────────────────────────────
+function makeDots(lvl) {
+  var labels = ['', 'स', 'शा', 'नि'];
+  var d = '<div class="ldots">';
+  for (var i = 1; i <= 3; i++) {
+    var s = i < lvl ? 'done' : i === lvl ? 'active' : 'pending';
+    d += '<span class="ld ' + s + '" title="' + LNAMES[i] + '">' + labels[i] + '</span>';
+    if (i < 3) d += '<span style="font-size:.58rem;color:var(--w40)">›</span>';
+  }
+  return d + '</div>';
+}
+
+function clabel(c) { return { green: 'सामान्य', yellow: 'ध्यान आवश्यक', orange: 'ढिलाइ भएको', red: 'अत्यावश्यक' }[c] || c; }
+function sc(cls, label, val) { return '<div class="scard ' + cls + '"><div class="slabel">' + label + '</div><div class="sval">' + val + '</div></div>'; }
+
+function paginate(pg, tot, fn) {
+  if (tot <= 1) return '';
+  var h = '<div class="pgn">';
+  h += '<div class="pg"' + (pg <= 1 ? ' disabled' : ' onclick="' + fn + '(' + (pg - 1) + ')"') + 'style="cursor:' + (pg <= 1 ? 'not-allowed' : 'pointer') + '">‹</div>';
+  var s = Math.max(1, pg - 2), e = Math.min(tot, pg + 2);
+  if (s > 1) { h += '<div class="pg" onclick="' + fn + '(1)">1</div>'; if (s > 2) h += '<span class="pgi">…</span>'; }
+  for (var p = s; p <= e; p++) h += '<div class="pg' + (p === pg ? ' active' : '') + '" onclick="' + fn + '(' + p + ')">' + p + '</div>';
+  if (e < tot) { if (e < tot - 1) h += '<span class="pgi">…</span>'; h += '<div class="pg" onclick="' + fn + '(' + tot + ')">' + tot + '</div>'; }
+  h += '<div class="pg"' + (pg >= tot ? ' disabled' : ' onclick="' + fn + '(' + (pg + 1) + ')"') + 'style="cursor:' + (pg >= tot ? 'not-allowed' : 'pointer') + '">›</div>';
+  h += '<span class="pgi">' + pg + '/' + tot + '</span></div>';
+  return h;
+}
+
+function om(id) { document.getElementById(id).classList.add('open'); }
+function cm(id) { document.getElementById(id).classList.remove('open'); }
+function loading() { document.getElementById('mc').innerHTML = '<div class="loading"><div class="spinner"></div><p style="margin-top:12px;font-size:.83rem">विवरण लोड हुँदैछ...</p></div>'; }
+function showError(msg) { document.getElementById('mc').innerHTML = '<div class="errbx"><strong>⚠️ त्रुटि</strong>' + msg + '<br><br><button class="btn btn-outline btn-sm" onclick="loadActive(1)" style="margin-top:6px">🔄 फेरि प्रयास गर्नुहोस्</button></div>'; }
+function showE(id, msg) { var el = document.getElementById(id); el.textContent = msg; el.style.display = 'block'; }
+function esc(s) { return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+
+function toast(msg, type) {
+  var t = document.getElementById('toast');
+  t.textContent = msg; t.className = 'toast ' + (type || '');
+  t.classList.add('show');
+  setTimeout(function () { t.classList.remove('show'); }, 3200);
+}
+
+document.querySelectorAll('.overlay').forEach(function (ov) {
+  ov.addEventListener('click', function (e) { if (e.target === ov) ov.classList.remove('open'); });
+});
+
+// ══════════════════════════════════════════════════════════════
+// PWA — Service Worker + Install Prompt
+// ══════════════════════════════════════════════════════════════
+
+// ── Inline Service Worker (registered via Blob — works on any host) ──
+var SW_CODE = `
+const CACHE = 'safal-v1';
+const OFFLINE_ASSETS = [];
+self.addEventListener('install', e => { self.skipWaiting(); });
+self.addEventListener('activate', e => { e.waitUntil(clients.claim()); });
+self.addEventListener('fetch', e => {
+  // Network-first: always try network, fall back to cache
+  if (e.request.method !== 'GET') return;
+  e.respondWith(
+    fetch(e.request)
+      .then(res => {
+        var clone = res.clone();
+        caches.open(CACHE).then(c => c.put(e.request, clone));
+        return res;
+      })
+      .catch(() => caches.match(e.request).then(r => r || new Response(
+        '<div style="font-family:sans-serif;text-align:center;padding:40px"><h2>📡 इन्टरनेट छैन</h2><p>कृपया इन्टरनेट जडान जाँच गर्नुहोस्।</p></div>',
+        { headers: { 'Content-Type': 'text/html; charset=utf-8' } }
+      )))
+  );
+});
+`;
+
+if ('serviceWorker' in navigator) {
+  try {
+    var blob = new Blob([SW_CODE], { type: 'application/javascript' });
+    var swUrl = URL.createObjectURL(blob);
+    navigator.serviceWorker.register(swUrl, { scope: '/' })
+      .then(function(reg) {
+        console.log('✅ SW registered:', reg.scope);
+      })
+      .catch(function(err) {
+        // Blob SW may fail on some browsers — silently continue
+        console.log('SW blob failed, trying classic path:', err.message);
+      });
+  } catch(e) {
+    console.log('SW not supported in this environment');
+  }
+}
+
+// ── Offline / Online banner ───────────────────────────────────
+function showNetBanner(online) {
+  var b = document.getElementById('netBanner');
+  if (!b) return;
+  if (online) {
+    b.style.transform = 'translateY(-100%)';
+  } else {
+    b.textContent = '📡 इन्टरनेट जडान छैन — कृपया नेटवर्क जाँच गर्नुहोस्';
+    b.style.transform = 'translateY(0)';
+  }
+}
+window.addEventListener('online',  function() { showNetBanner(true); });
+window.addEventListener('offline', function() { showNetBanner(false); });
+if (!navigator.onLine) showNetBanner(false);
+
+// ── A2HS Install Prompt ───────────────────────────────────────
+var deferredPrompt = null;
+window.addEventListener('beforeinstallprompt', function(e) {
+  e.preventDefault();
+  deferredPrompt = e;
+  var btn = document.getElementById('installBtn');
+  var btnH = document.getElementById('installBtnHdr');
+  if (btn) btn.style.display = 'inline-flex';
+  if (btnH) btnH.style.display = 'inline-flex';
+});
+window.addEventListener('appinstalled', function() {
+  deferredPrompt = null;
+  ['installBtn','installBtnHdr'].forEach(function(id){
+    var b = document.getElementById(id); if(b) b.style.display='none';
+  });
+  toast('सफल एप इन्स्टल भयो ✅', 'success');
+});
+
+function installPWA() {
+  if (!deferredPrompt) {
+    toast('यो ब्राउजरले इन्स्टल समर्थन गर्दैन वा पहिले नै इन्स्टल भइसकेको छ', 'error');
+    return;
+  }
+  deferredPrompt.prompt();
+  deferredPrompt.userChoice.then(function(c) {
+    if (c.outcome === 'accepted') toast('इन्स्टल गर्दैछ...', 'success');
+    deferredPrompt = null;
+    var btn = document.getElementById('installBtn');
+    if (btn) btn.style.display = 'none';
+  });
+}
+
+</script>
+</body>
+</html>
