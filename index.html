@@ -3,68 +3,40 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5.0,user-scalable=yes">
-
-<!-- PWA Core -->
 <meta name="theme-color" content="#1a2a5e">
 <meta name="application-name" content="सफल">
 <meta name="description" content="Service Accountability & File Action Log — Nepal Government File Tracking System">
-
-<!-- Apple PWA -->
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="सफल">
-
-<!-- MS Tiles -->
-<meta name="msapplication-TileColor" content="#1a2a5e">
-<meta name="msapplication-tap-highlight" content="no">
-
-<!-- Inline Manifest (works on GAS — no separate file needed) -->
-<link rel="manifest" href="data:application/manifest+json,{
-  %22name%22:%22%E0%A4%B8%E0%A4%AB%E0%A4%B2%20%E2%80%94%20Service%20Accountability%20%26%20File%20Action%20Log%22,
-  %22short_name%22:%22%E0%A4%B8%E0%A4%AB%E0%A4%B2%22,
-  %22description%22:%22Nepal%20Government%20File%20Tracking%20System%22,
-  %22start_url%22:%22.%22,
-  %22display%22:%22standalone%22,
-  %22orientation%22:%22portrait-primary%22,
-  %22background_color%22:%22%231a2a5e%22,
-  %22theme_color%22:%22%231a2a5e%22,
-  %22lang%22:%22ne%22,
-  %22icons%22:[
-    {%22src%22:%22https://img.icons8.com/fluency/96/courthouse.png%22,%22sizes%22:%2296x96%22,%22type%22:%22image/png%22},
-    {%22src%22:%22https://img.icons8.com/fluency/192/courthouse.png%22,%22sizes%22:%22192x192%22,%22type%22:%22image/png%22},
-    {%22src%22:%22https://img.icons8.com/fluency/512/courthouse.png%22,%22sizes%22:%22512x512%22,%22type%22:%22image/png%22,%22purpose%22:%22any%20maskable%22}
-  ]
-}">
-
-<!-- Apple Touch Icons (inline SVG as data URI) -->
+<link rel="manifest" href="data:application/manifest+json,{%22name%22:%22SAFAL%22,%22short_name%22:%22सफल%22,%22start_url%22:%22.%22,%22display%22:%22standalone%22,%22background_color%22:%22%231a2a5e%22,%22theme_color%22:%22%231a2a5e%22,%22lang%22:%22ne%22}">
 <link rel="apple-touch-icon" sizes="180x180" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='40' fill='%231a2a5e'/%3E%3Ctext x='90' y='115' font-size='90' text-anchor='middle'%3E%F0%9F%8F%9B%EF%B8%8F%3C/text%3E%3C/svg%3E">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a2a5e'/%3E%3Ctext x='16' y='24' font-size='20' text-anchor='middle'%3E%F0%9F%8F%9B%3C/text%3E%3C/svg%3E">
-
 <title>सफल — Service Accountability & File Action Log</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap');
 :root{
-  --navy:#0d1b4b; --navy2:#112066; --blue:#1a3a8f; --blue2:#1e4fc2;
-  --sky:#2979e8; --accent:#4da3ff; --light:#a8c8ff;
-  --white:#ffffff; --w80:rgba(255,255,255,0.82); --w40:rgba(255,255,255,0.40);
-  --w15:rgba(255,255,255,0.13); --w08:rgba(255,255,255,0.08);
-  --green:#00c853; --greenbg:rgba(0,200,83,0.18);
-  --yellow:#ffd740; --yellowbg:rgba(255,215,64,0.18);
-  --orange:#ff9100; --orangebg:rgba(255,145,0,0.18);
-  --red:#ff1744;   --redbg:rgba(255,23,68,0.18);
-  --r:10px; --font:'Noto Sans Devanagari',sans-serif; --mono:'IBM Plex Mono',monospace;
-  --bg-body:var(--navy); --text-main:#fff; --text-sub:var(--light);
+  --navy:#0d1b4b;--navy2:#112066;--blue:#1a3a8f;--blue2:#1e4fc2;
+  --sky:#2979e8;--accent:#4da3ff;--light:#a8c8ff;
+  --white:#ffffff;--w80:rgba(255,255,255,0.82);--w40:rgba(255,255,255,0.40);
+  --w15:rgba(255,255,255,0.13);--w08:rgba(255,255,255,0.08);
+  --green:#00c853;--greenbg:rgba(0,200,83,0.18);
+  --yellow:#ffd740;--yellowbg:rgba(255,215,64,0.18);
+  --orange:#ff9100;--orangebg:rgba(255,145,0,0.18);
+  --red:#ff1744;--redbg:rgba(255,23,68,0.18);
+  --purple:#b57bee;--purplebg:rgba(181,123,238,0.18);
+  --r:10px;--font:'Noto Sans Devanagari',sans-serif;--mono:'IBM Plex Mono',monospace;
+  --bg-body:var(--navy);--text-main:#fff;--text-sub:var(--light);
 }
-/* ── THEMES ─────────────────────────────────────────────── */
 body.theme-light{
-  --navy:#e8eef8; --navy2:#d0dcf0; --blue:#b8ccec; --blue2:#95b2e0;
-  --sky:#2979e8; --accent:#1a5fc2; --light:#1a3a8f;
-  --w80:rgba(0,0,0,0.80); --w40:rgba(0,0,0,0.45); --w15:rgba(0,0,0,0.12); --w08:rgba(0,0,0,0.06);
-  --text-main:#0d1b4b; --text-sub:#1a3a8f;
-  --green:#1b7a38; --greenbg:rgba(27,122,56,0.15);
-  --yellow:#b07800; --yellowbg:rgba(176,120,0,0.15);
-  --orange:#c05800; --orangebg:rgba(192,88,0,0.15);
-  --red:#c0001a; --redbg:rgba(192,0,26,0.15);
+  --navy:#e8eef8;--navy2:#d0dcf0;--blue:#b8ccec;--blue2:#95b2e0;
+  --sky:#2979e8;--accent:#1a5fc2;--light:#1a3a8f;
+  --w80:rgba(0,0,0,0.80);--w40:rgba(0,0,0,0.45);--w15:rgba(0,0,0,0.12);--w08:rgba(0,0,0,0.06);
+  --text-main:#0d1b4b;--text-sub:#1a3a8f;
+  --green:#1b7a38;--greenbg:rgba(27,122,56,0.15);
+  --yellow:#b07800;--yellowbg:rgba(176,120,0,0.15);
+  --orange:#c05800;--orangebg:rgba(192,88,0,0.15);
+  --red:#c0001a;--redbg:rgba(192,0,26,0.15);
 }
 body.theme-light *{color:var(--text-main)}
 body.theme-light .login-card,body.theme-light .modal{background:rgba(255,255,255,0.92)!important}
@@ -84,18 +56,18 @@ body.theme-light .chip{color:#0d1b4b;background:rgba(0,0,0,0.07)}
 body.theme-light .stag{color:#1a3a8f;background:rgba(41,121,232,0.12);border-color:rgba(41,121,232,0.25)}
 body.theme-light .anum{color:var(--accent)}
 body.theme-light .pgi,.theme-light .slabel{color:#1a3a8f!important}
-body.theme-light .sval.sg{color:#1b7a38} body.theme-light .sval.sy{color:#b07800}
 body.theme-light .toast{background:rgba(26,58,143,.95);color:#fff}
-
+body.theme-light .user-card{background:#fff;border-color:rgba(0,0,0,0.1)}
+body.theme-light .hcard{background:#fff;border-color:rgba(0,0,0,0.1)}
 body.theme-sepia{
-  --navy:#2c1f0e; --navy2:#3a2b18; --blue:#5a3e20; --blue2:#7a5530;
-  --sky:#c8882a; --accent:#e8aa50; --light:#d4aa78;
-  --w80:rgba(255,240,210,0.85); --w40:rgba(255,230,185,0.45); --w15:rgba(255,220,160,0.15); --w08:rgba(255,220,160,0.10);
-  --green:#6a9a42; --greenbg:rgba(106,154,66,0.18);
-  --yellow:#c8a020; --yellowbg:rgba(200,160,32,0.18);
-  --orange:#c86020; --orangebg:rgba(200,96,32,0.18);
-  --red:#c83028; --redbg:rgba(200,48,40,0.18);
-  --text-main:#f5e6c8; --text-sub:#d4aa78;
+  --navy:#2c1f0e;--navy2:#3a2b18;--blue:#5a3e20;--blue2:#7a5530;
+  --sky:#c8882a;--accent:#e8aa50;--light:#d4aa78;
+  --w80:rgba(255,240,210,0.85);--w40:rgba(255,230,185,0.45);--w15:rgba(255,220,160,0.15);--w08:rgba(255,220,160,0.10);
+  --green:#6a9a42;--greenbg:rgba(106,154,66,0.18);
+  --yellow:#c8a020;--yellowbg:rgba(200,160,32,0.18);
+  --orange:#c86020;--orangebg:rgba(200,96,32,0.18);
+  --red:#c83028;--redbg:rgba(200,48,40,0.18);
+  --text-main:#f5e6c8;--text-sub:#d4aa78;
 }
 body.theme-sepia .login-card,body.theme-sepia .modal{background:rgba(52,36,18,0.90)!important}
 body.theme-sepia thead th{color:#f5e6c8}
@@ -106,41 +78,28 @@ html,body{height:100%;background:var(--navy);color:var(--text-main,#fff);font-fa
 ::-webkit-scrollbar-track{background:var(--navy2)}
 ::-webkit-scrollbar-thumb{background:var(--blue2);border-radius:3px}
 
-/* ── LOGIN ─────────────────────────────────────────────── */
-#loginScreen{
-  display:flex;align-items:center;justify-content:center;min-height:100vh;
+/* ── LOGIN ──────────────────────────────────────────────── */
+#loginScreen{display:flex;align-items:center;justify-content:center;min-height:100vh;
   background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 50%,var(--blue) 100%);
-  position:relative;overflow:hidden;
-}
+  position:relative;overflow:hidden}
 .bubble{position:absolute;border-radius:50%;background:var(--w08);animation:float 8s ease-in-out infinite}
 .bubble:nth-child(1){width:280px;height:280px;top:-70px;right:-50px}
 .bubble:nth-child(2){width:160px;height:160px;bottom:50px;left:-40px;animation-delay:3s}
-.bubble:nth-child(3){width:90px; height:90px; bottom:180px;right:14%;animation-delay:1.5s}
+.bubble:nth-child(3){width:90px;height:90px;bottom:180px;right:14%;animation-delay:1.5s}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
-.login-card{
-  position:relative;z-index:1;width:min(400px,93vw);
+.login-card{position:relative;z-index:1;width:min(400px,93vw);
   background:rgba(17,32,102,0.80);border:1px solid var(--w15);
-  border-radius:18px;padding:40px 36px 36px;
-  backdrop-filter:blur(18px);box-shadow:0 20px 60px rgba(0,0,0,0.5);
-}
+  border-radius:18px;padding:40px 36px 36px;backdrop-filter:blur(18px);box-shadow:0 20px 60px rgba(0,0,0,0.5)}
 .login-logo{text-align:center;margin-bottom:26px}
-.emblem{width:60px;height:60px;background:var(--sky);border-radius:50%;
-  display:inline-flex;align-items:center;justify-content:center;font-size:26px;
-  margin-bottom:10px;box-shadow:0 0 0 6px rgba(41,121,232,0.2)}
-.login-logo h1{font-size:2.2rem;font-weight:700;line-height:1.4}
-.login-logo p{font-size:1.5rem;color:var(--light);margin-top:4px;font-family:var(--mono)}
+.emblem{width:60px;height:60px;background:var(--sky);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:10px;box-shadow:0 0 0 6px rgba(41,121,232,0.2)}
 .fg{margin-bottom:16px}
 .fg label{display:block;font-size:1.6rem;color:var(--light);margin-bottom:6px}
-.fg input,.fg select{
-  width:100%;padding:11px 14px;background:var(--w08);border:1px solid var(--w15);
-  border-radius:var(--r);color:var(--text-main,#fff);font-size:1.84rem;font-family:var(--font);outline:none;transition:border .2s
-}
-.fg input:focus,.fg select:focus{border-color:var(--sky);background:rgba(41,121,232,0.12)}
-.fg input::placeholder{color:var(--w40)}
+.fg input,.fg select,.fg textarea{width:100%;padding:11px 14px;background:var(--w08);border:1px solid var(--w15);border-radius:var(--r);color:var(--text-main,#fff);font-size:1.84rem;font-family:var(--font);outline:none;transition:border .2s}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--sky);background:rgba(41,121,232,0.12)}
+.fg input::placeholder,.fg textarea::placeholder{color:var(--w40)}
 .fg select option{background:#1a3a8f}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;
-  padding:11px 20px;border:none;border-radius:var(--r);font-family:var(--font);
-  font-size:1.84rem;font-weight:600;cursor:pointer;transition:all .2s}
+.fg textarea{resize:vertical;min-height:70px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:11px 20px;border:none;border-radius:var(--r);font-family:var(--font);font-size:1.84rem;font-weight:600;cursor:pointer;transition:all .2s}
 .btn-primary{background:var(--sky);color:#fff;width:100%;margin-top:4px}
 .btn-primary:hover{background:#1e6fe0;transform:translateY(-1px);box-shadow:0 6px 20px rgba(41,121,232,.45)}
 .btn-sm{padding:7px 13px;font-size:1.6rem}
@@ -148,43 +107,44 @@ html,body{height:100%;background:var(--navy);color:var(--text-main,#fff);font-fa
 .btn-outline:hover{background:var(--w15)}
 .btn-success{background:#2e7d32;color:#fff}
 .btn-success:hover{background:#1b5e20}
-.errmsg{background:rgba(255,23,68,.15);border:1px solid rgba(255,23,68,.4);
-  color:#ff6b8a;padding:10px 13px;border-radius:8px;font-size:1.64rem;margin-top:10px;display:none}
+.btn-danger{background:#c62828;color:#fff}
+.btn-danger:hover{background:#8b0000}
+.btn-warn{background:#e65100;color:#fff}
+.btn-warn:hover{background:#bf360c}
+.btn-teal{background:#00796b;color:#fff}
+.btn-teal:hover{background:#004d40}
+.errmsg{background:rgba(255,23,68,.15);border:1px solid rgba(255,23,68,.4);color:#ff6b8a;padding:10px 13px;border-radius:8px;font-size:1.64rem;margin-top:10px;display:none}
 
-/* ── APP ───────────────────────────────────────────────── */
+/* ── APP ─────────────────────────────────────────────────── */
 #app{display:none;height:100vh;flex-direction:column}
-.header{
-  background:linear-gradient(90deg,var(--navy2),var(--blue));
-  border-bottom:1px solid var(--w15);padding:0 22px;
-  display:flex;align-items:center;justify-content:space-between;
-  height:72px;flex-shrink:0;box-shadow:0 2px 12px rgba(0,0,0,.3)
-}
+.header{background:linear-gradient(90deg,var(--navy2),var(--blue));border-bottom:1px solid var(--w15);padding:0 22px;display:flex;align-items:center;justify-content:space-between;height:72px;flex-shrink:0;box-shadow:0 2px 12px rgba(0,0,0,.3)}
 .hd-left{display:flex;align-items:center;gap:12px}
-.hd-icon{width:42px;height:42px;background:var(--sky);border-radius:50%;
-  display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.hd-icon{width:42px;height:42px;background:var(--sky);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
 .hd-title{font-size:2.4rem;font-weight:700;line-height:1.25}
 .hd-sub{font-size:1.6rem;color:var(--light);font-family:var(--mono)}
 .hd-right{display:flex;align-items:center;gap:8px}
-.ubadge{background:var(--w15);border-radius:20px;padding:6px 14px 6px 10px;
-  display:flex;align-items:center;gap:6px;font-size:1.72rem;color:var(--light)}
+.ubadge{background:var(--w15);border-radius:20px;padding:6px 14px 6px 10px;display:flex;align-items:center;gap:6px;font-size:1.72rem;color:var(--light)}
 .udot{width:7px;height:7px;border-radius:50%;background:var(--green);flex-shrink:0}
-.navtabs{display:flex;background:var(--navy2);border-bottom:1px solid var(--w15);
-  flex-shrink:0;overflow-x:auto}
-.ntab{padding:13px 20px;font-size:1.86rem;color:var(--w80);cursor:pointer;
-  white-space:nowrap;border-bottom:3px solid transparent;transition:all .2s;font-family:var(--font)}
+.navtabs{display:flex;background:var(--navy2);border-bottom:1px solid var(--w15);flex-shrink:0;overflow-x:auto}
+.ntab{padding:13px 20px;font-size:1.86rem;color:var(--w80);cursor:pointer;white-space:nowrap;border-bottom:3px solid transparent;transition:all .2s;font-family:var(--font)}
 .ntab:hover{color:#fff;background:var(--w08)}
 .ntab.active{color:#fff;border-bottom-color:var(--sky);background:var(--w08)}
 .content{flex:1;overflow-y:auto;padding:18px}
 
 /* Stats */
 .stats-row{display:flex;gap:10px;margin-bottom:18px;flex-wrap:wrap}
-.scard{flex:1;min-width:110px;background:var(--w08);border:1px solid var(--w15);
-  border-radius:var(--r);padding:12px 14px}
+.scard{flex:1;min-width:110px;background:var(--w08);border:1px solid var(--w15);border-radius:var(--r);padding:12px 14px}
 .slabel{font-size:1.6rem;color:var(--light);margin-bottom:3px;font-family:var(--mono)}
 .sval{font-size:3.4rem;font-weight:700;font-family:var(--mono);line-height:1}
 .scard.sg .sval{color:var(--green)} .scard.sy .sval{color:var(--yellow)}
 .scard.so .sval{color:var(--orange)} .scard.sr .sval{color:var(--red)}
-.scard.st .sval{color:var(--accent)}
+.scard.st .sval{color:var(--accent)} .scard.sp .sval{color:var(--purple)}
+.scard.sh .sval{color:#9e9e9e}
+
+/* On-Hold Banner */
+.onhold-banner{display:flex;align-items:center;gap:12px;background:rgba(158,158,158,0.12);border:1px solid rgba(158,158,158,0.3);border-radius:var(--r);padding:10px 16px;margin-bottom:14px;font-size:1.72rem}
+.onhold-banner .oh-num{font-family:var(--mono);font-size:2.2rem;font-weight:700;color:#9e9e9e}
+.onhold-banner .oh-label{color:var(--w80);flex:1}
 
 /* Toolbar */
 .toolbar{display:flex;gap:8px;align-items:center;margin-bottom:14px;flex-wrap:wrap}
@@ -194,8 +154,7 @@ html,body{height:100%;background:var(--navy);color:var(--text-main,#fff);font-fa
 .twrap{overflow-x:auto;border-radius:var(--r);border:1px solid var(--w15)}
 table{width:100%;border-collapse:collapse;font-size:1.82rem}
 thead tr{background:linear-gradient(90deg,var(--blue),var(--blue2))}
-thead th{padding:12px 14px;text-align:left;font-weight:600;
-  font-size:1.68rem;letter-spacing:.04em;white-space:nowrap;color:#fff}
+thead th{padding:12px 14px;text-align:left;font-weight:600;font-size:1.68rem;letter-spacing:.04em;white-space:nowrap;color:#fff}
 tbody tr{border-bottom:1px solid var(--w08);transition:background .15s}
 tbody tr:hover{background:var(--w08)}
 tbody tr:last-child{border-bottom:none}
@@ -206,28 +165,26 @@ tbody tr.co{border-left:4px solid var(--orange)}
 tbody tr.cr{border-left:4px solid var(--red)}
 
 .badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:1.56rem;font-weight:600}
-.badge-green {background:var(--greenbg); color:var(--green)}
+.badge-green{background:var(--greenbg);color:var(--green)}
 .badge-yellow{background:var(--yellowbg);color:var(--yellow)}
 .badge-orange{background:var(--orangebg);color:var(--orange)}
-.badge-red   {background:var(--redbg);   color:var(--red)}
-.chip{display:inline-flex;align-items:center;gap:3px;font-family:var(--mono);
-  font-size:1.72rem;background:var(--w08);border-radius:6px;padding:2px 7px}
+.badge-red{background:var(--redbg);color:var(--red)}
+.badge-blue{background:rgba(41,121,232,.2);color:var(--accent)}
+.badge-purple{background:var(--purplebg);color:var(--purple)}
+.badge-gray{background:rgba(158,158,158,.2);color:#9e9e9e}
+.chip{display:inline-flex;align-items:center;gap:3px;font-family:var(--mono);font-size:1.72rem;background:var(--w08);border-radius:6px;padding:2px 7px}
 .chip .d{font-weight:700}
 .anum{font-family:var(--mono);font-size:1.76rem;color:var(--accent);font-weight:600}
-.stag{font-size:1.68rem;background:rgba(41,121,232,.2);
-  border:1px solid rgba(41,121,232,.3);padding:2px 7px;border-radius:4px}
+.stag{font-size:1.68rem;background:rgba(41,121,232,.2);border:1px solid rgba(41,121,232,.3);padding:2px 7px;border-radius:4px}
 .ldots{display:flex;gap:3px;align-items:center}
-.ld{display:inline-flex;align-items:center;justify-content:center;
-  width:20px;height:20px;border-radius:50%;font-size:1.24rem;font-weight:700;font-family:var(--mono)}
+.ld{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;font-size:1.24rem;font-weight:700;font-family:var(--mono)}
 .ld.done{background:rgba(41,121,232,.35);color:var(--accent)}
 .ld.active{background:var(--sky);color:#fff;box-shadow:0 0 0 3px rgba(41,121,232,.3)}
 .ld.pending{background:var(--w08);color:var(--w40)}
 
 /* Pagination */
 .pgn{display:flex;align-items:center;justify-content:center;gap:5px;margin-top:18px;flex-wrap:wrap}
-.pg{width:34px;height:34px;display:flex;align-items:center;justify-content:center;
-  background:var(--w08);border:1px solid var(--w15);border-radius:6px;
-  font-size:1.72rem;cursor:pointer;transition:all .15s;font-family:var(--mono);color:var(--text-main,#fff)}
+.pg{width:34px;height:34px;display:flex;align-items:center;justify-content:center;background:var(--w08);border:1px solid var(--w15);border-radius:6px;font-size:1.72rem;cursor:pointer;transition:all .15s;font-family:var(--mono);color:var(--text-main,#fff)}
 .pg:hover:not([disabled]){background:var(--blue);border-color:var(--sky)}
 .pg.active{background:var(--sky);border-color:var(--sky);font-weight:700}
 .pg[disabled]{opacity:.35;cursor:not-allowed}
@@ -237,25 +194,17 @@ tbody tr.cr{border-left:4px solid var(--red)}
 .empty{text-align:center;padding:56px 20px;color:var(--w40)}
 .empty .ico{font-size:44px;margin-bottom:14px}
 .loading{text-align:center;padding:50px 20px;color:var(--light)}
-.spinner{display:inline-block;width:34px;height:34px;border:3px solid var(--w15);
-  border-top-color:var(--sky);border-radius:50%;animation:spin .7s linear infinite}
+.spinner{display:inline-block;width:34px;height:34px;border:3px solid var(--w15);border-top-color:var(--sky);border-radius:50%;animation:spin .7s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
-.errbx{background:rgba(255,23,68,.12);border:1px solid rgba(255,23,68,.35);
-  color:#ff8a9a;padding:16px 20px;border-radius:var(--r);font-size:1.7rem;
-  margin:20px 0;line-height:1.6}
+.errbx{background:rgba(255,23,68,.12);border:1px solid rgba(255,23,68,.35);color:#ff8a9a;padding:16px 20px;border-radius:var(--r);font-size:1.7rem;margin:20px 0;line-height:1.6}
 .errbx strong{display:block;margin-bottom:6px;font-size:1.9rem}
 
 /* Modal */
-.overlay{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:1000;
-  display:none;align-items:center;justify-content:center;padding:14px;backdrop-filter:blur(4px)}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:1000;display:none;align-items:center;justify-content:center;padding:14px;backdrop-filter:blur(4px)}
 .overlay.open{display:flex}
-.modal{background:linear-gradient(160deg,var(--navy2),var(--blue));
-  border:1px solid var(--w15);border-radius:15px;
-  width:min(540px,100%);max-height:90vh;overflow-y:auto;
-  box-shadow:0 24px 64px rgba(0,0,0,.6);animation:su .25s ease}
+.modal{background:linear-gradient(160deg,var(--navy2),var(--blue));border:1px solid var(--w15);border-radius:15px;width:min(560px,100%);max-height:90vh;overflow-y:auto;box-shadow:0 24px 64px rgba(0,0,0,.6);animation:su .25s ease}
 @keyframes su{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
-.mhead{padding:18px 22px 14px;border-bottom:1px solid var(--w15);
-  display:flex;align-items:center;justify-content:space-between}
+.mhead{padding:18px 22px 14px;border-bottom:1px solid var(--w15);display:flex;align-items:center;justify-content:space-between}
 .mhead h3{font-size:1.94rem;font-weight:700}
 .mclose{background:none;border:none;color:var(--w80);font-size:19px;cursor:pointer;padding:3px;border-radius:4px}
 .mclose:hover{color:#fff;background:var(--w15)}
@@ -265,34 +214,90 @@ tbody tr.cr{border-left:4px solid var(--red)}
 @media(max-width:460px){.g2{grid-template-columns:1fr}}
 
 /* Toast */
-.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(80px);
-  background:rgba(26,58,143,.97);border:1px solid var(--sky);
-  color:#fff;padding:11px 22px;border-radius:28px;font-size:1.72rem;
-  z-index:9999;transition:transform .3s ease;box-shadow:0 8px 32px rgba(0,0,0,.5)}
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(80px);background:rgba(26,58,143,.97);border:1px solid var(--sky);color:#fff;padding:11px 22px;border-radius:28px;font-size:1.72rem;z-index:9999;transition:transform .3s ease;box-shadow:0 8px 32px rgba(0,0,0,.5)}
 .toast.show{transform:translateX(-50%) translateY(0)}
 .toast.success{background:rgba(46,125,50,.97);border-color:var(--green)}
-.toast.error  {background:rgba(198,40,40,.97);border-color:var(--red)}
+.toast.error{background:rgba(198,40,40,.97);border-color:var(--red)}
 
 /* Settings */
 .srow{display:flex;align-items:center;gap:11px;margin-bottom:15px}
 .srow label{flex:1;font-size:1.72rem}
 .cdot{width:11px;height:11px;border-radius:50%;flex-shrink:0}
-.srow input[type=number]{width:74px;text-align:center;background:var(--w08);
-  border:1px solid var(--w15);border-radius:6px;color:var(--text-main,#fff);padding:6px 8px;
-  outline:none;font-family:var(--mono)}
-.panel{background:var(--w08);border:1px solid var(--w15);border-radius:var(--r);
-  padding:22px;margin-bottom:18px}
+.srow input[type=number]{width:74px;text-align:center;background:var(--w08);border:1px solid var(--w15);border-radius:6px;color:var(--text-main,#fff);padding:6px 8px;outline:none;font-family:var(--mono)}
+.panel{background:var(--w08);border:1px solid var(--w15);border-radius:var(--r);padding:22px;margin-bottom:18px}
 .panel h3{margin-bottom:18px;font-size:1.94rem}
-/* Theme switcher */
 .theme-btns{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
-.theme-btn{padding:8px 16px;border:2px solid var(--w15);border-radius:8px;
-  background:var(--w08);color:var(--text-main,#fff);font-family:var(--font);
-  font-size:1.6rem;cursor:pointer;transition:all .2s}
+.theme-btn{padding:8px 16px;border:2px solid var(--w15);border-radius:8px;background:var(--w08);color:var(--text-main,#fff);font-family:var(--font);font-size:1.6rem;cursor:pointer;transition:all .2s}
 .theme-btn:hover,.fsz-btn:hover{border-color:var(--sky);background:var(--w15)}
 .theme-btn.active,.fsz-btn.active{border-color:var(--sky);background:rgba(41,121,232,.25);font-weight:700}
-.fsz-btn{padding:6px 10px;border:2px solid var(--w15);border-radius:8px;
-  background:var(--w08);color:var(--text-main,#fff);font-family:var(--mono);
-  font-size:0.85rem;cursor:pointer;transition:all .2s}
+.fsz-btn{padding:6px 10px;border:2px solid var(--w15);border-radius:8px;background:var(--w08);color:var(--text-main,#fff);font-family:var(--mono);font-size:0.85rem;cursor:pointer;transition:all .2s}
+
+/* User Cards */
+.user-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-top:14px}
+.user-card{background:var(--w08);border:1px solid var(--w15);border-radius:12px;padding:16px 18px;transition:all .2s}
+.user-card:hover{border-color:var(--sky);background:rgba(41,121,232,.08)}
+.uc-top{display:flex;align-items:center;gap:11px;margin-bottom:11px}
+.uc-avatar{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;font-weight:700}
+.uc-name{font-size:1.76rem;font-weight:700;margin-bottom:2px}
+.uc-role{font-size:1.56rem;color:var(--light)}
+.uc-meta{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.uc-actions{display:flex;gap:6px;flex-wrap:wrap}
+.uc-inactive{opacity:.55}
+
+/* Hierarchy Builder */
+.hcard{background:var(--w08);border:1px solid var(--w15);border-radius:10px;padding:14px 16px;margin-bottom:10px;display:flex;align-items:center;gap:12px}
+.hlevel-badge{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:700;font-family:var(--mono);flex-shrink:0}
+.hcard input{flex:1;background:var(--w08);border:1px solid var(--w15);border-radius:8px;color:var(--text-main,#fff);padding:8px 12px;font-family:var(--font);font-size:1.72rem;outline:none}
+.hcard input:focus{border-color:var(--sky)}
+.hcard-actions{display:flex;gap:6px}
+
+/* Report */
+.report-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-top:14px}
+.rcard{background:var(--w08);border:1px solid var(--w15);border-radius:12px;padding:18px;transition:all .2s}
+.rcard:hover{border-color:var(--sky);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.2)}
+.rc-top{display:flex;align-items:center;gap:11px;margin-bottom:14px}
+.rc-avatar{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;flex-shrink:0}
+.rc-name{font-size:1.84rem;font-weight:700}
+.rc-role{font-size:1.56rem;color:var(--light)}
+.rc-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.rc-stat{background:var(--w08);border-radius:8px;padding:10px 12px;text-align:center}
+.rc-stat-val{font-size:2.4rem;font-weight:700;font-family:var(--mono)}
+.rc-stat-lbl{font-size:1.44rem;color:var(--light)}
+.progress-bar{height:6px;background:var(--w15);border-radius:3px;overflow:hidden;margin-top:12px}
+.progress-fill{height:100%;border-radius:3px;transition:width .6s ease}
+
+/* Flow Arrow */
+.flow-display{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:12px 16px;background:var(--w08);border-radius:var(--r);margin-bottom:14px}
+.flow-level{display:flex;align-items:center;justify-content:center;background:rgba(41,121,232,.2);border:1px solid rgba(41,121,232,.4);border-radius:8px;padding:6px 14px;font-size:1.64rem;font-weight:600}
+.flow-arrow{color:var(--accent);font-size:1.5rem}
+
+/* Delay Info badge */
+.delay-info{display:flex;flex-direction:column;gap:2px}
+.delay-reason{font-size:1.44rem;color:var(--orange);max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.expected-date{font-size:1.36rem;color:var(--light);font-family:var(--mono)}
+.overdue-chip{font-size:1.36rem;background:var(--redbg);color:var(--red);border-radius:4px;padding:1px 5px;font-family:var(--mono)}
+
+/* Share Modal */
+.share-options{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.share-btn{display:flex;flex-direction:column;align-items:center;gap:8px;padding:16px;background:var(--w08);border:1px solid var(--w15);border-radius:12px;cursor:pointer;transition:all .2s;font-family:var(--font);color:var(--text-main,#fff);font-size:1.7rem;font-weight:600}
+.share-btn:hover{border-color:var(--sky);background:rgba(41,121,232,.12);transform:translateY(-2px)}
+.share-btn .si{font-size:28px}
+
+/* PDF Print styles */
+/* Forward user selection buttons */
+.fwu-btn:hover{border-color:var(--sky)!important;background:rgba(41,121,232,.15)!important;transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.2)}
+
+@media print{
+  .header,.navtabs,.toolbar,.pgn,.btn,.mclose,.onhold-banner,
+  #netBanner,.toast,.overlay{display:none!important}
+  body{background:#fff;color:#000}
+  .twrap{border:1px solid #ccc}
+  thead tr{background:#1a3a8f!important;-webkit-print-color-adjust:exact}
+  thead th{color:#fff!important}
+  .content{overflow:visible}
+  #app{height:auto}
+}
+
 @media(max-width:580px){
   thead th:nth-child(7),tbody td:nth-child(7){display:none}
   .hd-sub{display:none}
@@ -311,14 +316,8 @@ tbody tr.cr{border-left:4px solid var(--red)}
       <p style="font-size:0.85rem;color:var(--accent);font-weight:600;margin-top:2px">Service Accountability &amp; File Action Log</p>
       <p style="font-size:0.72rem;margin-top:6px">Government File Tracking System</p>
     </div>
-    <div class="fg">
-      <label>प्रयोगकर्ता नाम</label>
-      <input type="text" id="lu" placeholder="username" autocomplete="username">
-    </div>
-    <div class="fg">
-      <label>पासवर्ड</label>
-      <input type="password" id="lp" placeholder="password" autocomplete="current-password">
-    </div>
+    <div class="fg"><label>प्रयोगकर्ता नाम</label><input type="text" id="lu" placeholder="username" autocomplete="username" autofocus></div>
+    <div class="fg"><label>पासवर्ड</label><input type="password" id="lp" placeholder="password" autocomplete="current-password"></div>
     <button class="btn btn-primary" id="loginBtn" onclick="doLogin()">🔐 लगइन गर्नुहोस्</button>
     <div class="errmsg" id="lerr"></div>
     <div style="text-align:center;margin-top:20px;font-size:0.62rem;color:rgba(255,255,255,0.35);line-height:1.6">
@@ -333,20 +332,20 @@ tbody tr.cr{border-left:4px solid var(--red)}
     <div class="hd-left">
       <div class="hd-icon">🏛️</div>
       <div>
-        <div class="hd-title">सफल &nbsp;<span style="font-size:0.72em;font-weight:700;color:var(--accent);letter-spacing:.08em;font-family:var(--mono)">SAFAL</span> <span style="font-size:0.52em;font-weight:400;opacity:0.75;letter-spacing:.01em">— Service Accountability &amp; File Action Log</span></div>
+        <div class="hd-title">सफल &nbsp;<span style="font-size:0.72em;font-weight:700;color:var(--accent);letter-spacing:.08em;font-family:var(--mono)">SAFAL</span></div>
         <div class="hd-sub" id="hdDate"></div>
       </div>
     </div>
     <div class="hd-right">
-      <div id="hdBS" style="text-align:right;font-size:0.8rem;color:var(--accent);font-family:var(--mono);line-height:1.4;margin-right:4px"></div>
       <div class="ubadge"><div class="udot"></div><span id="uLabel">—</span></div>
-      <button id="installBtnHdr" onclick="installPWA()" style="display:none" class="btn btn-sm btn-outline" title="एप इन्स्टल गर्नुहोस्">📲</button>
       <button class="btn btn-sm btn-outline" onclick="doLogout()">लगआउट</button>
     </div>
   </div>
   <div class="navtabs">
     <div class="ntab active" data-tab="active"    onclick="switchTab('active')">📋 सक्रिय फाइलहरू</div>
-    <div class="ntab"        data-tab="completed" onclick="switchTab('completed')" id="tabDone" style="display:none">✅ सम्पन्न फाइलहरू</div>
+    <div class="ntab"        data-tab="completed" onclick="switchTab('completed')" id="tabDone" style="display:none">✅ सम्पन्न</div>
+    <div class="ntab"        data-tab="delayed"   onclick="switchTab('delayed')"  id="tabDelayed">⚠️ ढिलाइ प्रतिवेदन</div>
+    <div class="ntab"        data-tab="report"    onclick="switchTab('report')"   id="tabReport" style="display:none">📊 प्रतिवेदन</div>
     <div class="ntab"        data-tab="settings"  onclick="switchTab('settings')">⚙️ सेटिङहरू</div>
   </div>
   <div class="content" id="mc"></div>
@@ -355,30 +354,27 @@ tbody tr.cr{border-left:4px solid var(--red)}
 <!-- Modal: Add File -->
 <div class="overlay" id="mAdd">
   <div class="modal">
-    <div class="mhead"><h3>➕ नयाँ फाइल दर्ता गर्नुहोस्</h3><button class="mclose" onclick="cm('mAdd')">✕</button></div>
+    <div class="mhead"><h3>➕ नयाँ फाइल दर्ता</h3><button class="mclose" onclick="cm('mAdd')">✕</button></div>
     <div class="mbody">
       <div class="g2">
         <div class="fg"><label>निवेदन नम्बर *</label><input type="text" id="fAN" placeholder="जस्तै: 2081/001"></div>
-        <div class="fg"><label>प्राप्त मिति * (बि.सं.)</label>
+        <div class="fg"><label>प्राप्त मिति (बि.सं.) *</label>
           <div style="display:flex;gap:6px">
-            <select id="fDtY" style="flex:2;padding:11px 8px;background:var(--w08);border:1px solid var(--w15);border-radius:var(--r);color:var(--text-main,#fff);font-size:0.92rem;font-family:var(--font);outline:none"></select>
-            <select id="fDtM" style="flex:2;padding:11px 8px;background:var(--w08);border:1px solid var(--w15);border-radius:var(--r);color:var(--text-main,#fff);font-size:0.92rem;font-family:var(--font);outline:none"></select>
-            <select id="fDtD" style="flex:1;padding:11px 8px;background:var(--w08);border:1px solid var(--w15);border-radius:var(--r);color:var(--text-main,#fff);font-size:0.92rem;font-family:var(--font);outline:none"></select>
+           <select id="fDtY" style="flex:2;padding:11px 8px;background:var(--w08);border:1px solid var(--w15);border-radius:var(--r);color:var(--text-main,#fff);font-size:0.9rem;font-family:var(--font);outline:none"></select>
+<select id="fDtM" style="flex:2;padding:11px 8px;background:var(--w08);border:1px solid var(--w15);border-radius:var(--r);color:var(--text-main,#fff);font-size:0.9rem;font-family:var(--font);outline:none"></select>
+<select id="fDtD" style="flex:1;padding:11px 8px;background:var(--w08);border:1px solid var(--w15);border-radius:var(--r);color:var(--text-main,#fff);font-size:0.9rem;font-family:var(--font);outline:none"></select>
           </div>
         </div>
       </div>
-      <div class="fg">
-        <label>विषय *</label>
-        <select id="fSub">
-          <option value="">-- विषय चयन गर्नुहोस् --</option>
-          <option>बुलेटिन</option><option>नवीकरण</option><option>नाम परिवर्तन</option>
-          <option>ठेगाना परिवर्तन</option><option>ट्रेडमार्क बिक्री</option><option>प्रमाण पत्र जारी</option>
-        </select>
-      </div>
+      <div class="fg"><label>विषय *</label><select id="fSub"></select></div>
       <div class="fg"><label>टिप्पणी</label><input type="text" id="fRem" placeholder="वैकल्पिक विवरण"></div>
+      <div class="g2">
+        <div class="fg"><label>ढिलाइको कारण</label><input type="text" id="fDelayR" placeholder="यदि लागू भए..."></div>
+        <div class="fg"><label>अपेक्षित मिति (AD)</label><input type="date" id="fExpD" style="background:var(--w08);border:1px solid var(--w15);border-radius:var(--r);color:var(--text-main,#fff);padding:11px 14px;width:100%;font-family:var(--font);font-size:1.72rem;outline:none"></div>
+      </div>
     </div>
     <div class="mfoot">
-      <button class="btn btn-outline btn-sm" onclick="cm('mAdd')">रद्द गर्नुहोस्</button>
+      <button class="btn btn-outline btn-sm" onclick="cm('mAdd')">रद्द</button>
       <button class="btn btn-primary btn-sm" onclick="submitAdd()">📁 दर्ता गर्नुहोस्</button>
     </div>
   </div>
@@ -389,7 +385,6 @@ tbody tr.cr{border-left:4px solid var(--red)}
   <div class="modal">
     <div class="mhead"><h3>📤 फाइल अगाडि पठाउने</h3><button class="mclose" onclick="cm('mFwd')">✕</button></div>
     <div class="mbody">
-      <p style="margin-bottom:12px;color:var(--light);font-size:1rem">यो फाइल अर्को तहमा पठाइँदैछ:</p>
       <div style="background:var(--w08);border-radius:var(--r);padding:15px;margin-bottom:14px">
         <div style="font-size:0.85rem;color:var(--light);margin-bottom:4px">निवेदन नम्बर</div>
         <div id="fwAN" style="font-family:var(--mono);font-size:1.2rem;color:var(--accent);font-weight:700">—</div>
@@ -399,758 +394,1197 @@ tbody tr.cr{border-left:4px solid var(--red)}
         <div id="fwDays" style="font-family:var(--mono);font-size:1.2rem;font-weight:700">—</div>
       </div>
       <div id="fwTarget" style="background:rgba(41,121,232,.15);border:1px solid rgba(41,121,232,.3);border-radius:var(--r);padding:14px;font-size:1rem;line-height:1.6"></div>
+      <!-- Recipient selector (shown when next level has multiple users) -->
+      <div id="fwUserSection" style="display:none;margin-top:16px">
+        <div style="font-size:1.72rem;font-weight:600;margin-bottom:10px;color:var(--light)">📋 पठाउने व्यक्ति छान्नुहोस्:</div>
+        <div id="fwUserBtns" style="display:flex;flex-wrap:wrap;gap:10px"></div>
+        <div id="fwNoUser" style="display:none;color:var(--orange);font-size:1.6rem;margin-top:8px">⚠️ यस तहमा कुनै सक्रिय प्रयोगकर्ता छैन</div>
+      </div>
     </div>
     <div class="mfoot">
-      <button class="btn btn-outline btn-sm" onclick="cm('mFwd')">रद्द गर्नुहोस्</button>
+      <button class="btn btn-outline btn-sm" onclick="cm('mFwd')">रद्द</button>
       <button class="btn btn-primary btn-sm" id="fwConfBtn" onclick="confirmFwd()">✅ पुष्टि गरी पठाउनुहोस्</button>
     </div>
   </div>
 </div>
 
+<!-- Modal: Update Delay Info -->
+<div class="overlay" id="mDelay">
+  <div class="modal">
+    <div class="mhead"><h3>⏰ ढिलाइ विवरण अपडेट</h3><button class="mclose" onclick="cm('mDelay')">✕</button></div>
+    <div class="mbody">
+      <p style="margin-bottom:14px;color:var(--light)">फाइल: <strong id="delayAN" style="color:var(--accent)">—</strong></p>
+      <div class="fg"><label>ढिलाइको कारण *</label><textarea id="delayReason" placeholder="ढिलाइ किन भयो? विस्तृत विवरण दिनुहोस्..."></textarea></div>
+      <div class="fg"><label>अपेक्षित सम्पन्न मिति (AD)</label><input type="date" id="delayExpected" style="background:var(--w08);border:1px solid var(--w15);border-radius:var(--r);color:var(--text-main,#fff);padding:11px 14px;width:100%;font-family:var(--font);font-size:1.72rem;outline:none"></div>
+      <div style="margin-top:14px;padding:12px;background:rgba(158,158,158,.1);border-radius:8px">
+        <label style="display:flex;align-items:center;gap:8px;font-size:1.72rem;cursor:pointer">
+          <input type="checkbox" id="delayOnHold" style="width:18px;height:18px;accent-color:var(--sky)">
+          <span>⏸️ "प्रक्रियामा" (On Hold) — मुख्य सूचीमा नदेखाउनुहोस्, तर गणनामा राख्नुहोस्</span>
+        </label>
+      </div>
+    </div>
+    <div class="mfoot">
+      <button class="btn btn-outline btn-sm" onclick="cm('mDelay')">रद्द</button>
+      <button class="btn btn-warn btn-sm" onclick="saveDelayInfo()">💾 सुरक्षित गर्नुहोस्</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Share Report -->
+<div class="overlay" id="mShare">
+  <div class="modal">
+    <div class="mhead"><h3>📤 प्रतिवेदन साझा गर्नुहोस्</h3><button class="mclose" onclick="cm('mShare')">✕</button></div>
+    <div class="mbody">
+      <div style="background:var(--w08);border-radius:var(--r);padding:14px;margin-bottom:14px">
+        <div style="font-size:1.6rem;color:var(--light);margin-bottom:8px">साझा गर्ने लिङ्क</div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <input type="text" id="shareUrl" readonly style="flex:1;background:var(--navy);border:1px solid var(--w15);border-radius:8px;color:var(--accent);padding:10px 13px;font-family:var(--mono);font-size:1.6rem;outline:none">
+          <button class="btn btn-outline btn-sm" onclick="copyShareUrl()">📋 Copy</button>
+        </div>
+      </div>
+      <div style="font-size:1.6rem;color:var(--light);margin-bottom:10px">मार्फत पठाउनुहोस्:</div>
+      <div class="share-options">
+        <button class="share-btn" onclick="shareViaEmail()"><span class="si">📧</span>Email</button>
+        <button class="share-btn" onclick="shareViaWhatsApp()"><span class="si">💬</span>WhatsApp</button>
+        <button class="share-btn" onclick="shareViaViber()"><span class="si">📱</span>Viber</button>
+        <button class="share-btn" onclick="downloadPdf()"><span class="si">📄</span>PDF Download</button>
+      </div>
+    </div>
+    <div class="mfoot">
+      <button class="btn btn-outline btn-sm" onclick="cm('mShare')">बन्द गर्नुहोस्</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Create/Edit User -->
+<div class="overlay" id="mUser">
+  <div class="modal">
+    <div class="mhead"><h3 id="mUserTitle">👤 नयाँ प्रयोगकर्ता थप्नुहोस्</h3><button class="mclose" onclick="cm('mUser')">✕</button></div>
+    <div class="mbody">
+      <div class="g2">
+        <div class="fg"><label>Username *</label><input type="text" id="uUN" placeholder="username" autocomplete="off"></div>
+        <div class="fg"><label>पूरा नाम *</label><input type="text" id="uFN" placeholder="पूरा नाम"></div>
+      </div>
+      <div class="fg"><label>तह (Hierarchy Level) *</label>
+        <select id="uHL"><option value="0">Admin (कुनै तह छैन)</option></select>
+      </div>
+      <div class="fg"><label>Email (वैकल्पिक)</label><input type="email" id="uEM" placeholder="email@example.com"></div>
+      <div class="fg" id="uPWFG"><label>पासवर्ड * (कम्तीमा ६ अक्षर)</label><input type="password" id="uPW" placeholder="password" autocomplete="new-password"></div>
+      <div class="fg" id="uActFG" style="display:none">
+        <label>स्थिति</label>
+        <select id="uAct">
+          <option value="true">सक्रिय</option>
+          <option value="false">निष्क्रिय</option>
+        </select>
+      </div>
+    </div>
+    <div class="mfoot">
+      <button class="btn btn-outline btn-sm" onclick="cm('mUser')">रद्द</button>
+      <button class="btn btn-primary btn-sm" id="mUserSaveBtn" onclick="saveUser()">💾 सुरक्षित गर्नुहोस्</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Reset Password -->
+<div class="overlay" id="mReset">
+  <div class="modal">
+    <div class="mhead"><h3>🔑 पासवर्ड रिसेट</h3><button class="mclose" onclick="cm('mReset')">✕</button></div>
+    <div class="mbody">
+      <p style="margin-bottom:14px;color:var(--light)">प्रयोगकर्ता: <strong id="resetUN" style="color:var(--accent)">—</strong></p>
+      <div class="fg"><label>नयाँ पासवर्ड *</label><input type="password" id="rNewPW" placeholder="नयाँ पासवर्ड" autocomplete="new-password"></div>
+      <div class="fg"><label>पुनः प्रविष्ट गर्नुहोस्</label><input type="password" id="rNewPW2" placeholder="पुनः पासवर्ड"></div>
+    </div>
+    <div class="mfoot">
+      <button class="btn btn-outline btn-sm" onclick="cm('mReset')">रद्द</button>
+      <button class="btn btn-warn btn-sm" onclick="doResetPw()">🔑 रिसेट गर्नुहोस्</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Delete Confirm -->
+<div class="overlay" id="mDel">
+  <div class="modal" style="max-width:380px">
+    <div class="mhead"><h3>🗑️ प्रयोगकर्ता मेट्ने?</h3><button class="mclose" onclick="cm('mDel')">✕</button></div>
+    <div class="mbody">
+      <p style="color:var(--light);line-height:1.7">के तपाईं <strong id="delUN" style="color:var(--red)">—</strong> लाई स्थायी रूपमा मेट्न चाहनुहुन्छ?</p>
+    </div>
+    <div class="mfoot">
+      <button class="btn btn-outline btn-sm" onclick="cm('mDel')">रद्द</button>
+      <button class="btn btn-danger btn-sm" onclick="doDeleteUser()">🗑️ मेट्नुहोस्</button>
+    </div>
+  </div>
+</div>
+
 <div class="toast" id="toast"></div>
+<div id="netBanner" style="position:fixed;top:0;left:0;right:0;background:#dc2626;color:#fff;text-align:center;font-size:0.8rem;padding:8px 16px;z-index:9998;transform:translateY(-100%);transition:transform .3s ease;font-weight:600;box-shadow:0 2px 8px rgba(0,0,0,0.3)"></div>
 
-<!-- Offline banner -->
-<div id="netBanner" style="position:fixed;top:0;left:0;right:0;background:#dc2626;color:#fff;
-  text-align:center;font-size:0.8rem;padding:8px 16px;z-index:9998;
-  transform:translateY(-100%);transition:transform .3s ease;font-weight:600;
-  box-shadow:0 2px 8px rgba(0,0,0,0.3)"></div>
-
-<!-- PWA Install button (shown only when browser supports A2HS) -->
-<button id="installBtn" onclick="installPWA()" style="display:none;position:fixed;bottom:28px;right:16px;
-  z-index:900;background:#1a2a5e;color:#fff;border:none;border-radius:24px;
-  padding:10px 18px;font-size:0.78rem;font-family:'Noto Sans Devanagari',sans-serif;
-  cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,0.3);gap:6px;align-items:center">
-  📲 एप इन्स्टल गर्नुहोस्
-</button>
 <div style="position:fixed;bottom:0;left:0;right:0;text-align:center;font-size:0.6rem;color:rgba(128,128,128,0.5);padding:3px 0;background:transparent;pointer-events:none;z-index:500;letter-spacing:.02em">
   Developed by: <strong>Ramlaxman Innovations</strong> &nbsp;|&nbsp; for Nepal Government
 </div>
 
 <script>
 // ══════════════════════════════════════════════════════════════
-// NEPALI BS ↔ AD CONVERSION ENGINE  (fixed & expanded)
-// Reference anchor: BS 2078 Baisakh 1 = AD 2021 April 14
-// Verified: today AD 2026-04-24 = BS 2083 Baisakh 11
+// BS ↔ AD CONVERSION ENGINE
 // ══════════════════════════════════════════════════════════════
 var NP_MONTHS = ['बैशाख','जेठ','असार','श्रावण','भाद्र','आश्विन','कार्तिक','मंसिर','पुष्य','माघ','फाल्गुन','चैत्र'];
-var NP_DAYS   = ['आइत','सोम','मंगल','बुध','बिही','शुक्र','शनि'];
-
-// Standard BS month-day data (years 2078–2090)
-// Each entry: [year, m1, m2, ..., m12]
 var BS_DATA = [
-  [2078, 31,31,32,32,31,30,30,29,29,30,29,31],
-  [2079, 31,32,31,32,31,30,30,29,30,29,30,30],
-  [2080, 31,32,31,32,31,30,30,30,29,29,30,31],
-  [2081, 30,32,31,32,31,30,30,30,29,30,29,31],
-  [2082, 31,31,32,31,31,31,30,29,30,29,30,30],
-  [2083, 31,31,32,31,31,31,30,29,30,29,30,30],
-  [2084, 31,31,32,31,31,31,30,29,30,29,30,30],
-  [2085, 31,31,32,32,31,30,30,29,30,29,30,30],
-  [2086, 31,32,31,32,31,30,30,30,29,29,30,31],
-  [2087, 30,32,31,32,31,30,30,30,29,30,29,31],
-  [2088, 31,31,32,31,31,31,30,29,30,29,30,30],
-  [2089, 31,31,32,32,31,30,30,29,30,29,30,30],
-  [2090, 31,32,31,32,31,30,30,30,29,29,30,31]
+  [2078,31,31,31,32,31,31,30,29,30,29,30,30],[2079,31,31,32,31,31,31,30,29,30,29,30,30],
+  [2080,31,32,31,32,31,30,30,30,29,29,30,30],[2081,31,32,31,32,31,30,30,30,29,30,29,31],
+  [2082,31,31,32,31,31,31,30,29,30,29,30,30],[2083,31,31,32,31,31,31,30,29,30,29,30,30],
+  [2084,31,31,32,31,31,31,30,29,30,29,30,30],[2085,31,31,32,32,31,30,30,29,30,29,30,30],
+  [2086,31,32,31,32,31,30,30,30,29,29,30,31],[2087,30,32,31,32,31,30,30,30,29,30,29,31],
+  [2088,31,31,32,31,31,31,30,29,30,29,30,30],[2089,31,31,32,32,31,30,30,29,30,29,30,30],
+  [2090,31,32,31,32,31,30,30,30,29,29,30,31]
 ];
+var AD_START = new Date(2021,3,14);
+function bsDaysInMonth(y,m){for(var i=0;i<BS_DATA.length;i++)if(BS_DATA[i][0]===y)return BS_DATA[i][m];return 30}
+function adToBS(adDate){var diff=Math.floor((adDate-AD_START)/86400000);if(diff<0)return{y:2078,m:1,d:1};var r=diff;for(var i=0;i<BS_DATA.length;i++){var row=BS_DATA[i];for(var m=1;m<=12;m++){var d=row[m];if(r<d)return{y:row[0],m:m,d:r+1};r-=d}}var l=BS_DATA[BS_DATA.length-1];return{y:l[0],m:12,d:l[12]}}
+function bsToAD(bsY,bsM,bsD){var days=0;for(var i=0;i<BS_DATA.length;i++){var row=BS_DATA[i];if(row[0]<bsY){for(var m=1;m<=12;m++)days+=row[m]}else if(row[0]===bsY){for(var m=1;m<bsM;m++)days+=row[m];days+=bsD-1;break}}return new Date(AD_START.getTime()+days*86400000)}
+function bsToISO(y,m,d){var ad=bsToAD(y,m,d);var yyyy=ad.getFullYear();var mm=String(ad.getMonth()+1).padStart(2,'0');var dd=String(ad.getDate()).padStart(2,'0');return yyyy+'-'+mm+'-'+dd;}
+function isoToBS(iso){var p=iso.split('-');return adToBS(new Date(+p[0],+p[1]-1,+p[2]))}
+function todayBS(){return adToBS(new Date())}
+var NP_DIGITS=['०','१','२','३','४','५','६','७','८','९'];
+function toNepaliNum(n){return String(n).replace(/[0-9]/g,function(d){return NP_DIGITS[+d]})}
+function isoToBsDisplay(iso){if(!iso)return'';var bs=isoToBS(iso);return toNepaliNum(bs.y)+'-'+toNepaliNum(bs.m)+'-'+toNepaliNum(bs.d)}
 
-// Anchor: BS 2078 Baisakh 1 = AD 2021 April 14
-var AD_START = new Date(2021, 3, 14); // months are 0-indexed in JS
-var BS_START_YEAR = 2078;
+function buildBsYearOptions(selId,selectedY){var el=document.getElementById(selId);el.innerHTML='';var todayBs=todayBS();for(var y=2075;y<=todayBs.y;y++){var opt=document.createElement('option');opt.value=y;opt.textContent=y+' बि.सं.';if(y===selectedY)opt.selected=true;el.appendChild(opt)}}
+function buildBsMonthOptions(selId,selectedM){var el=document.getElementById(selId);el.innerHTML='';for(var m=1;m<=12;m++){var opt=document.createElement('option');opt.value=m;opt.textContent=NP_MONTHS[m-1];if(m===selectedM)opt.selected=true;el.appendChild(opt)}}
+function buildBsDayOptions(selId,bsY,bsM,selectedD){var el=document.getElementById(selId);el.innerHTML='';var total=bsDaysInMonth(bsY,bsM);for(var d=1;d<=total;d++){var opt=document.createElement('option');opt.value=d;opt.textContent=d;if(d===selectedD)opt.selected=true;el.appendChild(opt)}}
+function initBsPicker(yId,mId,dId,bs){
+  buildBsYearOptions(yId,bs.y);buildBsMonthOptions(mId,bs.m);buildBsDayOptions(dId,bs.y,bs.m,bs.d);
+  function clamp(){var tbs=todayBS();var sy=+document.getElementById(yId).value;var sm=+document.getElementById(mId).value;var sd=+document.getElementById(dId).value;var maxM=(sy===tbs.y)?tbs.m:12;var mEl=document.getElementById(mId);for(var i=mEl.options.length-1;i>=0;i--)if(+mEl.options[i].value>maxM)mEl.remove(i);if(sm>maxM){mEl.value=maxM;sm=maxM}var maxD=(sy===tbs.y&&sm===tbs.m)?tbs.d:bsDaysInMonth(sy,sm);buildBsDayOptions(dId,sy,sm,Math.min(sd,maxD));var dEl=document.getElementById(dId);for(var j=dEl.options.length-1;j>=0;j--)if(+dEl.options[j].value>maxD)dEl.remove(j)}
+  document.getElementById(yId).onchange=function(){buildBsMonthOptions(mId,1);buildBsDayOptions(dId,+this.value,1,1);clamp()};
+  document.getElementById(mId).onchange=function(){buildBsDayOptions(dId,+document.getElementById(yId).value,+this.value,1);clamp()};
+  clamp()
+}
+function getBsPickerISO(yId,mId,dId){return bsToISO(+document.getElementById(yId).value,+document.getElementById(mId).value,+document.getElementById(dId).value)}
 
-function bsDaysInMonth(y, m) { // m: 1-12
-  for (var i = 0; i < BS_DATA.length; i++) {
-    if (BS_DATA[i][0] === y) return BS_DATA[i][m]; // BS_DATA[i][m] is month index 1–12
-  }
-  return 30; // fallback
+// ══════════════════════════════════════════════════════════════
+// CLIENT-SIDE CACHE  (60s TTL)
+// ══════════════════════════════════════════════════════════════
+var _memCache = {};
+var _CACHE_TTL = 60000; // ms
+function mcGet(key){ var e=_memCache[key]; if(e&&Date.now()<e.exp)return e.data; return null; }
+function mcSet(key,data){ _memCache[key]={data:data,exp:Date.now()+_CACHE_TTL}; }
+function mcClear(){ _memCache={}; }
+
+// ══════════════════════════════════════════════════════════════
+// APP STATE
+// ══════════════════════════════════════════════════════════════
+var CU      = null;
+var TAB     = 'active';
+var PAGE    = 1;
+var PS      = 20;
+var SET     = { green_threshold:7, yellow_threshold:12, orange_threshold:15 };
+var HIER    = [];
+var SUBJECTS = [];
+var FWD_ID  = null;
+var FWD_TARGET_USER = null;   // username of selected recipient at next level
+var DELAY_FILE_ID = null;
+var EDIT_UN = null;
+var DEL_UN  = null;
+var SHARE_URL = '';
+
+var AVATAR_COLORS = ['#2979e8','#00c853','#ff9100','#b57bee','#ff1744','#00bcd4','#ff6f00'];
+function avatarColor(idx){ return AVATAR_COLORS[idx % AVATAR_COLORS.length]; }
+function initials(name){ return (name||'U').split(' ').map(function(w){return w[0]}).join('').toUpperCase().slice(0,2); }
+
+// ── Login ─────────────────────────────────────────────────────
+function doLogin(){
+  var u=document.getElementById('lu').value.trim();
+  var p=document.getElementById('lp').value;
+  if(!u||!p){showE('lerr','कृपया प्रयोगकर्ता नाम र पासवर्ड प्रविष्ट गर्नुहोस्');return}
+  var btn=document.getElementById('loginBtn');
+  btn.disabled=true;btn.textContent='कृपया प्रतीक्षा गर्नुहोस्...';
+  google.script.run
+    .withSuccessHandler(function(res){
+      btn.disabled=false;btn.innerHTML='🔐 लगइन गर्नुहोस्';
+      if(res&&res.success){CU=res.user;showApp()}
+      else showE('lerr',(res&&res.message)||'Login failed')
+    })
+    .withFailureHandler(function(e){btn.disabled=false;btn.innerHTML='🔐 लगइन गर्नुहोस्';showE('lerr','सर्भरमा त्रुटि: '+e.message)})
+    .login(u,p)
+}
+document.getElementById('lp').addEventListener('keydown',function(e){if(e.key==='Enter')doLogin()});
+document.getElementById('lu').addEventListener('keydown',function(e){if(e.key==='Enter')doLogin()});
+
+function doLogout(){
+  CU=null; mcClear();
+  document.getElementById('app').style.display='none';
+  document.getElementById('loginScreen').style.display='flex';
+  document.getElementById('lp').value='';
+  document.getElementById('lerr').style.display='none';
 }
 
-function adToBS(adDate) {
-  var diff = Math.floor((adDate - AD_START) / 86400000);
-  if (diff < 0) return { y: BS_START_YEAR, m: 1, d: 1 }; // before range
+// ── App Init ──────────────────────────────────────────────────
+function showApp(){
+  document.getElementById('loginScreen').style.display='none';
+  var app=document.getElementById('app');app.style.display='flex';
+  var now=new Date();var bs=adToBS(now);
+  var NP_DAYS_FULL=['आइतबार','सोमबार','मंगलबार','बुधबार','बिहीबार','शुक्रबार','शनिबार'];
+  var bsFull='बि.सं. '+toNepaliNum(bs.y)+' '+NP_MONTHS[bs.m-1]+' '+toNepaliNum(bs.d)+' गते '+NP_DAYS_FULL[now.getDay()];
+  var adStr=now.toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
+  document.getElementById('hdDate').innerHTML=adStr+' &nbsp;|&nbsp; <span style="color:var(--accent);font-family:var(--mono)">'+bsFull+'</span>';
+  document.getElementById('uLabel').textContent=CU.fullName+' ('+CU.role+')';
 
-  var remaining = diff;
-  for (var i = 0; i < BS_DATA.length; i++) {
-    var row = BS_DATA[i];
-    for (var m = 1; m <= 12; m++) {
-      var days = row[m];
-      if (remaining < days) {
-        return { y: row[0], m: m, d: remaining + 1 };
+  google.script.run
+    .withSuccessHandler(function(bd){
+      if(bd.hierarchy)HIER=bd.hierarchy;
+      if(bd.settings)SET=bd.settings;
+      if(bd.subjects)SUBJECTS=bd.subjects;
+      var isAdmin=(CU.role==='admin');
+      if(isAdmin){
+        document.getElementById('tabDone').style.display='';
+        document.getElementById('tabReport').style.display='';
+      } else {
+        var maxL=0;HIER.filter(function(h){return h.active}).forEach(function(h){if(h.level>maxL)maxL=h.level});
+        if(CU.hierarchyLevel>=maxL){document.getElementById('tabDone').style.display=''}
       }
-      remaining -= days;
-    }
-  }
-  // Beyond data range: return last known + overflow
-  var lastRow = BS_DATA[BS_DATA.length - 1];
-  return { y: lastRow[0], m: 12, d: lastRow[12] };
+      loadActive(1)
+    })
+    .withFailureHandler(function(){loadActive(1)})
+    .getBootstrapData()
 }
 
-function bsToAD(bsY, bsM, bsD) {
-  var days = 0;
-  for (var i = 0; i < BS_DATA.length; i++) {
-    var row = BS_DATA[i];
-    if (row[0] < bsY) {
-      for (var m = 1; m <= 12; m++) days += row[m];
-    } else if (row[0] === bsY) {
-      for (var m = 1; m < bsM; m++) days += row[m];
-      days += bsD - 1;
+function switchTab(tab){
+  TAB=tab;
+  document.querySelectorAll('.ntab').forEach(function(t){t.classList.toggle('active',t.dataset.tab===tab)});
+  PAGE=1;
+  if(tab==='active')   loadActive(1);
+  if(tab==='completed')loadCompleted(1);
+  if(tab==='delayed')  loadDelayedReport(1);
+  if(tab==='report')   loadReport();
+  if(tab==='settings') renderSettings();
+}
+
+// ── Active Files ──────────────────────────────────────────────
+function loadActive(page){
+  PAGE=page;
+  var cKey='active_'+CU.hierarchyLevel+'_'+page;
+  var cached=mcGet(cKey);
+  if(cached){renderActive(cached);return;}
+  loading();
+  google.script.run
+    .withSuccessHandler(function(res){
+      if(!res){showError('सर्भरबाट कुनै प्रतिक्रिया आएन');return}
+      if(res.error){showError('Server Error: '+res.error);return}
+      if(res.settings)SET=res.settings;
+      if(res.hierarchy&&res.hierarchy.length)HIER=res.hierarchy;
+      mcSet(cKey,res);
+      renderActive(res)
+    })
+    .withFailureHandler(function(e){showError('फाइल लोड हुन सकेन: '+e.message)})
+    .getFiles(CU.role,CU.hierarchyLevel,CU.username,page,PS)
+}
+
+function renderActive(res){
+  var files=res.files||[];
+  var cnt={green:0,yellow:0,orange:0,red:0};
+  files.forEach(function(f){cnt[f.color]++});
+  var canAdd=(CU.role==='admin')||(HIER.length>0&&CU.hierarchyLevel===HIER.filter(function(h){return h.active})[0].level);
+  var canFwd=(CU.role!=='admin');
+  var activeHier=HIER.filter(function(h){return h.active}).sort(function(a,b){return a.level-b.level});
+  var onHoldCount=res.onHoldCount||0;
+
+  var h='<div class="stats-row">'
+    +sc('st','जम्मा',res.total)+sc('sg','🟢 सामान्य',cnt.green)
+    +sc('sy','🟡 ध्यान आवश्यक',cnt.yellow)+sc('so','🟠 ढिलाइ',cnt.orange)+sc('sr','🔴 अत्यावश्यक',cnt.red)
+    +(onHoldCount>0?sc('sh','⏸️ प्रक्रियामा',onHoldCount):'')
+    +'</div>';
+
+  // On-hold banner
+  if(onHoldCount>0){
+    h+='<div class="onhold-banner">⏸️ <span class="oh-num">'+onHoldCount+'</span><span class="oh-label"> फाइलहरू "प्रक्रियामा" (On Hold) छन् — मुख्य सूचीमा देखाइएका छैनन्</span>'
+      +'<button class="btn btn-outline btn-sm" onclick="switchTab(\'delayed\')">विवरण हेर्नुहोस् →</button></div>';
+  }
+
+  if(activeHier.length>0){
+    h+='<div class="flow-display">';
+    activeHier.forEach(function(hh,idx){
+      h+='<div class="flow-level">'+hh.roleName+'</div>';
+      if(idx<activeHier.length-1)h+='<span class="flow-arrow">→</span>';
+    });
+    h+='<span class="flow-arrow">→</span><div class="flow-level" style="border-color:var(--green);color:var(--green)">✅ सम्पन्न</div></div>';
+  }
+
+  h+='<div class="toolbar">'
+    +(canAdd?'<button class="btn btn-primary btn-sm" onclick="openAdd()">➕ नयाँ फाइल दर्ता</button>':'')
+    +'<button class="btn btn-teal btn-sm" onclick="openShare()">📤 प्रतिवेदन साझा</button>'
+    +'<div class="tbar-r"><button class="btn btn-outline btn-sm" onclick="mcClear();loadActive('+res.page+')">🔄 पुनः लोड</button></div>'
+    +'</div>';
+
+  if(!files.length){
+    h+='<div class="empty"><div class="ico">📂</div><p>यस तहमा कुनै सक्रिय फाइल भेटिएन</p></div>';
+  } else {
+    h+='<div class="twrap"><table><thead><tr><th>#</th><th>निवेदन नम्बर</th><th>विषय</th><th>प्राप्त मिति</th><th>तह</th><th>जिम्मेवार</th><th>तहमा दिन</th><th>कुल दिन</th><th>ढिलाइ</th><th>स्थिति</th>'+(canFwd?'<th>कार्य</th>':'')+'</tr></thead><tbody>';
+    files.forEach(function(f,i){
+      var rn=(res.page-1)*PS+i+1;
+      var cc='c'+f.color.charAt(0);
+      var badge='<span class="badge badge-'+f.color+'">'+clabel(f.color)+'</span>';
+      var dots=makeDots(f.currentLevel,activeHier);
+      var delayCell='<td><div class="delay-info">';
+      if(f.delayReason)delayCell+='<span class="delay-reason" title="'+esc(f.delayReason)+'">⚠️ '+esc(f.delayReason.substring(0,25))+(f.delayReason.length>25?'…':'')+'</span>';
+      if(f.expectedDate)delayCell+='<span class="expected-date">⏳ '+isoToBsDisplay(f.expectedDate)+'</span>';
+      delayCell+='</div></td>';
+      // Assigned user badge
+      var assignedCell='<td>';
+      if(f.assignedTo){
+        assignedCell+='<span class="chip" style="font-size:1.44rem">👤 '+esc(f.assignedTo)+'</span>';
+      } else {
+        assignedCell+='<span style="color:var(--w40);font-size:1.44rem">—</span>';
+      }
+      assignedCell+='</td>';
+      var fwdBtn='';
+      if(canFwd){
+        fwdBtn='<td style="display:flex;gap:4px;flex-wrap:wrap">'
+          +'<button class="btn btn-success btn-sm" onclick="openFwd(\''+esc(f.id)+'\',\''+esc(f.appNumber)+'\',\''+esc(f.subject)+'\','+f.totalDays+','+f.currentLevel+')">📤 अगाडि</button>'
+          +'<button class="btn btn-outline btn-sm" onclick="openDelayModal('+f.id+',\''+esc(f.appNumber)+'\')">⏰</button>'
+          +'</td>';
+      }
+      h+='<tr class="'+cc+'">'
+        +'<td style="color:var(--w40);font-family:var(--mono);font-size:.72rem">'+rn+'</td>'
+        +'<td><span class="anum">'+esc(f.appNumber)+'</span></td>'
+        +'<td><span class="stag">'+esc(f.subject)+'</span></td>'
+        +'<td style="font-family:var(--mono);font-size:.76rem;color:var(--light)">'+isoToBsDisplay(f.receiveDate)+'</td>'
+        +'<td>'+dots+'</td>'
+        +assignedCell
+        +'<td><span class="chip"><span class="d">'+f.levelDays+'</span> दिन</span></td>'
+        +'<td><span class="chip"><span class="d">'+f.totalDays+'</span> दिन</span></td>'
+        +delayCell
+        +'<td>'+badge+'</td>'
+        +fwdBtn
+        +'</tr>';
+    });
+    h+='</tbody></table></div>';
+    h+=paginate(res.page,res.totalPages,'loadActive');
+  }
+  document.getElementById('mc').innerHTML=h;
+}
+
+// ── Completed Files ───────────────────────────────────────────
+function loadCompleted(page){
+  PAGE=page;
+  var cKey='completed_'+page;
+  var cached=mcGet(cKey);
+  if(cached){renderCompleted(cached);return;}
+  loading();
+  google.script.run
+    .withSuccessHandler(function(res){
+      if(!res){showError('सर्भरबाट कुनै प्रतिक्रिया आएन');return}
+      if(res.error){showError('Server Error: '+res.error);return}
+      if(res.hierarchy&&res.hierarchy.length)HIER=res.hierarchy;
+      mcSet(cKey,res);
+      renderCompleted(res)
+    })
+    .withFailureHandler(function(e){showError('त्रुटि: '+e.message)})
+    .getCompletedFiles(page,PS)
+}
+
+function renderCompleted(res){
+  var files=res.files||[];
+  var activeHier=HIER.filter(function(h){return h.active}).sort(function(a,b){return a.level-b.level});
+  var h='<div class="toolbar">'
+    +'<span style="color:var(--light);font-size:.83rem">कुल सम्पन्न: <strong>'+res.total+'</strong></span>'
+    +'<button class="btn btn-teal btn-sm" onclick="openShare()">📤 प्रतिवेदन साझा</button>'
+    +'<div class="tbar-r"><button class="btn btn-outline btn-sm" onclick="mcClear();loadCompleted('+res.page+')">🔄 पुनः लोड</button></div></div>';
+  if(!files.length){
+    h+='<div class="empty"><div class="ico">✅</div><p>कुनै सम्पन्न फाइल भेटिएन</p></div>';
+  } else {
+    var levelHeaders=activeHier.map(function(hh){return'<th>'+hh.roleName.charAt(0)+'.दिन</th>'}).join('');
+    h+='<div class="twrap"><table><thead><tr><th>#</th><th>निवेदन नम्बर</th><th>विषय</th><th>प्राप्त मिति</th><th>सम्पन्न मिति</th>'+levelHeaders+'<th>जम्मा</th><th>ढिलाइ कारण</th></tr></thead><tbody>';
+    files.forEach(function(f,i){
+      var r=(res.page-1)*PS+i+1;
+      var levelCells=activeHier.map(function(hh){
+        var ls=f.levelSummary?f.levelSummary.filter(function(x){return x.level===hh.level}):[];
+        var d=ls.length?ls[0].days:0;
+        return'<td><span class="chip"><span class="d">'+d+'</span></span></td>';
+      }).join('');
+      h+='<tr><td style="color:var(--w40);font-family:var(--mono);font-size:.72rem">'+r+'</td>'
+        +'<td><span class="anum">'+esc(f.appNumber)+'</span></td>'
+        +'<td><span class="stag">'+esc(f.subject)+'</span></td>'
+        +'<td style="font-family:var(--mono);font-size:.76rem;color:var(--light)">'+isoToBsDisplay(f.receiveDate)+'</td>'
+        +'<td style="font-family:var(--mono);font-size:.76rem;color:var(--green)">'+isoToBsDisplay(f.completedDate)+'</td>'
+        +levelCells
+        +'<td><strong>'+f.totalDays+'</strong></td>'
+        +'<td style="font-size:1.44rem;color:var(--orange)">'+(f.delayReason?esc(f.delayReason.substring(0,30)):'—')+'</td>'
+        +'</tr>';
+    });
+    h+='</tbody></table></div>';
+    h+=paginate(res.page,res.totalPages,'loadCompleted');
+  }
+  document.getElementById('mc').innerHTML=h;
+}
+
+// ── Delay Report (NEW) ────────────────────────────────────────
+function loadDelayedReport(page){
+  PAGE=page;
+  var cKey='delayed_'+page;
+  var cached=mcGet(cKey);
+  if(cached){renderDelayedReport(cached);return;}
+  loading();
+  google.script.run
+    .withSuccessHandler(function(res){
+      if(!res){showError('ढिलाइ प्रतिवेदन लोड हुन सकेन');return}
+      if(res.error){showError('Server Error: '+res.error);return}
+      if(res.hierarchy&&res.hierarchy.length)HIER=res.hierarchy;
+      mcSet(cKey,res);
+      renderDelayedReport(res)
+    })
+    .withFailureHandler(function(e){showError('त्रुटि: '+e.message)})
+    .getDelayReport(page,PS)
+}
+
+function renderDelayedReport(res){
+  var files=res.files||[];
+  var activeHier=HIER.filter(function(h){return h.active}).sort(function(a,b){return a.level-b.level});
+
+  var h='<div class="stats-row">'
+    +sc('sr','⚠️ समयमा नसकिएका',res.total)
+    +sc('sh','⏸️ प्रक्रियामा (On Hold)',(res.onHoldCount||0))
+    +'</div>';
+
+  // On-Hold explanation
+  if(res.onHoldCount>0){
+    h+='<div class="onhold-banner" style="margin-bottom:18px">⏸️ <span class="oh-num">'+(res.onHoldCount||0)+'</span>'
+      +'<span class="oh-label"> फाइलहरू "On Hold" छन् — समय चाहिने तर मुख्य सूचीमा देखाउन नमिल्ने</span></div>';
+  }
+
+  h+='<div class="toolbar">'
+    +'<button class="btn btn-teal btn-sm" onclick="openShare()">📤 प्रतिवेदन साझा</button>'
+    +'<button class="btn btn-outline btn-sm" onclick="window.print()">🖨️ Print / PDF</button>'
+    +'<div class="tbar-r"><button class="btn btn-outline btn-sm" onclick="mcClear();loadDelayedReport(1)">🔄 पुनः लोड</button></div></div>';
+
+  if(!files.length){
+    h+='<div class="empty"><div class="ico">✅</div><p>कुनै ढिलाइएको फाइल भेटिएन — सबै समयमा छन्!</p></div>';
+  } else {
+    h+='<div class="twrap"><table><thead><tr><th>#</th><th>निवेदन नम्बर</th><th>विषय</th><th>प्राप्त मिति</th><th>तह</th><th>कुल दिन</th><th>ढिलाइको कारण</th><th>अपेक्षित मिति</th><th>बित्यो दिन</th><th>कार्य</th></tr></thead><tbody>';
+    files.forEach(function(f,i){
+      var rn=(res.page-1)*PS+i+1;
+      var dots=makeDots(f.currentLevel,activeHier);
+      var overdueCell=f.daysOverdue>0?'<span class="overdue-chip">+'+f.daysOverdue+'d</span>':'—';
+      h+='<tr class="cr">'
+        +'<td style="color:var(--w40);font-family:var(--mono);font-size:.72rem">'+rn+'</td>'
+        +'<td><span class="anum">'+esc(f.appNumber)+'</span></td>'
+        +'<td><span class="stag">'+esc(f.subject)+'</span></td>'
+        +'<td style="font-family:var(--mono);font-size:.76rem;color:var(--light)">'+isoToBsDisplay(f.receiveDate)+'</td>'
+        +'<td>'+dots+'</td>'
+        +'<td><span class="chip"><span class="d" style="color:var(--red)">'+f.totalDays+'</span> दिन</span></td>'
+        +'<td style="font-size:1.44rem;color:var(--orange)">'+esc(f.delayReason||'—')+'</td>'
+        +'<td style="font-family:var(--mono);font-size:1.44rem;color:var(--yellow)">'+(f.expectedDate?isoToBsDisplay(f.expectedDate):'—')+'</td>'
+        +'<td>'+overdueCell+'</td>'
+        +'<td><button class="btn btn-warn btn-sm" onclick="openDelayModal('+f.id+',\''+esc(f.appNumber)+'\')">⏰ अपडेट</button></td>'
+        +'</tr>';
+    });
+    h+='</tbody></table></div>';
+    h+=paginate(res.page,res.totalPages,'loadDelayedReport');
+  }
+  document.getElementById('mc').innerHTML=h;
+}
+
+// ── User Report ────────────────────────────────────────────────
+function loadReport(){
+  loading();
+  var cached=mcGet('report');
+  if(cached){renderReport(cached);return;}
+  google.script.run
+    .withSuccessHandler(function(res){
+      if(!res){showError('प्रतिवेदन लोड हुन सकेन');return}
+      if(res.hierarchy&&res.hierarchy.length)HIER=res.hierarchy;
+      mcSet('report',res);
+      renderReport(res)
+    })
+    .withFailureHandler(function(e){showError('त्रुटि: '+e.message)})
+    .getUserReport()
+}
+
+function renderReport(res){
+  var report=res.report||[];
+  var activeHier=HIER.filter(function(h){return h.active}).sort(function(a,b){return a.level-b.level});
+  var maxDays=0;report.forEach(function(r){if(r.totalDaysWorked>maxDays)maxDays=r.totalDaysWorked});
+
+  var h='<div class="toolbar">'
+    +'<span style="font-size:1.9rem;font-weight:700">📊 प्रयोगकर्ता कार्य प्रतिवेदन</span>'
+    +'<button class="btn btn-teal btn-sm" onclick="openShare()">📤 साझा / PDF</button>'
+    +'<div class="tbar-r"><button class="btn btn-outline btn-sm" onclick="mcClear();loadReport()">🔄 पुनः लोड</button></div></div>';
+
+  var totalFiles=0;var totalDays=0;
+  report.forEach(function(r){totalFiles+=r.totalFiles;totalDays+=r.totalDaysWorked});
+  h+='<div class="stats-row">'
+    +sc('st','जम्मा प्रयोगकर्ता',report.length)
+    +sc('sp','जम्मा फाइल प्रशोधन',totalFiles)
+    +sc('sg','जम्मा कार्य दिन',totalDays)
+    +'</div>';
+
+  h+='<div class="twrap" style="margin-bottom:20px"><table><thead><tr>'
+    +'<th>#</th><th>प्रयोगकर्ता</th><th>तह</th><th>जम्मा फाइल</th><th>सक्रिय</th><th>सम्पन्न</th><th>जम्मा दिन</th><th>औसत दिन/फाइल</th><th>दक्षता</th>'
+    +'</tr></thead><tbody>';
+
+  report.forEach(function(r,i){
+    var pct=maxDays>0?Math.round(r.totalDaysWorked/maxDays*100):0;
+    var roleBadgeColor=r.hierarchyLevel===1?'badge-blue':r.hierarchyLevel===2?'badge-purple':r.hierarchyLevel===3?'badge-orange':'badge-green';
+    h+='<tr>'
+      +'<td style="color:var(--w40);font-family:var(--mono);font-size:.72rem">'+(i+1)+'</td>'
+      +'<td><div style="display:flex;align-items:center;gap:8px"><div style="width:30px;height:30px;border-radius:50%;background:'+avatarColor(i)+';display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:700">'+initials(r.fullName)+'</div><div><div style="font-size:1.72rem;font-weight:600">'+esc(r.fullName)+'</div><div style="font-size:1.44rem;color:var(--light)">@'+esc(r.username)+'</div></div></div></td>'
+      +'<td><span class="badge '+roleBadgeColor+'">'+esc(r.role)+'</span></td>'
+      +'<td><strong style="font-family:var(--mono)">'+r.totalFiles+'</strong></td>'
+      +'<td><span style="color:var(--yellow);font-family:var(--mono)">'+r.activeFiles+'</span></td>'
+      +'<td><span style="color:var(--green);font-family:var(--mono)">'+r.completedFiles+'</span></td>'
+      +'<td><strong style="font-family:var(--mono)">'+r.totalDaysWorked+'</strong></td>'
+      +'<td><span style="font-family:var(--mono);color:var(--accent)">'+r.avgDays+'</span></td>'
+      +'<td><div style="width:80px"><div class="progress-bar"><div class="progress-fill" style="width:'+pct+'%;background:'+avatarColor(i)+'"></div></div><div style="font-size:1.44rem;color:var(--light);margin-top:3px">'+pct+'%</div></div></td>'
+      +'</tr>';
+  });
+  h+='</tbody></table></div>';
+
+  h+='<div style="font-size:1.76rem;font-weight:700;margin-bottom:12px;color:var(--light)">विस्तृत कार्ड दृश्य</div>';
+  h+='<div class="report-grid">';
+  report.forEach(function(r,i){
+    var col=avatarColor(i);
+    var pct=maxDays>0?Math.round(r.totalDaysWorked/maxDays*100):0;
+    h+='<div class="rcard">'
+      +'<div class="rc-top"><div class="rc-avatar" style="background:'+col+';color:#fff">'+initials(r.fullName)+'</div>'
+      +'<div><div class="rc-name">'+esc(r.fullName)+'</div><div class="rc-role">'+esc(r.role)+'</div></div></div>'
+      +'<div class="rc-stats">'
+      +'<div class="rc-stat"><div class="rc-stat-val" style="color:var(--accent)">'+r.totalFiles+'</div><div class="rc-stat-lbl">जम्मा फाइल</div></div>'
+      +'<div class="rc-stat"><div class="rc-stat-val" style="color:var(--yellow)">'+r.activeFiles+'</div><div class="rc-stat-lbl">सक्रिय</div></div>'
+      +'<div class="rc-stat"><div class="rc-stat-val" style="color:var(--green)">'+r.completedFiles+'</div><div class="rc-stat-lbl">सम्पन्न</div></div>'
+      +'<div class="rc-stat"><div class="rc-stat-val" style="color:'+col+'">'+r.avgDays+'</div><div class="rc-stat-lbl">औसत दिन</div></div>'
+      +'</div>'
+      +'<div class="progress-bar" style="margin-top:14px"><div class="progress-fill" style="width:'+pct+'%;background:'+col+'"></div></div>'
+      +'<div style="display:flex;justify-content:space-between;font-size:1.44rem;color:var(--light);margin-top:5px"><span>जम्मा कार्य दिन: <strong style="color:'+col+'">'+r.totalDaysWorked+'</strong></span><span>'+pct+'%</span></div>'
+      +'</div>';
+  });
+  h+='</div>';
+  if(!report.length)h='<div class="empty"><div class="ico">📊</div><p>कुनै प्रतिवेदन डेटा भेटिएन</p></div>';
+  document.getElementById('mc').innerHTML=h;
+}
+
+// ── Add File ──────────────────────────────────────────────────
+function openAdd(){
+  var bs=todayBS();
+  initBsPicker('fDtY','fDtM','fDtD',bs);
+  document.getElementById('fAN').value='';
+  document.getElementById('fRem').value='';
+  document.getElementById('fDelayR').value='';
+  document.getElementById('fExpD').value='';
+  if(SUBJECTS&&SUBJECTS.length){populateSubjectDropdown();om('mAdd');}
+  else{
+    var sel=document.getElementById('fSub');sel.innerHTML='<option value="">⏳ लोड हुँदैछ...</option>';om('mAdd');
+    google.script.run.withSuccessHandler(function(s){SUBJECTS=s||[];populateSubjectDropdown()})
+      .withFailureHandler(function(){}).getSubjects();
+  }
+}
+function submitAdd(){
+  var an=document.getElementById('fAN').value.trim();
+  var sub=document.getElementById('fSub').value;
+  var dt=getBsPickerISO('fDtY','fDtM','fDtD');
+  var rem=document.getElementById('fRem').value.trim();
+  var delR=document.getElementById('fDelayR').value.trim();
+  var expD=document.getElementById('fExpD').value;
+  if(!an||!sub||!dt){toast('कृपया आवश्यक विवरणहरू भर्नुहोस्','error');return}
+  var btn=document.querySelector('#mAdd .btn-primary');
+  btn.disabled=true;btn.innerHTML='⏳ दर्ता हुँदैछ...';
+  google.script.run
+    .withSuccessHandler(function(r){
+      btn.disabled=false;btn.innerHTML='📁 दर्ता गर्नुहोस्';
+      if(r&&r.success){cm('mAdd');toast('फाइल सफलतापूर्वक दर्ता भयो ✅','success');mcClear();loadActive(1)}
+      else toast('त्रुटि: '+((r&&r.message)||'Unknown'),'error')
+    })
+    .withFailureHandler(function(e){btn.disabled=false;btn.innerHTML='📁 दर्ता गर्नुहोस्';toast('त्रुटि: '+e.message,'error')})
+    .addFile(an,sub,dt,rem,delR,expD,CU.username)
+}
+
+// ── Delay Info Modal (NEW) ────────────────────────────────────
+function openDelayModal(fileId, appNum){
+  DELAY_FILE_ID = fileId;
+  document.getElementById('delayAN').textContent = appNum;
+  document.getElementById('delayReason').value = '';
+  document.getElementById('delayExpected').value = '';
+  document.getElementById('delayOnHold').checked = false;
+  om('mDelay');
+}
+function saveDelayInfo(){
+  var reason = document.getElementById('delayReason').value.trim();
+  var expected = document.getElementById('delayExpected').value;
+  var onHold = document.getElementById('delayOnHold').checked;
+  if(!reason){toast('ढिलाइको कारण आवश्यक छ','error');return}
+  var btn=document.querySelector('#mDelay .btn-warn');btn.disabled=true;btn.innerHTML='⏳...';
+  // Update delay info
+  google.script.run.withSuccessHandler(function(r1){
+    if(r1&&r1.success){
+      // Update on-hold status
+      google.script.run.withSuccessHandler(function(r2){
+        btn.disabled=false;btn.innerHTML='💾 सुरक्षित गर्नुहोस्';
+        cm('mDelay');
+        toast('ढिलाइ विवरण सुरक्षित भयो ✅','success');
+        mcClear();
+        if(TAB==='active')loadActive(PAGE);
+        else if(TAB==='delayed')loadDelayedReport(PAGE);
+      }).withFailureHandler(function(e){btn.disabled=false;btn.innerHTML='💾 सुरक्षित गर्नुहोस्';toast('त्रुटि: '+e.message,'error')})
+        .setFileOnHold(DELAY_FILE_ID,onHold,CU.username);
+    } else {
+      btn.disabled=false;btn.innerHTML='💾 सुरक्षित गर्नुहोस्';
+      toast('त्रुटि: '+((r1&&r1.message)||'Unknown'),'error');
+    }
+  }).withFailureHandler(function(e){btn.disabled=false;btn.innerHTML='💾 सुरक्षित गर्नुहोस्';toast('त्रुटि: '+e.message,'error')})
+    .updateFileDelayInfo(DELAY_FILE_ID,reason,expected,CU.username);
+}
+
+// ── Forward File ──────────────────────────────────────────────
+var AVATAR_COLORS_FWD=['#2979e8','#00c853','#ff9100','#b57bee','#ff1744','#00bcd4'];
+function openFwd(id,an,sub,days,lvl){
+  FWD_ID=id;
+  FWD_TARGET_USER=null;
+  document.getElementById('fwAN').textContent=an;
+  document.getElementById('fwSub').textContent=sub;
+  document.getElementById('fwDays').textContent=days+' दिन';
+
+  var activeHier=HIER.filter(function(h){return h.active}).sort(function(a,b){return a.level-b.level});
+  var curName='यो तह', nextName='सम्पन्न', nextLevel=-1;
+  for(var i=0;i<activeHier.length;i++){
+    if(activeHier[i].level===lvl){
+      curName=activeHier[i].roleName;
+      if(i+1<activeHier.length){nextName=activeHier[i+1].roleName;nextLevel=activeHier[i+1].level;}
       break;
     }
   }
-  return new Date(AD_START.getTime() + days * 86400000);
-}
+  document.getElementById('fwTarget').innerHTML='📤 <strong>'+curName+'</strong> बाट <strong>'+nextName+'</strong> मा पठाइनेछ।';
 
-function bsToISO(bsY, bsM, bsD) {
-  var ad = bsToAD(bsY, bsM, bsD);
-  return ad.toISOString().slice(0, 10);
-}
+  var userSection=document.getElementById('fwUserSection');
+  var userBtns=document.getElementById('fwUserBtns');
+  var noUserMsg=document.getElementById('fwNoUser');
+  var confBtn=document.getElementById('fwConfBtn');
 
-function isoToBS(iso) {
-  var parts = iso.split('-');
-  return adToBS(new Date(+parts[0], +parts[1] - 1, +parts[2]));
-}
-
-function bsLabel(bs) {
-  return bs.y + ' ' + NP_MONTHS[bs.m - 1] + ' ' + bs.d;
-}
-
-function todayBS() {
-  return adToBS(new Date());
-}
-
-// ── BS Date Picker helpers ────────────────────────────────────
-function buildBsYearOptions(selId, selectedY) {
-  var el = document.getElementById(selId);
-  el.innerHTML = '';
-  var todayBs = todayBS();
-  for (var y = 2075; y <= todayBs.y; y++) {
-    var opt = document.createElement('option');
-    opt.value = y;
-    opt.textContent = y + ' बि.सं.';
-    if (y === selectedY) opt.selected = true;
-    el.appendChild(opt);
-  }
-}
-
-function buildBsMonthOptions(selId, selectedM) {
-  var el = document.getElementById(selId);
-  el.innerHTML = '';
-  for (var m = 1; m <= 12; m++) {
-    var opt = document.createElement('option');
-    opt.value = m;
-    opt.textContent = NP_MONTHS[m - 1];
-    if (m === selectedM) opt.selected = true;
-    el.appendChild(opt);
-  }
-}
-
-function buildBsDayOptions(selId, bsY, bsM, selectedD) {
-  var el = document.getElementById(selId);
-  el.innerHTML = '';
-  var total = bsDaysInMonth(bsY, bsM);
-  for (var d = 1; d <= total; d++) {
-    var opt = document.createElement('option');
-    opt.value = d;
-    opt.textContent = d;
-    if (d === selectedD) opt.selected = true;
-    el.appendChild(opt);
-  }
-}
-
-function initBsPicker(yId, mId, dId, bs) {
-  buildBsYearOptions(yId, bs.y);
-  buildBsMonthOptions(mId, bs.m);
-  buildBsDayOptions(dId, bs.y, bs.m, bs.d);
-
-  function clampToToday() {
-    var todayBs = todayBS();
-    var selY = +document.getElementById(yId).value;
-    var selM = +document.getElementById(mId).value;
-    var selD = +document.getElementById(dId).value;
-    // Rebuild month options: if current year = today's year, limit months
-    var mEl = document.getElementById(mId);
-    var maxM = (selY === todayBs.y) ? todayBs.m : 12;
-    for (var i = mEl.options.length - 1; i >= 0; i--) {
-      if (+mEl.options[i].value > maxM) mEl.remove(i);
-    }
-    if (selM > maxM) { mEl.value = maxM; selM = maxM; }
-    // Rebuild day options: if year+month = today, limit days
-    var maxD = (selY === todayBs.y && selM === todayBs.m) ? todayBs.d : bsDaysInMonth(selY, selM);
-    buildBsDayOptions(dId, selY, selM, Math.min(selD, maxD));
-    // Remove future days
-    var dEl = document.getElementById(dId);
-    for (var j = dEl.options.length - 1; j >= 0; j--) {
-      if (+dEl.options[j].value > maxD) dEl.remove(j);
-    }
-  }
-
-  document.getElementById(yId).onchange = function () {
-    buildBsMonthOptions(mId, 1);
-    buildBsDayOptions(dId, +this.value, 1, 1);
-    clampToToday();
-  };
-  document.getElementById(mId).onchange = function () {
-    buildBsDayOptions(dId, +document.getElementById(yId).value, +this.value, 1);
-    clampToToday();
-  };
-  clampToToday();
-}
-
-function getBsPickerISO(yId, mId, dId) {
-  var y = +document.getElementById(yId).value;
-  var m = +document.getElementById(mId).value;
-  var d = +document.getElementById(dId).value;
-  return bsToISO(y, m, d);
-}
-
-// ── Nepali digits display helper ─────────────────────────────
-var NP_DIGITS = ['०', '१', '२', '३', '४', '५', '६', '७', '८', '९'];
-function toNepaliNum(n) {
-  return String(n).replace(/[0-9]/g, function (d) { return NP_DIGITS[+d]; });
-}
-
-function isoToBsDisplay(iso) {
-  if (!iso) return '';
-  var bs = isoToBS(iso);
-  return toNepaliNum(bs.y) + '-' + toNepaliNum(bs.m) + '-' + toNepaliNum(bs.d);
-}
-
-var CU   = null;
-var TAB  = 'active';
-var PAGE = 1;
-var PS   = 20;
-var SET  = { green_threshold: 7, yellow_threshold: 12, orange_threshold: 15 };
-var FWD_ID = null;
-
-var LNAMES = ['', 'नायब सुब्बा', 'शाखा अधिकृत', 'निर्देशक', 'सम्पन्न'];
-var NEXTLV = ['', 'शाखा अधिकृत', 'निर्देशक', 'सम्पन्न'];
-
-// ── Login ────────────────────────────────────────────────────
-function doLogin() {
-  var u = document.getElementById('lu').value.trim();
-  var p = document.getElementById('lp').value;
-  if (!u || !p) { showE('lerr', 'कृपया प्रयोगकर्ता नाम र पासवर्ड प्रविष्ट गर्नुहोस्'); return; }
-  var btn = document.getElementById('loginBtn');
-  btn.disabled = true;
-  btn.textContent = 'कृपया प्रतीक्षा गर्नुहोस्...';
-
-  google.script.run
-    .withSuccessHandler(function (res) {
-      btn.disabled = false;
-      btn.innerHTML = '🔐 लगइन गर्नुहोस्';
-      if (res && res.success) {
-        CU = res.user;
-        showApp();
-      } else {
-        showE('lerr', (res && res.message) ? res.message : 'Login failed');
-      }
-    })
-    .withFailureHandler(function (e) {
-      btn.disabled = false;
-      btn.innerHTML = '🔐 लगइन गर्नुहोस्';
-      showE('lerr', 'सर्भरमा त्रुटि भयो: ' + e.message);
-    })
-    .login(u, p);
-}
-document.getElementById('lp').addEventListener('keydown', function (e) { if (e.key === 'Enter') doLogin(); });
-document.getElementById('lu').addEventListener('keydown', function (e) { if (e.key === 'Enter') doLogin(); });
-
-function doLogout() {
-  CU = null;
-  document.getElementById('app').style.display = 'none';
-  document.getElementById('loginScreen').style.display = 'flex';
-  document.getElementById('lp').value = '';
-  document.getElementById('lerr').style.display = 'none';
-}
-
-// ── App Init ─────────────────────────────────────────────────
-function showApp() {
-  document.getElementById('loginScreen').style.display = 'none';
-  var app = document.getElementById('app');
-  app.style.display = 'flex';
-
-  var now = new Date();
-  var bs = adToBS(now);
-  var adStr = now.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-  var NP_DAYS_FULL = ['आइतबार','सोमबार','मंगलबार','बुधबार','बिहीबार','शुक्रबार','शनिबार'];
-  var bsFull = 'बि.सं. ' + toNepaliNum(bs.y) + ' ' + NP_MONTHS[bs.m-1] + ' ' + toNepaliNum(bs.d) + ' गते ' + NP_DAYS_FULL[now.getDay()];
-  document.getElementById('hdDate').innerHTML = adStr + ' &nbsp;|&nbsp; <span style="color:var(--accent);font-family:var(--mono)">' + bsFull + '</span>';
-  document.getElementById('hdBS').textContent = '';
-  document.getElementById('uLabel').textContent = CU.fullName + ' (' + CU.role + ')';
-
-  if (CU.role === 'admin' || CU.role === 'निर्देशक') {
-    document.getElementById('tabDone').style.display = '';
-  }
-  loadActive(1);
-}
-
-function switchTab(tab) {
-  TAB = tab;
-  document.querySelectorAll('.ntab').forEach(function (t) {
-    t.classList.toggle('active', t.dataset.tab === tab);
-  });
-  PAGE = 1;
-  if (tab === 'active')    loadActive(1);
-  if (tab === 'completed') loadCompleted(1);
-  if (tab === 'settings')  renderSettings();
-}
-
-// ── Active Files ─────────────────────────────────────────────
-function loadActive(page) {
-  PAGE = page;
-  loading();
-  google.script.run
-    .withSuccessHandler(function (res) {
-      if (!res) { showError('सर्भरबाट कुनै प्रतिक्रिया आएन'); return; }
-      if (res.error) { showError('Server Error: ' + res.error); return; }
-      if (res.settings) SET = res.settings;
-      renderActive(res);
-    })
-    .withFailureHandler(function (e) {
-      showError('फाइल लोड हुन सकेन: ' + e.message);
-    })
-    .getFiles(CU.role, page, PS);
-}
-
-function renderActive(res) {
-  var files = res.files || [];
-  var cnt = { green: 0, yellow: 0, orange: 0, red: 0 };
-  files.forEach(function (f) { cnt[f.color]++; });
-
-  var canAdd = (CU.role === 'नायब सुब्बा' || CU.role === 'admin');
-  var canFwd = (CU.role !== 'admin');
-
-  var h = '<div class="stats-row">'
-    + sc('st', 'जम्मा', res.total)
-    + sc('sg', '🟢 सामान्य', cnt.green)
-    + sc('sy', '🟡 ध्यान आवश्यक', cnt.yellow)
-    + sc('so', '🟠 ढिलाइ', cnt.orange)
-    + sc('sr', '🔴 अत्यावश्यक', cnt.red)
-    + '</div>';
-
-  h += '<div class="toolbar">'
-    + (canAdd ? '<button class="btn btn-primary btn-sm" onclick="openAdd()">➕ नयाँ फाइल दर्ता</button>' : '')
-    + '<div class="tbar-r"><button class="btn btn-outline btn-sm" onclick="loadActive(' + res.page + ')">🔄 पुनः लोड</button></div>'
-    + '</div>';
-
-  if (!files.length) {
-    h += '<div class="empty"><div class="ico">📂</div><p>यस तहमा कुनै सक्रिय फाइल भेटिएन</p></div>';
-  } else {
-    h += '<div class="twrap"><table><thead><tr>'
-      + '<th>#</th><th>निवेदन नम्बर</th><th>विषय</th><th>प्राप्त मिति</th>'
-      + '<th>तह</th><th>तहमा दिन</th><th>कुल अवधि</th><th>स्थिति</th>'
-      + (canFwd ? '<th>कार्य</th>' : '') + '</tr></thead><tbody>';
-
-    files.forEach(function (f, i) {
-      var rn = (res.page - 1) * PS + i + 1;
-      var cc = 'c' + f.color.charAt(0);
-      var badge = '<span class="badge badge-' + f.color + '">' + clabel(f.color) + '</span>';
-      var dots = makeDots(f.currentLevel);
-      var fwdBtn = '';
-      if (canFwd) {
-        if (f.currentLevel < 4) {
-          fwdBtn = '<td><button class="btn btn-success btn-sm" onclick="openFwd('
-            + "'" + esc(f.id) + "','" + esc(f.appNumber) + "','" + esc(f.subject) + "'," + f.totalDays + ',' + f.currentLevel
-            + ')">📤 अगाडि पठाउने</button></td>';
-        } else {
-          fwdBtn = '<td><span style="color:var(--green);font-size:.78rem">✅ सम्पन्न फाइलहरू</span></td>';
-        }
-      }
-      h += '<tr class="' + cc + '">'
-        + '<td style="color:var(--w40);font-family:var(--mono);font-size:.72rem">' + rn + '</td>'
-        + '<td><span class="anum">' + esc(f.appNumber) + '</span></td>'
-        + '<td><span class="stag">' + esc(f.subject) + '</span></td>'
-        + '<td style="font-family:var(--mono);font-size:.76rem;color:var(--light)">' + isoToBsDisplay(f.receiveDate) + '</td>'
-        + '<td>' + dots + '</td>'
-        + '<td><span class="chip"><span class="d">' + f.levelDays + '</span> दिन</span></td>'
-        + '<td><span class="chip"><span class="d">' + f.totalDays + '</span> दिन</span></td>'
-        + '<td>' + badge + '</td>'
-        + fwdBtn
-        + '</tr>';
-    });
-    h += '</tbody></table></div>';
-    h += paginate(res.page, res.totalPages, 'loadActive');
-  }
-  document.getElementById('mc').innerHTML = h;
-}
-
-// ── Completed Files ──────────────────────────────────────────
-function loadCompleted(page) {
-  PAGE = page;
-  loading();
-  google.script.run
-    .withSuccessHandler(function (res) {
-      if (!res) { showError('सर्भरबाट कुनै प्रतिक्रिया आएन'); return; }
-      if (res.error) { showError('Server Error: ' + res.error); return; }
-      renderCompleted(res);
-    })
-    .withFailureHandler(function (e) { showError('त्रुटि: ' + e.message); })
-    .getCompletedFiles(page, PS);
-}
-
-function renderCompleted(res) {
-  var files = res.files || [];
-  var h = '<div class="toolbar"><span style="color:var(--light);font-size:.83rem">कुल सम्पन्न: <strong>' + res.total + '</strong></span>'
-    + '<div class="tbar-r"><button class="btn btn-outline btn-sm" onclick="loadCompleted(' + res.page + ')">🔄 पुनः लोड</button></div></div>';
-
-  if (!files.length) {
-    h += '<div class="empty"><div class="ico">✅</div><p>कुनै सम्पन्न फाइल भेटिएन</p></div>';
-  } else {
-    h += '<div class="twrap"><table><thead><tr>'
-      + '<th>#</th><th>निवेदन नम्बर</th><th>विषय</th><th>प्राप्त मिति</th>'
-      + '<th>सम्पन्न मिति</th><th>न.सु. दिन</th><th>श.अ. दिन</th><th>नि. दिन</th><th>जम्मा</th>'
-      + '</tr></thead><tbody>';
-    files.forEach(function (f, i) {
-      var r = (res.page - 1) * PS + i + 1;
-      h += '<tr><td style="color:var(--w40);font-family:var(--mono);font-size:.72rem">' + r + '</td>'
-        + '<td><span class="anum">' + esc(f.appNumber) + '</span></td>'
-        + '<td><span class="stag">' + esc(f.subject) + '</span></td>'
-        + '<td style="font-family:var(--mono);font-size:.76rem;color:var(--light)">' + isoToBsDisplay(f.receiveDate) + '</td>'
-        + '<td style="font-family:var(--mono);font-size:.76rem;color:var(--green)">' + isoToBsDisplay(f.completedDate) + '</td>'
-        + '<td><span class="chip"><span class="d">' + f.nsDays + '</span></span></td>'
-        + '<td><span class="chip"><span class="d">' + f.saDays + '</span></span></td>'
-        + '<td><span class="chip"><span class="d">' + f.nrDays + '</span></span></td>'
-        + '<td><strong>' + f.totalDays + '</strong></td></tr>';
-    });
-    h += '</tbody></table></div>';
-    h += paginate(res.page, res.totalPages, 'loadCompleted');
-  }
-  document.getElementById('mc').innerHTML = h;
-}
-
-// ── Add File ─────────────────────────────────────────────────
-function openAdd() {
-  var bs = todayBS(); // now correctly returns today's actual BS date
-  initBsPicker('fDtY', 'fDtM', 'fDtD', bs);
-  document.getElementById('fAN').value = '';
-  document.getElementById('fSub').value = '';
-  document.getElementById('fRem').value = '';
-  om('mAdd');
-}
-
-function submitAdd() {
-  var an  = document.getElementById('fAN').value.trim();
-  var sub = document.getElementById('fSub').value;
-  var dt  = getBsPickerISO('fDtY', 'fDtM', 'fDtD');
-  var rem = document.getElementById('fRem').value.trim();
-  if (!an || !sub || !dt) { toast('कृपया आवश्यक विवरणहरू भर्नुहोस्', 'error'); return; }
-  var btn = document.querySelector('#mAdd .btn-primary');
-  btn.disabled = true; btn.innerHTML = '⏳ दर्ता हुँदैछ...';
-  google.script.run
-    .withSuccessHandler(function (r) {
-      btn.disabled = false; btn.innerHTML = '📁 दर्ता गर्नुहोस्';
-      if (r && r.success) { cm('mAdd'); toast('फाइल सफलतापूर्वक दर्ता भयो ✅', 'success'); loadActive(1); }
-      else toast('त्रुटि: ' + ((r && r.message) || 'Unknown'), 'error');
-    })
-    .withFailureHandler(function (e) { btn.disabled = false; btn.innerHTML = '📁 दर्ता गर्नुहोस्'; toast('त्रुटि: ' + e.message, 'error'); })
-    .addFile(an, sub, dt, rem);
-}
-
-// ── Forward File ─────────────────────────────────────────────
-function openFwd(id, an, sub, days, lvl) {
-  FWD_ID = id;
-  document.getElementById('fwAN').textContent   = an;
-  document.getElementById('fwSub').textContent  = sub;
-  document.getElementById('fwDays').textContent = days + ' दिन';
-  var next = NEXTLV[lvl] || 'सम्पन्न';
-  document.getElementById('fwTarget').innerHTML =
-    '📤 <strong>' + LNAMES[lvl] + '</strong> बाट <strong>' + next + '</strong> मा पठाइनेछ।';
-  om('mFwd');
-}
-
-function confirmFwd() {
-  if (!FWD_ID) return;
-  var btn = document.getElementById('fwConfBtn');
-  btn.disabled = true; btn.innerHTML = '⏳ पठाउँदैछ...';
-  google.script.run
-    .withSuccessHandler(function (r) {
-      btn.disabled = false; btn.innerHTML = '✅ पुष्टि गरी पठाउनुहोस्';
-      if (r && r.success) { cm('mFwd'); toast('फाइल सफलतापूर्वक पठाइयो 📤', 'success'); loadActive(PAGE); }
-      else toast('त्रुटि: ' + ((r && r.message) || 'Unknown'), 'error');
-    })
-    .withFailureHandler(function (e) { btn.disabled = false; btn.innerHTML = '✅ पुष्टि गरी पठाउनुहोस्'; toast('त्रुटि: ' + e.message, 'error'); })
-    .forwardFile(FWD_ID, CU.role);
-}
-
-// ── Font Size ─────────────────────────────────────────────────
-var FONT_SIZES = [12, 13, 14, 15, 16, 18, 20, 22];
-function setFontSize(px) {
-  document.documentElement.style.fontSize = px + 'px';
-  localStorage.setItem('appFontSize', px);
-  document.querySelectorAll('.fsz-btn').forEach(function (b) {
-    b.classList.toggle('active', +b.dataset.size === +px);
-  });
-}
-(function () {
-  var saved = localStorage.getItem('appFontSize');
-  if (saved) document.documentElement.style.fontSize = saved + 'px';
-})();
-
-// ── Settings ─────────────────────────────────────────────────
-function setTheme(t) {
-  document.body.classList.remove('theme-light', 'theme-sepia');
-  if (t !== 'dark') document.body.classList.add('theme-' + t);
-  localStorage.setItem('appTheme', t);
-  document.querySelectorAll('.theme-btn').forEach(function (b) {
-    b.classList.toggle('active', b.dataset.theme === t);
-  });
-}
-
-function renderSettings() {
-  var s = SET;
-  var curTheme = localStorage.getItem('appTheme') || 'dark';
-  var curSize  = +(localStorage.getItem('appFontSize') || 15);
-
-  var fszBtns = FONT_SIZES.map(function (sz) {
-    return '<button class="fsz-btn' + (curSize === sz ? ' active' : '') + '" data-size="' + sz + '" onclick="setFontSize(' + sz + ')" style="min-width:42px">' + sz + 'px</button>';
-  }).join('');
-
-  var h = '<div style="max-width:500px;margin:0 auto">'
-    + '<div class="panel"><h3>🔤 अक्षरको आकार</h3>'
-    + '<div style="margin-bottom:8px;font-size:0.85rem;color:var(--light)">हालको आकार: <strong id="curSzLabel">' + curSize + 'px</strong></div>'
-    + '<div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">'
-    + '<button class="btn btn-outline btn-sm" onclick="stepFont(-1)" style="font-size:1.3rem;padding:6px 14px">A−</button>'
-    + '<input type="range" id="fontSlider" min="12" max="22" step="1" value="' + curSize + '" oninput="setFontSize(+this.value);document.getElementById(\'curSzLabel\').textContent=this.value+\'px\'" style="flex:1;accent-color:var(--sky)">'
-    + '<button class="btn btn-outline btn-sm" onclick="stepFont(1)" style="font-size:1.3rem;padding:6px 14px">A+</button>'
-    + '</div>'
-    + '<div class="theme-btns">' + fszBtns + '</div>'
-    + '</div>'
-    + '<div class="panel"><h3>🎨 प्रदर्शन शैली चयन गर्नुहोस्</h3>'
-    + '<div class="theme-btns">'
-    + '<button class="theme-btn' + (curTheme === 'dark' ? ' active' : '') + '" data-theme="dark" onclick="setTheme(\'dark\')">🌙 गाढा</button>'
-    + '<button class="theme-btn' + (curTheme === 'light' ? ' active' : '') + '" data-theme="light" onclick="setTheme(\'light\')">☀️ उज्यालो</button>'
-    + '<button class="theme-btn' + (curTheme === 'sepia' ? ' active' : '') + '" data-theme="sepia" onclick="setTheme(\'sepia\')">📜 सेपिया (Sepia)</button>'
-    + '</div></div>'
-    + '<div class="panel"><h3>🎨 रंग सीमा सेटिङ</h3>'
-    + srow('sg', 'var(--green)', '🟢 हरियो — यस अवधिसम्म', 'sg', s.green_threshold)
-    + srow('sy', 'var(--yellow)', '🟡 पहेँलो — यस अवधिसम्म', 'sy', s.yellow_threshold)
-    + srow('so', 'var(--orange)', '🟠 सुन्तला — यस अवधिसम्म', 'so', s.orange_threshold)
-    + '<div style="color:var(--w40);font-size:1.6rem;margin-bottom:14px">🔴 रातो — माथिको सीमाभन्दा बढी भएमा (स्वतः)</div>'
-    + '<div style="text-align:right"><button class="btn btn-primary btn-sm" onclick="saveSet()">💾 सुरक्षित गर्नुहोस्</button></div>'
-    + '</div>'
-    + '<div class="panel"><h3>🔐 पासवर्ड परिवर्तन</h3>'
-    + pwfield('cpO', 'हालको पासवर्ड') + pwfield('cpN', 'नयाँ पासवर्ड') + pwfield('cpN2', 'नयाँ पासवर्ड पुनः प्रविष्ट गर्नुहोस्')
-    + '<button class="btn btn-primary btn-sm" onclick="changePw()">🔒 परिवर्तन गर्नुहोस्</button></div>'
-    + '<div class="panel"><h3>ℹ️ प्रणाली जानकारी</h3>'
-    + info('प्रयोगकर्ता', CU.fullName) + info('जिम्मेवारी', CU.role) + info('प्रणाली', 'Google Apps Script + Sheets')
-    + '</div></div>';
-  document.getElementById('mc').innerHTML = h;
-}
-
-function stepFont(dir) {
-  var cur = +(localStorage.getItem('appFontSize') || 15);
-  var idx = FONT_SIZES.indexOf(cur);
-  var next = FONT_SIZES[Math.max(0, Math.min(FONT_SIZES.length - 1, idx + dir))];
-  setFontSize(next);
-  var sl = document.getElementById('fontSlider');
-  var lb = document.getElementById('curSzLabel');
-  if (sl) sl.value = next;
-  if (lb) lb.textContent = next + 'px';
-}
-
-(function () {
-  var t = localStorage.getItem('appTheme') || 'light';
-  if (t !== 'dark') document.body.classList.add('theme-' + t);
-  localStorage.setItem('appTheme', t);
-})();
-
-function srow(id, color, label, inputId, val) {
-  return '<div class="srow"><div class="cdot" style="background:' + color + '"></div><label>' + label + '</label>'
-    + '<input type="number" id="' + inputId + '" value="' + val + '" min="1" max="365"></div>';
-}
-
-function pwfield(id, label) {
-  return '<div class="fg"><label>' + label + '</label><input type="password" id="' + id
-    + '" style="width:100%;background:var(--w08);border:1px solid var(--w15);border-radius:8px;color:var(--text-main,#fff);padding:10px 13px;outline:none;font-family:var(--font)"></div>';
-}
-
-function info(k, v) {
-  return '<div style="display:flex;padding:6px 0;border-bottom:1px solid var(--w08)">'
-    + '<span style="color:var(--light);font-size:1.6rem;width:120px">' + k + '</span>'
-    + '<span style="font-size:1.6rem">' + v + '</span></div>';
-}
-
-function saveSet() {
-  var g = parseInt(document.getElementById('sg').value);
-  var y = parseInt(document.getElementById('sy').value);
-  var o = parseInt(document.getElementById('so').value);
-  if (isNaN(g) || isNaN(y) || isNaN(o) || g >= y || y >= o) {
-    toast('मानहरू सही क्रममा राख्नुहोस्: हरियो < पहेँलो < सुन्तला', 'error'); return;
-  }
-  var btn = document.querySelector('#mc .btn-primary');
-  if (btn) { btn.disabled = true; btn.innerHTML = '⏳ सुरक्षित गर्दैछ...'; }
-  google.script.run
-    .withSuccessHandler(function () {
-      if (btn) { btn.disabled = false; btn.innerHTML = '💾 सुरक्षित गर्नुहोस्'; }
-      SET = { green_threshold: g, yellow_threshold: y, orange_threshold: o };
-      toast('सेटिङ सफलतापूर्वक सुरक्षित भयो ✅', 'success');
-    })
-    .withFailureHandler(function (e) {
-      if (btn) { btn.disabled = false; btn.innerHTML = '💾 सुरक्षित गर्नुहोस्'; }
-      toast('त्रुटि: ' + e.message, 'error');
-    })
-    .updateSettings(g, y, o);
-}
-
-function changePw() {
-  var o  = document.getElementById('cpO').value;
-  var n  = document.getElementById('cpN').value;
-  var n2 = document.getElementById('cpN2').value;
-  if (!o || !n || !n2) { toast('कृपया सबै विवरणहरू भर्नुहोस्', 'error'); return; }
-  if (n !== n2) { toast('नयाँ पासवर्ड मिलेन', 'error'); return; }
-  if (n.length < 6) { toast('पासवर्ड कम्तीमा ६ अक्षरको हुनुपर्छ', 'error'); return; }
-  var btn = document.querySelector('[onclick="changePw()"]');
-  if (btn) { btn.disabled = true; btn.innerHTML = '⏳ परिवर्तन हुँदैछ...'; }
-  google.script.run
-    .withSuccessHandler(function (r) {
-      if (btn) { btn.disabled = false; btn.innerHTML = '🔒 परिवर्तन गर्नुहोस्'; }
-      if (r && r.success) toast('पासवर्ड सफलतापूर्वक परिवर्तन भयो ✅', 'success');
-      else toast((r && r.message) || 'त्रुटि', 'error');
-    })
-    .withFailureHandler(function (e) {
-      if (btn) { btn.disabled = false; btn.innerHTML = '🔒 परिवर्तन गर्नुहोस्'; }
-      toast('त्रुटि: ' + e.message, 'error');
-    })
-    .changePassword(CU.username, o, n);
-}
-
-// ── Helpers ──────────────────────────────────────────────────
-function makeDots(lvl) {
-  var labels = ['', 'स', 'शा', 'नि'];
-  var d = '<div class="ldots">';
-  for (var i = 1; i <= 3; i++) {
-    var s = i < lvl ? 'done' : i === lvl ? 'active' : 'pending';
-    d += '<span class="ld ' + s + '" title="' + LNAMES[i] + '">' + labels[i] + '</span>';
-    if (i < 3) d += '<span style="font-size:.58rem;color:var(--w40)">›</span>';
-  }
-  return d + '</div>';
-}
-
-function clabel(c) { return { green: 'सामान्य', yellow: 'ध्यान आवश्यक', orange: 'ढिलाइ भएको', red: 'अत्यावश्यक' }[c] || c; }
-function sc(cls, label, val) { return '<div class="scard ' + cls + '"><div class="slabel">' + label + '</div><div class="sval">' + val + '</div></div>'; }
-
-function paginate(pg, tot, fn) {
-  if (tot <= 1) return '';
-  var h = '<div class="pgn">';
-  h += '<div class="pg"' + (pg <= 1 ? ' disabled' : ' onclick="' + fn + '(' + (pg - 1) + ')"') + 'style="cursor:' + (pg <= 1 ? 'not-allowed' : 'pointer') + '">‹</div>';
-  var s = Math.max(1, pg - 2), e = Math.min(tot, pg + 2);
-  if (s > 1) { h += '<div class="pg" onclick="' + fn + '(1)">1</div>'; if (s > 2) h += '<span class="pgi">…</span>'; }
-  for (var p = s; p <= e; p++) h += '<div class="pg' + (p === pg ? ' active' : '') + '" onclick="' + fn + '(' + p + ')">' + p + '</div>';
-  if (e < tot) { if (e < tot - 1) h += '<span class="pgi">…</span>'; h += '<div class="pg" onclick="' + fn + '(' + tot + ')">' + tot + '</div>'; }
-  h += '<div class="pg"' + (pg >= tot ? ' disabled' : ' onclick="' + fn + '(' + (pg + 1) + ')"') + 'style="cursor:' + (pg >= tot ? 'not-allowed' : 'pointer') + '">›</div>';
-  h += '<span class="pgi">' + pg + '/' + tot + '</span></div>';
-  return h;
-}
-
-function om(id) { document.getElementById(id).classList.add('open'); }
-function cm(id) { document.getElementById(id).classList.remove('open'); }
-function loading() { document.getElementById('mc').innerHTML = '<div class="loading"><div class="spinner"></div><p style="margin-top:12px;font-size:.83rem">विवरण लोड हुँदैछ...</p></div>'; }
-function showError(msg) { document.getElementById('mc').innerHTML = '<div class="errbx"><strong>⚠️ त्रुटि</strong>' + msg + '<br><br><button class="btn btn-outline btn-sm" onclick="loadActive(1)" style="margin-top:6px">🔄 फेरि प्रयास गर्नुहोस्</button></div>'; }
-function showE(id, msg) { var el = document.getElementById(id); el.textContent = msg; el.style.display = 'block'; }
-function esc(s) { return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
-
-function toast(msg, type) {
-  var t = document.getElementById('toast');
-  t.textContent = msg; t.className = 'toast ' + (type || '');
-  t.classList.add('show');
-  setTimeout(function () { t.classList.remove('show'); }, 3200);
-}
-
-document.querySelectorAll('.overlay').forEach(function (ov) {
-  ov.addEventListener('click', function (e) { if (e.target === ov) ov.classList.remove('open'); });
-});
-
-// ══════════════════════════════════════════════════════════════
-// PWA — Service Worker + Install Prompt
-// ══════════════════════════════════════════════════════════════
-
-// ── Inline Service Worker (registered via Blob — works on any host) ──
-var SW_CODE = `
-const CACHE = 'safal-v1';
-const OFFLINE_ASSETS = [];
-self.addEventListener('install', e => { self.skipWaiting(); });
-self.addEventListener('activate', e => { e.waitUntil(clients.claim()); });
-self.addEventListener('fetch', e => {
-  // Network-first: always try network, fall back to cache
-  if (e.request.method !== 'GET') return;
-  e.respondWith(
-    fetch(e.request)
-      .then(res => {
-        var clone = res.clone();
-        caches.open(CACHE).then(c => c.put(e.request, clone));
-        return res;
-      })
-      .catch(() => caches.match(e.request).then(r => r || new Response(
-        '<div style="font-family:sans-serif;text-align:center;padding:40px"><h2>📡 इन्टरनेट छैन</h2><p>कृपया इन्टरनेट जडान जाँच गर्नुहोस्।</p></div>',
-        { headers: { 'Content-Type': 'text/html; charset=utf-8' } }
-      )))
-  );
-});
-`;
-
-if ('serviceWorker' in navigator) {
-  try {
-    var blob = new Blob([SW_CODE], { type: 'application/javascript' });
-    var swUrl = URL.createObjectURL(blob);
-    navigator.serviceWorker.register(swUrl, { scope: '/' })
-      .then(function(reg) {
-        console.log('✅ SW registered:', reg.scope);
-      })
-      .catch(function(err) {
-        // Blob SW may fail on some browsers — silently continue
-        console.log('SW blob failed, trying classic path:', err.message);
-      });
-  } catch(e) {
-    console.log('SW not supported in this environment');
-  }
-}
-
-// ── Offline / Online banner ───────────────────────────────────
-function showNetBanner(online) {
-  var b = document.getElementById('netBanner');
-  if (!b) return;
-  if (online) {
-    b.style.transform = 'translateY(-100%)';
-  } else {
-    b.textContent = '📡 इन्टरनेट जडान छैन — कृपया नेटवर्क जाँच गर्नुहोस्';
-    b.style.transform = 'translateY(0)';
-  }
-}
-window.addEventListener('online',  function() { showNetBanner(true); });
-window.addEventListener('offline', function() { showNetBanner(false); });
-if (!navigator.onLine) showNetBanner(false);
-
-// ── A2HS Install Prompt ───────────────────────────────────────
-var deferredPrompt = null;
-window.addEventListener('beforeinstallprompt', function(e) {
-  e.preventDefault();
-  deferredPrompt = e;
-  var btn = document.getElementById('installBtn');
-  var btnH = document.getElementById('installBtnHdr');
-  if (btn) btn.style.display = 'inline-flex';
-  if (btnH) btnH.style.display = 'inline-flex';
-});
-window.addEventListener('appinstalled', function() {
-  deferredPrompt = null;
-  ['installBtn','installBtnHdr'].forEach(function(id){
-    var b = document.getElementById(id); if(b) b.style.display='none';
-  });
-  toast('सफल एप इन्स्टल भयो ✅', 'success');
-});
-
-function installPWA() {
-  if (!deferredPrompt) {
-    toast('यो ब्राउजरले इन्स्टल समर्थन गर्दैन वा पहिले नै इन्स्टल भइसकेको छ', 'error');
+  // Last level — file will be completed, no recipient needed
+  if(nextLevel===-1){
+    userSection.style.display='none';
+    noUserMsg.style.display='none';
+    FWD_TARGET_USER='__complete__';
+    confBtn.disabled=false;
+    om('mFwd');
     return;
   }
-  deferredPrompt.prompt();
-  deferredPrompt.userChoice.then(function(c) {
-    if (c.outcome === 'accepted') toast('इन्स्टल गर्दैछ...', 'success');
-    deferredPrompt = null;
-    var btn = document.getElementById('installBtn');
-    if (btn) btn.style.display = 'none';
-  });
+
+  // Show loading while fetching next-level users
+  userSection.style.display='block';
+  noUserMsg.style.display='none';
+  userBtns.innerHTML='<div style="padding:10px;color:var(--light);font-size:1.6rem">⏳ प्रयोगकर्ता लोड हुँदैछ...</div>';
+  confBtn.disabled=true;
+  om('mFwd');
+
+  google.script.run
+    .withSuccessHandler(function(users){
+      userBtns.innerHTML='';
+      if(!users||!users.length){
+        noUserMsg.style.display='block';
+        userBtns.innerHTML='';
+        confBtn.disabled=true;
+        return;
+      }
+      noUserMsg.style.display='none';
+      // Build user cards
+      var html='';
+      users.forEach(function(u,idx){
+        var col=AVATAR_COLORS_FWD[idx%AVATAR_COLORS_FWD.length];
+        html+='<button class="fwu-btn" data-uname="'+esc(u.username)+'" onclick="selectFwdUser(\''+esc(u.username)+'\',this)" style="'
+          +'display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 18px;'
+          +'background:var(--w08);border:2px solid var(--w15);border-radius:12px;cursor:pointer;'
+          +'transition:all .2s;font-family:var(--font);color:var(--text-main,#fff);min-width:120px;">'
+          +'<div style="width:48px;height:48px;border-radius:50%;background:'+col+';display:flex;align-items:center;'
+          +'justify-content:center;font-weight:700;color:#fff;font-size:1.4rem;flex-shrink:0">'+initials(u.fullName)+'</div>'
+          +'<div style="font-size:1.7rem;font-weight:600;text-align:center">'+esc(u.fullName)+'</div>'
+          +'<div style="font-size:1.44rem;color:var(--light)">@'+esc(u.username)+'</div>'
+          +'</button>';
+      });
+      userBtns.innerHTML=html;
+      // Auto-select if only one user
+      if(users.length===1){
+        FWD_TARGET_USER=users[0].username;
+        var btn=userBtns.querySelector('.fwu-btn');
+        if(btn){btn.style.borderColor='var(--sky)';btn.style.background='rgba(41,121,232,.2)';}
+        confBtn.disabled=false;
+      } else {
+        confBtn.disabled=true; // must pick one
+      }
+    })
+    .withFailureHandler(function(e){
+      userBtns.innerHTML='<div style="color:var(--red);font-size:1.6rem">त्रुटि: '+e.message+'</div>';
+      FWD_TARGET_USER=''; // allow forward without specific user on error
+      confBtn.disabled=false;
+    })
+    .getUsersAtLevel(nextLevel);
 }
 
+function selectFwdUser(username, btn){
+  FWD_TARGET_USER=username;
+  document.querySelectorAll('.fwu-btn').forEach(function(b){
+    b.style.borderColor='var(--w15)';
+    b.style.background='var(--w08)';
+  });
+  btn.style.borderColor='var(--sky)';
+  btn.style.background='rgba(41,121,232,.2)';
+  document.getElementById('fwConfBtn').disabled=false;
+}
+
+function confirmFwd(){
+  if(!FWD_ID)return;
+  if(FWD_TARGET_USER===null){toast('कृपया पठाउने व्यक्ति छान्नुहोस्','error');return}
+  var btn=document.getElementById('fwConfBtn');btn.disabled=true;btn.innerHTML='⏳ पठाउँदैछ...';
+  var tUser=(FWD_TARGET_USER==='__complete__')?'':FWD_TARGET_USER;
+  google.script.run
+    .withSuccessHandler(function(r){
+      btn.disabled=false;btn.innerHTML='✅ पुष्टि गरी पठाउनुहोस्';
+      if(r&&r.success){cm('mFwd');toast('फाइल सफलतापूर्वक पठाइयो 📤','success');mcClear();loadActive(PAGE)}
+      else toast('त्रुटि: '+((r&&r.message)||'Unknown'),'error')
+    })
+    .withFailureHandler(function(e){btn.disabled=false;btn.innerHTML='✅ पुष्टि गरी पठाउनुहोस्';toast('त्रुटि: '+e.message,'error')})
+    .forwardFile(FWD_ID,CU.role,CU.hierarchyLevel,CU.username,tUser)
+}
+
+// ── Share / PDF (NEW) ─────────────────────────────────────────
+function openShare(){
+  document.getElementById('shareUrl').value='⏳ URL बनाउँदैछ...';
+  om('mShare');
+  google.script.run
+    .withSuccessHandler(function(r){
+      if(r&&r.success){
+        SHARE_URL=r.url;
+        document.getElementById('shareUrl').value=r.url;
+      } else {
+        SHARE_URL=window.location.href;
+        document.getElementById('shareUrl').value=window.location.href;
+      }
+    })
+    .withFailureHandler(function(){
+      SHARE_URL=window.location.href;
+      document.getElementById('shareUrl').value=window.location.href;
+    })
+    .generateShareableReport();
+}
+function copyShareUrl(){
+  var url=document.getElementById('shareUrl').value;
+  if(navigator.clipboard){navigator.clipboard.writeText(url).then(function(){toast('URL कपी भयो 📋','success')});}
+  else{var t=document.getElementById('shareUrl');t.select();document.execCommand('copy');toast('URL कपी भयो 📋','success');}
+}
+function shareViaEmail(){
+  var url=document.getElementById('shareUrl').value;
+  var subject=encodeURIComponent('सफल — File Tracking Report');
+  var body=encodeURIComponent('नमस्ते,\n\nकृपया फाइल ट्र्याकिङ प्रतिवेदन हेर्नुहोस्:\n'+url+'\n\nधन्यवाद।');
+  window.open('mailto:?subject='+subject+'&body='+body);
+}
+function shareViaWhatsApp(){
+  var url=document.getElementById('shareUrl').value;
+  var text=encodeURIComponent('सफल — File Tracking Report\n'+url);
+  window.open('https://wa.me/?text='+text,'_blank');
+}
+function shareViaViber(){
+  var url=document.getElementById('shareUrl').value;
+  var text=encodeURIComponent('सफल — File Tracking Report: '+url);
+  window.open('viber://forward?text='+text,'_blank');
+}
+function downloadPdf(){
+  cm('mShare');
+  toast('PDF तयार हुँदैछ — प्रिन्ट डायलग खुल्नेछ...','success');
+  setTimeout(function(){window.print();},500);
+}
+
+// ══════════════════════════════════════════════════════════════
+// SETTINGS + USER MANAGEMENT + HIERARCHY
+// ══════════════════════════════════════════════════════════════
+var FONT_SIZES=[12,13,14,15,16,18,20,22];
+function setFontSize(px){document.documentElement.style.fontSize=px+'px';localStorage.setItem('appFontSize',px);document.querySelectorAll('.fsz-btn').forEach(function(b){b.classList.toggle('active',+b.dataset.size===+px)})}
+(function(){var saved=localStorage.getItem('appFontSize');if(saved)document.documentElement.style.fontSize=saved+'px'})();
+function setTheme(t){document.body.classList.remove('theme-light','theme-sepia');if(t!=='dark')document.body.classList.add('theme-'+t);localStorage.setItem('appTheme',t);document.querySelectorAll('.theme-btn').forEach(function(b){b.classList.toggle('active',b.dataset.theme===t)})}
+(function(){var t=localStorage.getItem('appTheme')||'dark';if(t!=='dark')document.body.classList.add('theme-'+t)})();
+
+function renderSettings(){
+  var s=SET;var isAdmin=(CU.role==='admin');
+  var curTheme=localStorage.getItem('appTheme')||'dark';
+  var curSize=+(localStorage.getItem('appFontSize')||15);
+  var fszBtns=FONT_SIZES.map(function(sz){return'<button class="fsz-btn'+(curSize===sz?' active':'')+'\" data-size="'+sz+'" onclick="setFontSize('+sz+')" style="min-width:42px">'+sz+'px</button>'}).join('');
+
+  var h='<div style="max-width:700px;margin:0 auto">';
+
+  if(isAdmin){
+    h+='<div class="panel"><h3>🏛️ पदानुक्रम (Hierarchy) व्यवस्थापन</h3>'
+      +'<p style="color:var(--light);font-size:1.6rem;margin-bottom:16px">फाइल प्रवाहको क्रम निर्धारण गर्नुहोस् (अधिकतम ४ तह)।</p>'
+      +'<div id="hierBuilder"></div>'
+      +'<div style="display:flex;gap:8px;margin-top:10px">'
+      +'<button class="btn btn-outline btn-sm" onclick="addHierLevel()">➕ तह थप्नुहोस्</button>'
+      +'<button class="btn btn-primary btn-sm" onclick="saveHierarchy()">💾 तह सुरक्षित गर्नुहोस्</button>'
+      +'</div></div>';
+
+    h+='<div class="panel"><h3>👥 प्रयोगकर्ता व्यवस्थापन</h3>'
+      +'<div class="toolbar"><button class="btn btn-primary btn-sm" onclick="openCreateUser()">➕ नयाँ प्रयोगकर्ता थप्नुहोस्</button>'
+      +'<div class="tbar-r"><button class="btn btn-outline btn-sm" onclick="refreshUserList()">🔄 पुनः लोड</button></div></div>'
+      +'<div id="userList"><div class="loading"><div class="spinner"></div></div></div>'
+      +'</div>';
+
+    // Subject management
+    h+='<div class="panel"><h3>📋 विषय व्यवस्थापन</h3>'
+      +'<div id="subjMgr"></div></div>';
+  }
+
+  h+='<div class="panel"><h3>🎨 रंग सीमा सेटिङ</h3>'
+    +srow('sg','var(--green)','🟢 हरियो — यस अवधिसम्म','sgI',s.green_threshold)
+    +srow('sy','var(--yellow)','🟡 पहेँलो — यस अवधिसम्म','syI',s.yellow_threshold)
+    +srow('so','var(--orange)','🟠 सुन्तला — यस अवधिसम्म','soI',s.orange_threshold)
+    +'<div style="color:var(--w40);font-size:1.6rem;margin-bottom:14px">🔴 रातो — माथिको सीमाभन्दा बढी</div>'
+    +'<div style="text-align:right"><button class="btn btn-primary btn-sm" onclick="saveSet()">💾 सुरक्षित गर्नुहोस्</button></div>'
+    +'</div>';
+
+  h+='<div class="panel"><h3>🔤 अक्षरको आकार</h3>'
+    +'<div style="margin-bottom:8px;font-size:0.85rem;color:var(--light)">हालको आकार: <strong id="curSzLabel">'+curSize+'px</strong></div>'
+    +'<div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">'
+    +'<button class="btn btn-outline btn-sm" onclick="stepFont(-1)" style="font-size:1.3rem;padding:6px 14px">A−</button>'
+    +'<input type="range" id="fontSlider" min="12" max="22" step="1" value="'+curSize+'" oninput="setFontSize(+this.value);document.getElementById(\'curSzLabel\').textContent=this.value+\'px\'" style="flex:1;accent-color:var(--sky)">'
+    +'<button class="btn btn-outline btn-sm" onclick="stepFont(1)" style="font-size:1.3rem;padding:6px 14px">A+</button>'
+    +'</div>'
+    +'<div class="theme-btns">'+fszBtns+'</div></div>';
+
+  h+='<div class="panel"><h3>🎨 प्रदर्शन शैली</h3>'
+    +'<div class="theme-btns">'
+    +'<button class="theme-btn'+(curTheme==='dark'?' active':'')+'\" data-theme="dark" onclick="setTheme(\'dark\')">🌙 गाढा</button>'
+    +'<button class="theme-btn'+(curTheme==='light'?' active':'')+'\" data-theme="light" onclick="setTheme(\'light\')">☀️ उज्यालो</button>'
+    +'<button class="theme-btn'+(curTheme==='sepia'?' active':'')+'\" data-theme="sepia" onclick="setTheme(\'sepia\')">📜 सेपिया</button>'
+    +'</div></div>';
+
+  h+='<div class="panel"><h3>🔐 आफ्नो पासवर्ड परिवर्तन</h3>'
+    +pwfield('cpO','हालको पासवर्ड')+pwfield('cpN','नयाँ पासवर्ड')+pwfield('cpN2','नयाँ पासवर्ड पुनः')
+    +'<button class="btn btn-primary btn-sm" onclick="changePw()">🔒 परिवर्तन गर्नुहोस्</button></div>';
+
+  h+='<div class="panel"><h3>ℹ️ प्रणाली जानकारी</h3>'
+    +info('प्रयोगकर्ता',CU.fullName)+info('जिम्मेवारी',CU.role)+info('प्रणाली','Google Apps Script + Sheets v4.0')
+    +'</div></div>';
+
+  document.getElementById('mc').innerHTML=h;
+
+  if(isAdmin){
+    renderHierBuilder();
+    refreshUserList();
+    renderSubjectManager();
+  }
+}
+
+// ── Hierarchy Builder ─────────────────────────────────────────
+function renderHierBuilder(){
+  var el=document.getElementById('hierBuilder');if(!el)return;
+  var activeHier=HIER.filter(function(h){return h.active}).sort(function(a,b){return a.level-b.level});
+  var cols=['#2979e8','#00c853','#ff9100','#b57bee'];
+  var html='';
+  activeHier.forEach(function(hh,idx){
+    html+='<div class="hcard">'
+      +'<div class="hlevel-badge" style="background:'+cols[idx%4]+';color:#fff">'+(idx+1)+'</div>'
+      +'<input type="text" id="hl_'+idx+'" value="'+esc(hh.roleName)+'" placeholder="तहको नाम">'
+      +'<div class="hcard-actions">'
+      +(activeHier.length>1?'<button class="btn btn-danger btn-sm" onclick="removeHierLevel('+idx+')">✕</button>':'')
+      +'</div>'
+      +'</div>';
+  });
+  if(!activeHier.length)html='<div style="color:var(--light);font-size:1.6rem;padding:12px">कुनै तह छैन।</div>';
+  el.innerHTML=html;
+}
+function addHierLevel(){
+  var activeHier=HIER.filter(function(h){return h.active}).sort(function(a,b){return a.level-b.level});
+  if(activeHier.length>=4){toast('अधिकतम ४ तह मात्र','error');return}
+  var nextLevel=activeHier.length>0?activeHier[activeHier.length-1].level+1:1;
+  HIER.push({level:nextLevel,roleName:'नयाँ तह '+nextLevel,active:true});
+  renderHierBuilder()
+}
+function removeHierLevel(idx){
+  var activeHier=HIER.filter(function(h){return h.active}).sort(function(a,b){return a.level-b.level});
+  if(activeHier.length<=1){toast('कम्तीमा १ तह आवश्यक छ','error');return}
+  var toRemove=activeHier[idx];
+  HIER=HIER.filter(function(h){return h.level!==toRemove.level});
+  var remaining=HIER.filter(function(h){return h.active}).sort(function(a,b){return a.level-b.level});
+  remaining.forEach(function(h,i){h.level=i+1});
+  renderHierBuilder()
+}
+function saveHierarchy(){
+  var activeHier=HIER.filter(function(h){return h.active}).sort(function(a,b){return a.level-b.level});
+  var updated=[];
+  for(var i=0;i<activeHier.length;i++){
+    var inp=document.getElementById('hl_'+i);if(!inp)continue;
+    var name=inp.value.trim();
+    if(!name){toast('तहको नाम खाली छोड्न मिल्दैन','error');return}
+    updated.push({level:i+1,roleName:name,active:true});
+  }
+  if(!updated.length){toast('कम्तीमा १ तह चाहिन्छ','error');return}
+  google.script.run
+    .withSuccessHandler(function(r){
+      if(r&&r.success){HIER=updated;mcClear();toast('तह सफलतापूर्वक सुरक्षित भयो ✅','success');renderHierBuilder()}
+      else toast('त्रुटि: '+((r&&r.message)||'Unknown'),'error')
+    })
+    .withFailureHandler(function(e){toast('त्रुटि: '+e.message,'error')})
+    .saveHierarchy(updated)
+}
+
+// ── User List ─────────────────────────────────────────────────
+function refreshUserList(){
+  var el=document.getElementById('userList');if(!el)return;
+  el.innerHTML='<div class="loading"><div class="spinner"></div></div>';
+  google.script.run
+    .withSuccessHandler(function(users){renderUserList(users)})
+    .withFailureHandler(function(e){if(el)el.innerHTML='<div style="color:var(--red)">त्रुटि: '+e.message+'</div>'})
+    .getAllUsers()
+}
+function renderUserList(users){
+  var el=document.getElementById('userList');if(!el)return;
+  if(!users||!users.length){el.innerHTML='<div class="empty"><div class="ico">👥</div><p>कुनै प्रयोगकर्ता भेटिएन</p></div>';return}
+  var html='<div class="user-grid">';
+  users.forEach(function(u,i){
+    var col=avatarColor(i);
+    var inact=!u.active?' uc-inactive':'';
+    var lvlLabel=u.hierarchyLevel===0?'Admin':'तह '+u.hierarchyLevel;
+    var activeHier=HIER.filter(function(h){return h.active});
+    for(var j=0;j<activeHier.length;j++){if(activeHier[j].level===u.hierarchyLevel)lvlLabel=activeHier[j].roleName}
+    var isAdmin=(u.username==='admin');
+    html+='<div class="user-card'+inact+'">'
+      +'<div class="uc-top">'
+      +'<div class="uc-avatar" style="background:'+col+';color:#fff">'+initials(u.fullName)+'</div>'
+      +'<div><div class="uc-name">'+esc(u.fullName)+'</div><div class="uc-role">@'+esc(u.username)+'</div></div>'
+      +'</div>'
+      +'<div class="uc-meta">'
+      +'<span class="badge badge-blue">'+esc(lvlLabel)+'</span>'
+      +(u.active?'<span class="badge badge-green">सक्रिय</span>':'<span class="badge badge-red">निष्क्रिय</span>')
+      +'</div>'
+      +'<div class="uc-actions">'
+      +'<button class="btn btn-outline btn-sm" onclick="openEditUser(\''+esc(u.username)+'\')">✏️ सम्पादन</button>'
+      +'<button class="btn btn-warn btn-sm" onclick="openResetPw(\''+esc(u.username)+'\')">🔑 पासवर्ड</button>'
+      +(!isAdmin?'<button class="btn btn-danger btn-sm" onclick="openDeleteUser(\''+esc(u.username)+'\')">🗑️</button>':'')
+      +'</div>'
+      +'</div>';
+  });
+  html+='</div>';
+  el.innerHTML=html;
+}
+
+function buildHierSelect(selId,selectedLevel){
+  var el=document.getElementById(selId);if(!el)return;
+  el.innerHTML='<option value="0">Admin (कुनै तह छैन)</option>';
+  var activeHier=HIER.filter(function(h){return h.active}).sort(function(a,b){return a.level-b.level});
+  activeHier.forEach(function(hh){
+    var opt=document.createElement('option');
+    opt.value=hh.level;opt.textContent='तह '+hh.level+' — '+hh.roleName;
+    if(hh.level===selectedLevel)opt.selected=true;
+    el.appendChild(opt);
+  });
+}
+function openCreateUser(){
+  EDIT_UN=null;
+  document.getElementById('mUserTitle').textContent='👤 नयाँ प्रयोगकर्ता थप्नुहोस्';
+  document.getElementById('uUN').value='';document.getElementById('uFN').value='';
+  document.getElementById('uEM').value='';document.getElementById('uPW').value='';
+  document.getElementById('uUN').disabled=false;
+  document.getElementById('uPWFG').style.display='';
+  document.getElementById('uActFG').style.display='none';
+  buildHierSelect('uHL',1);om('mUser')
+}
+function openEditUser(username){
+  EDIT_UN=username;
+  document.getElementById('mUserTitle').textContent='✏️ प्रयोगकर्ता सम्पादन';
+  document.getElementById('uUN').value=username;document.getElementById('uUN').disabled=true;
+  document.getElementById('uPWFG').style.display='none';
+  document.getElementById('uActFG').style.display='';
+  google.script.run
+    .withSuccessHandler(function(users){
+      var u=null;for(var i=0;i<users.length;i++)if(users[i].username===username){u=users[i];break}
+      if(!u){toast('प्रयोगकर्ता भेटिएन','error');return}
+      document.getElementById('uFN').value=u.fullName;
+      document.getElementById('uEM').value=u.email||'';
+      document.getElementById('uAct').value=u.active?'true':'false';
+      buildHierSelect('uHL',u.hierarchyLevel);om('mUser')
+    })
+    .withFailureHandler(function(e){toast('त्रुटि: '+e.message,'error')})
+    .getAllUsers()
+}
+function saveUser(){
+  var fn=document.getElementById('uFN').value.trim();
+  var hl=+document.getElementById('uHL').value;
+  var em=document.getElementById('uEM').value.trim();
+  if(!fn){toast('पूरा नाम आवश्यक छ','error');return}
+  var btn=document.getElementById('mUserSaveBtn');btn.disabled=true;btn.innerHTML='⏳ ...';
+  if(!EDIT_UN){
+    var un=document.getElementById('uUN').value.trim();
+    var pw=document.getElementById('uPW').value;
+    if(!un){toast('Username आवश्यक छ','error');btn.disabled=false;btn.innerHTML='💾 सुरक्षित गर्नुहोस्';return}
+    if(!pw||pw.length<6){toast('पासवर्ड कम्तीमा ६ अक्षरको हुनुपर्छ','error');btn.disabled=false;btn.innerHTML='💾 सुरक्षित गर्नुहोस्';return}
+    google.script.run
+      .withSuccessHandler(function(r){
+        btn.disabled=false;btn.innerHTML='💾 सुरक्षित गर्नुहोस्';
+        if(r&&r.success){cm('mUser');toast('प्रयोगकर्ता सफलतापूर्वक सिर्जना भयो ✅','success');refreshUserList()}
+        else toast('त्रुटि: '+((r&&r.message)||'Unknown'),'error')
+      })
+      .withFailureHandler(function(e){btn.disabled=false;btn.innerHTML='💾 सुरक्षित गर्नुहोस्';toast('त्रुटि: '+e.message,'error')})
+      .createUser(un,pw,fn,hl,em)
+  } else {
+    var act=document.getElementById('uAct').value==='true';
+    google.script.run
+      .withSuccessHandler(function(r){
+        btn.disabled=false;btn.innerHTML='💾 सुरक्षित गर्नुहोस्';
+        if(r&&r.success){cm('mUser');toast('प्रयोगकर्ता सफलतापूर्वक अपडेट भयो ✅','success');refreshUserList()}
+        else toast('त्रुटि: '+((r&&r.message)||'Unknown'),'error')
+      })
+      .withFailureHandler(function(e){btn.disabled=false;btn.innerHTML='💾 सुरक्षित गर्नुहोस्';toast('त्रुटि: '+e.message,'error')})
+      .updateUser(EDIT_UN,fn,hl,act,em)
+  }
+}
+function openResetPw(username){
+  document.getElementById('resetUN').textContent=username;
+  document.getElementById('rNewPW').value='';document.getElementById('rNewPW2').value='';
+  EDIT_UN=username;om('mReset')
+}
+function doResetPw(){
+  var n=document.getElementById('rNewPW').value;var n2=document.getElementById('rNewPW2').value;
+  if(!n||n.length<6){toast('पासवर्ड कम्तीमा ६ अक्षरको हुनुपर्छ','error');return}
+  if(n!==n2){toast('पासवर्ड मिलेन','error');return}
+  google.script.run
+    .withSuccessHandler(function(r){
+      if(r&&r.success){cm('mReset');toast('पासवर्ड रिसेट भयो ✅','success')}
+      else toast('त्रुटि: '+((r&&r.message)||'Unknown'),'error')
+    })
+    .withFailureHandler(function(e){toast('त्रुटि: '+e.message,'error')})
+    .resetUserPassword(EDIT_UN,n)
+}
+function openDeleteUser(username){DEL_UN=username;document.getElementById('delUN').textContent=username;om('mDel')}
+function doDeleteUser(){
+  if(!DEL_UN)return;
+  google.script.run
+    .withSuccessHandler(function(r){
+      if(r&&r.success){cm('mDel');toast('प्रयोगकर्ता मेटिएको ✅','success');refreshUserList()}
+      else toast('त्रुटि: '+((r&&r.message)||'Unknown'),'error')
+    })
+    .withFailureHandler(function(e){toast('त्रुटि: '+e.message,'error')})
+    .deleteUser(DEL_UN)
+}
+
+function stepFont(dir){
+  var cur=+(localStorage.getItem('appFontSize')||15);
+  var idx=FONT_SIZES.indexOf(cur);
+  var next=FONT_SIZES[Math.max(0,Math.min(FONT_SIZES.length-1,idx+dir))];
+  setFontSize(next);
+  var sl=document.getElementById('fontSlider');var lb=document.getElementById('curSzLabel');
+  if(sl)sl.value=next;if(lb)lb.textContent=next+'px'
+}
+function saveSet(){
+  var g=parseInt(document.getElementById('sgI').value);
+  var y=parseInt(document.getElementById('syI').value);
+  var o=parseInt(document.getElementById('soI').value);
+  if(isNaN(g)||isNaN(y)||isNaN(o)||g>=y||y>=o){toast('मानहरू सही क्रममा राख्नुहोस्: हरियो < पहेँलो < सुन्तला','error');return}
+  google.script.run
+    .withSuccessHandler(function(){SET={green_threshold:g,yellow_threshold:y,orange_threshold:o};mcClear();toast('सेटिङ सुरक्षित भयो ✅','success')})
+    .withFailureHandler(function(e){toast('त्रुटि: '+e.message,'error')})
+    .updateSettings(g,y,o)
+}
+function changePw(){
+  var o=document.getElementById('cpO').value;var n=document.getElementById('cpN').value;var n2=document.getElementById('cpN2').value;
+  if(!o||!n||!n2){toast('कृपया सबै विवरणहरू भर्नुहोस्','error');return}
+  if(n!==n2){toast('नयाँ पासवर्ड मिलेन','error');return}
+  if(n.length<6){toast('पासवर्ड कम्तीमा ६ अक्षरको हुनुपर्छ','error');return}
+  google.script.run
+    .withSuccessHandler(function(r){
+      if(r&&r.success)toast('पासवर्ड परिवर्तन भयो ✅','success');
+      else toast((r&&r.message)||'त्रुटि','error')
+    })
+    .withFailureHandler(function(e){toast('त्रुटि: '+e.message,'error')})
+    .changePassword(CU.username,o,n)
+}
+
+// ── Helper render fns ────────────────────────────────────────
+function srow(id,color,label,inputId,val){return'<div class="srow"><div class="cdot" style="background:'+color+'"></div><label>'+label+'</label><input type="number" id="'+inputId+'" value="'+val+'" min="1" max="365"></div>'}
+function pwfield(id,label){return'<div class="fg"><label>'+label+'</label><input type="password" id="'+id+'" style="width:100%;background:var(--w08);border:1px solid var(--w15);border-radius:8px;color:var(--text-main,#fff);padding:10px 13px;outline:none;font-family:var(--font)"></div>'}
+function info(k,v){return'<div style="display:flex;padding:6px 0;border-bottom:1px solid var(--w08)"><span style="color:var(--light);font-size:1.6rem;width:120px">'+k+'</span><span style="font-size:1.6rem">'+v+'</span></div>'}
+function makeDots(lvl,activeHier){
+  if(!activeHier||!activeHier.length)return'<span style="font-size:1.5rem">तह '+lvl+'</span>';
+  var d='<div class="ldots">';
+  activeHier.forEach(function(hh,i){
+    var s=hh.level<lvl?'done':hh.level===lvl?'active':'pending';
+    var lbl=hh.roleName.charAt(0);
+    d+='<span class="ld '+s+'" title="'+hh.roleName+'">'+lbl+'</span>';
+    if(i<activeHier.length-1)d+='<span style="font-size:.58rem;color:var(--w40)">›</span>';
+  });
+  return d+'</div>'
+}
+function clabel(c){return{green:'सामान्य',yellow:'ध्यान आवश्यक',orange:'ढिलाइ भएको',red:'अत्यावश्यक'}[c]||c}
+function sc(cls,label,val){return'<div class="scard '+cls+'"><div class="slabel">'+label+'</div><div class="sval">'+val+'</div></div>'}
+function paginate(pg,tot,fn){
+  if(tot<=1)return'';
+  var h='<div class="pgn">';
+  h+='<div class="pg"'+(pg<=1?' disabled':' onclick="'+fn+'('+(pg-1)+')\"')+'style="cursor:'+(pg<=1?'not-allowed':'pointer')+'">‹</div>';
+  var s=Math.max(1,pg-2),e=Math.min(tot,pg+2);
+  if(s>1){h+='<div class="pg" onclick="'+fn+'(1)">1</div>';if(s>2)h+='<span class="pgi">…</span>'}
+  for(var p=s;p<=e;p++)h+='<div class="pg'+(p===pg?' active':'')+'\" onclick="'+fn+'('+p+')">'+p+'</div>';
+  if(e<tot){if(e<tot-1)h+='<span class="pgi">…</span>';h+='<div class="pg" onclick="'+fn+'('+tot+')">'+tot+'</div>'}
+  h+='<div class="pg"'+(pg>=tot?' disabled':' onclick="'+fn+'('+(pg+1)+')\"')+'style="cursor:'+(pg>=tot?'not-allowed':'pointer')+'">›</div>';
+  h+='<span class="pgi">'+pg+'/'+tot+'</span></div>';
+  return h
+}
+function om(id){document.getElementById(id).classList.add('open')}
+function cm(id){document.getElementById(id).classList.remove('open')}
+function loading(){document.getElementById('mc').innerHTML='<div class="loading"><div class="spinner"></div><p style="margin-top:12px;font-size:.83rem">विवरण लोड हुँदैछ...</p></div>'}
+function showError(msg){document.getElementById('mc').innerHTML='<div class="errbx"><strong>⚠️ त्रुटि</strong>'+msg+'<br><br><button class="btn btn-outline btn-sm" onclick="loadActive(1)" style="margin-top:6px">🔄 फेरि प्रयास गर्नुहोस्</button></div>'}
+function showE(id,msg){var el=document.getElementById(id);el.textContent=msg;el.style.display='block'}
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;')}
+function toast(msg,type){var t=document.getElementById('toast');t.textContent=msg;t.className='toast '+(type||'');t.classList.add('show');setTimeout(function(){t.classList.remove('show')},3200)}
+document.querySelectorAll('.overlay').forEach(function(ov){ov.addEventListener('click',function(e){if(e.target===ov)ov.classList.remove('open')})});
+
+window.addEventListener('online',function(){var b=document.getElementById('netBanner');if(b)b.style.transform='translateY(-100%)'});
+window.addEventListener('offline',function(){var b=document.getElementById('netBanner');if(b){b.textContent='📡 इन्टरनेट जडान छैन';b.style.transform='translateY(0)'}});
+
+// ── Subject Management ────────────────────────────────────────
+function populateSubjectDropdown(){
+  var sel=document.getElementById('fSub');if(!sel)return;
+  sel.innerHTML='<option value="">-- विषय चयन गर्नुहोस् --</option>';
+  if(!SUBJECTS||!SUBJECTS.length)return;
+  SUBJECTS.filter(function(s){return s.active}).forEach(function(subj){
+    var opt=document.createElement('option');opt.value=subj.name;opt.textContent=subj.name;sel.appendChild(opt);
+  });
+}
+function renderSubjectManager(){
+  var el=document.getElementById('subjMgr');if(!el)return;
+  var h='<div style="margin-bottom:16px;display:flex;gap:8px">'
+    +'<input type="text" id="newSubjInput" placeholder="नयाँ विषय थप्नुहोस्" style="flex:1;padding:11px 14px;background:var(--w08);border:1px solid var(--w15);border-radius:var(--r);color:var(--text-main,#fff);font-size:1.84rem;font-family:var(--font);outline:none">'
+    +'<button class="btn btn-primary btn-sm" onclick="addNewSubject()">➕ थप्नुहोस्</button>'
+    +'</div><div id="subjList"></div>';
+  el.innerHTML=h;
+  refreshSubjectList();
+}
+function refreshSubjectList(){
+  var list=document.getElementById('subjList');if(!list)return;
+  if(!SUBJECTS||!SUBJECTS.length){list.innerHTML='<div class="empty"><p>कुनै विषय छैन</p></div>';return}
+  var h='<table style="width:100%"><thead><tr style="background:var(--blue)">'
+    +'<th style="padding:10px">क्र.सं.</th><th style="padding:10px">विषय</th><th style="padding:10px;text-align:right">कार्य</th>'
+    +'</tr></thead><tbody>';
+  SUBJECTS.filter(function(s){return s.active}).forEach(function(subj,idx){
+    h+='<tr style="border-bottom:1px solid var(--w08)">'
+      +'<td style="padding:10px">'+(idx+1)+'</td>'
+      +'<td style="padding:10px">'+esc(subj.name)+'</td>'
+      +'<td style="padding:10px;text-align:right"><button class="btn btn-danger btn-sm" onclick="removeSubject(\''+esc(subj.name)+'\')">🗑️</button></td>'
+      +'</tr>';
+  });
+  h+='</tbody></table>';
+  list.innerHTML=h;
+}
+function addNewSubject(){
+  var inp=document.getElementById('newSubjInput');if(!inp)return;
+  var name=inp.value.trim();
+  if(!name){toast('विषय नाम खाली हुन सक्दैन','error');return}
+  google.script.run.withSuccessHandler(function(r){
+    if(r&&r.success){
+      toast('विषय थपियो ✅','success');inp.value='';
+      google.script.run.withSuccessHandler(function(s){SUBJECTS=s;refreshSubjectList();populateSubjectDropdown()}).getSubjects();
+    }else{toast('त्रुटि: '+(r&&r.message||'Unknown'),'error')}
+  }).withFailureHandler(function(e){toast('त्रुटि: '+e.message,'error')}).addSubject(name);
+}
+function removeSubject(name){
+  if(!confirm('के तपाईं "'+name+'" मेट्न निश्चित हुनुहुन्छ?'))return;
+  google.script.run.withSuccessHandler(function(r){
+    if(r&&r.success){
+      toast('विषय मेटियो ✅','success');
+      google.script.run.withSuccessHandler(function(s){SUBJECTS=s;refreshSubjectList();populateSubjectDropdown()}).getSubjects();
+    }else{toast('त्रुटि: '+(r&&r.message||'Unknown'),'error')}
+  }).withFailureHandler(function(e){toast('त्रुटि: '+e.message,'error')}).deleteSubject(name);
+}
 </script>
 </body>
 </html>
